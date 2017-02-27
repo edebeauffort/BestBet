@@ -1,0 +1,42 @@
+.log-in{
+  border: #DCDDDD 2px solid;
+  padding: 20px 40px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  background-color: rgba(55, 55, 55, 0.5);
+}
+
+.facebook{
+  text-align: center;
+  border-radius: 2px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.not-registered{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.banner-log-in {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sign-up{
+   width: 100%;
+   background-color: #D03538;
+   color:white;
+   border: solid #D03538 2px;
+}
+.sign-up:hover {
+  background-color: #B10712;
+ border: #B10712 2px solid;
+ color:white;
+}
+
