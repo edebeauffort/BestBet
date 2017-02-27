@@ -5,9 +5,14 @@
 .container {
   width: 700px;
   text-align: center;
+  color: $green;
+  font-family: $base-font;
+  font-weight: bold;
 }
 
 .btn-lg {
+  font-family: $header-font;
   background-color: $blue;
   border-radius: 15px;
+  font-weight: lighter;
 }
