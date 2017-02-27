@@ -2,3 +2,12 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.container {
+  width: 700px;
+  text-align: center;
+}
+
+.btn-lg {
+  background-color: $blue;
+  border-radius: 15px;
+}
