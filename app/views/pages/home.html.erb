@@ -1,9 +1,40 @@
 <div class="banner">
-<div class="container">
-  <div class="banner-content">
-    <h1>BE$T B€T</h1>
-    <p>Bet big.  Bet small.  Bet on anything at all!</p>
-    <%= link_to "Let's make a bet!", new_user_session_path, class: "btn btn-lg btn-primary" %>
-  </div>
+  <div class="container">
+    <div class="banner-content">
+      <h1>BE$T B€T</h1>
+      <p>Bet big.  Bet small.  Bet on anything at all!</p>
+      <%= link_to "Let's make a bet!", new_user_session_path, class: "btn btn-lg btn-primary" %>
+    </div>
   </div>
 </div>
+
+
+<%= simple_form_for @pool do |f| %>
+        <td><%= f.input :closing_date, as: :string, input_html: {class: "form-control datetimepicker", id:"closing_date"}%></td>
+    <% end %>
+
+<!-- <script>
+  $(function() {
+    $('#closing_date').closing_date({
+      dateFormat: 'yy-dd-mm',
+      onSelect: function(datetext){
+
+var d = new Date(); // for now
+
+var h = d.getHours();
+h = (h < 10) ? ("0" + h) : h ;
+
+var m = d.getMinutes();
+m = (m < 10) ? ("0" + m) : m ;
+
+var s = d.getSeconds();
+s = (s < 10) ? ("0" + s) : s ;
+
+datetext = datetext + " " + h + ":" + m + ":" + s;
+
+$('#closing_date').val(datetext);
+}
+});
+  });
+</script>
+ -->
