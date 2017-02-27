@@ -1,0 +1,46 @@
+
+<div class="container"><
+  h1>Create a Bet</h1>
+</div>
+
+
+<div class="form-group">
+  <%= simple_form_for(@pool) do |f| %>
+  <%= f.input :title, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"} %>
+  <%= f.input :closing_date, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Enter a description..." %>
+  <% end %>
+</div>
+
+
+<div id="exTab1" class="container">
+  <ul  class="nav nav-pills">
+
+    <li class="active">
+     <%= f.input :description, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Who is going to win the world cup?" %>
+   </li>
+   <li>
+     <a  href="#1a" data-toggle="tab">Possible Outcomes</a>
+     <%= f.input :selections, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Real Madrid, Barcelona" %>
+   </li>
+
+   <li>
+    <a href="#2a" data-toggle="tab">Stake Amount</a>
+    <%= f.input :stake, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "$10" %>
+  </li>
+
+  <li>
+    <a href="#3a" data-toggle="tab">Share</a>
+  </li>
+</ul>
+</div>
+
+
+
+
+
+
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

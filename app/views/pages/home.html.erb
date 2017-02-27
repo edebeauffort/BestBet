@@ -1,9 +1,18 @@
-<div class="banner">
-<div class="container">
-  <div class="banner-content">
-    <h1>BE$T B€T</h1>
-    <p>Bet big.  Bet small.  Bet on anything at all!</p>
-    <%= link_to "Let's make a bet!", new_user_session_path, class: "btn btn-lg btn-primary" %>
-  </div>
+
+<div class="wrapper">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="banner background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'background.jpg'%>);">
+
+        <div class="container">
+          <h1>BE$T B€T</h1>
+          <p class "tagline">Bet big.  Bet small.  Bet on anything at all!</p>
+
+
+          <%= link_to "Create a new Betting Pool!", new_user_session_path, class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
