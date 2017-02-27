@@ -10,12 +10,12 @@
 
 
 <%= simple_form_for @pool do |f| %>
-        <td><%= f.input :closing_date, as: :string, input_html: {class: "form-control datetimepicker", id:"closing_date"}%></td>
+        <td><%= f.input :closing_date, as: :string, input_html: {class: "form-control datepicker", id:"closing_date"}%></td>
     <% end %>
 
-<!-- <script>
+<script>
   $(function() {
-    $('#closing_date').closing_date({
+    $('#datepicker').datepicker({
       dateFormat: 'yy-dd-mm',
       onSelect: function(datetext){
 
@@ -32,9 +32,8 @@ s = (s < 10) ? ("0" + s) : s ;
 
 datetext = datetext + " " + h + ":" + m + ":" + s;
 
-$('#closing_date').val(datetext);
+$('#datepicker').val(datetext);
 }
 });
   });
 </script>
- -->
