@@ -19,7 +19,7 @@ class PoolsController < ApplicationController
   end
 
   def pool_params
-    params.require(:pool).permit(:title, :description, :stake, :closing_date)
+    params.require(:pool).permit(:title, :description, :stake, :closing_date,  selections_attributes: [:id, :title, :_destroy])
   end
 
 end
