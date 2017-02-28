@@ -1,10 +1,8 @@
 class PoolsController < ApplicationController
 
   def new
-<<<<<<< HEAD
-=======
     @pool = Pool.new
->>>>>>> 8961ab6ffd95f893336a5a41680420b7e1462f6b
+
   end
 
   def create
