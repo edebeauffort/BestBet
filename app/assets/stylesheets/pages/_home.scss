@@ -2,12 +2,12 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-.container {
+.container-fluid {
   width: 700px;
   text-align: center;
   color: $green;
   font-family: $base-font;
-  font-weight: bold;
+
 }
 
 .btn-lg {
@@ -17,14 +17,6 @@
   font-weight: lighter;
   padding-top: 2px;
   padding-bottom: 2px;
-}
-
-.pool-stake {
-  position: absolute;
-}
-
-.fake-div {
-  height: 100px;
 }
 
 .fake-btn {

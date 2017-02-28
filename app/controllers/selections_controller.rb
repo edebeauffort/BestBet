@@ -3,7 +3,6 @@ class SelectionsController < ApplicationController
   before_action :set_selection, only: [:new, :create]
 
   def create
-    binding.pry
     @selection = Selection.new(selection_params)
     @selection.pool = @pool
 
