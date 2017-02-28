@@ -12,7 +12,7 @@
         </li>
         <li>
           <h1>
-           <%= @bet.user.id   %>
+
          </h1>
        </li>
      </ul>
@@ -21,7 +21,7 @@
         <i class="fa fa-money fa-3x" aria-hidden="true"></i>
       </li>
       <li>
-        <h1><%= @bet.pool.stake %></h1>
+        <h1><%= @pool.stake %></h1>
       </li>
     </ul>
   </div>
@@ -30,15 +30,13 @@
   </div>
 
   <div class="descriptionbet">
-    <h1><%= @bet.pool.description %></h1>
+    <h1><%= @pool.description %></h1>
   </div>
 
   <% @pool.selections.each do |selection| %>
   <div class=" col-xs-6 col-md-4">
     <div class="betselections">
-    <% simple_form_for [selection, @bet] do |f| %>
-    <%= f.button :submit, class: 'btn btn-primary' %>
-    <% end %>
+    <%= link_to selection.title,  pool_selection_bets_path( @pool, selection), method: :post %>
    </div>
  </div>
  <% end %>
@@ -46,4 +44,3 @@
 </div>
 </div>
 </div>
-

@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     @pool.user = current_user
 
     if @pool.save!
-      redirect_to root_path
+      redirect_to new_bet_path(@pool)
     else
       render :new
     end
