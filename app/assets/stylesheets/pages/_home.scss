@@ -2,21 +2,15 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-// .container {
-//   width: 700px;
-//   text-align: center;
-//   color: $green;
-//   font-family: $base-font;
-//   font-weight: bold;
-// }
 
-.container-fluid {
+/*.container-fluid {
+>>>>>>> e76c77d8186dcf96ae13faef8dbd6439b780f772
   width: 700px;
   text-align: center;
   color: $green;
   font-family: $base-font;
 
-}
+}*/
 
 .btn-lg {
   font-family: $header-font;
@@ -32,12 +26,6 @@
   background-color: blue;
 }
 
-/* Style the tab */
-.body-tabs {
-  margin-top: 100px;
-  font-family: 'Trebuchet MS', serif;
-  line-height: 1.6
-}
 
 .container-fluid {
   width: 800px;
