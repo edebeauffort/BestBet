@@ -2,13 +2,6 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-/*.container-fluid {
-  width: 700px;
-  text-align: center;
-  color: $green;
-  font-family: $base-font;
-
-}*/
 
 .btn-lg {
   font-family: $header-font;
@@ -30,15 +23,6 @@
 .fake-btn {
   display: block;
 }
-
-/* Style the tab */
-.body-tabs{
-      line-height: 1.6;
-    }
-    /*.container-fluid{
-      width: 800px;
-      margin: 0 auto;
-    }*/
 
     ul.tabs{
       margin: 0px;
@@ -75,9 +59,9 @@
       position: relative;
     }
 
-    .tab-content.current{
-      display: inherit;
-    }
+.tab-content.current {
+  display: inherit;
+}
 
 .real-submit {
   margin-top: 7px;
