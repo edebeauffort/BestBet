@@ -6,22 +6,21 @@
             <div class="col-xs-12">
                 <div class="form-group">
                   <%= simple_form_for(@pool) do |f| %>
-                  <%= f.input :title, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Title of your b€t.." %>
+                    <%= f.input :title, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Title of your b€t.." %>
+                    <%= f.input :stake, required: false, input_html:{class:"my_input"}, label_html:{class:"pool-stake"}, wrapper_html:{class:"my_wrapper"}, placeholder: "For how much are we playing?" %>
+                    <div class="fake-btn btn btn-primary">Fake Btn</div>
+                    <div class="fake-div hidden"></div>
+                    <div class="real-submit hidden">
+                    <%= f.button :submit, class: 'btn btn-primary bold-text' %>
+                    </div>
+                  <% end %>
+                  <%#= render 'selections/new' %>
                 </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="form-group">
-              <div class="col-xs-8" id="pool-stake">
-                <%= f.input :stake, required: false, input_html:{class:"my_input"}, label_html:{class:"pool-stake"}, wrapper_html:{class:"my_wrapper"}, placeholder: "For how much are we playing?" %>
-              </div>
-              <div class="col-xs-4">
-                  <%= f.button :submit, class: 'btn btn-primary bold-text pool-start' %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <%= render 'selections/new' %>
-        </div>
+         </div>
+      </div>
   </div>
 </div>
+
+
+
