@@ -1,26 +1,49 @@
 <div class="banner-create">
   <div class="banner-content">
-      <h2><em><strong>Create your b€t today!.</strong></em></h2>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xs-12">
-                <div class="form-group">
-                  <%= simple_form_for(@pool) do |f| %>
-                    <%= f.input :title, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Title of your b€t.." %>
-                    <%= f.input :stake, required: false, input_html:{class:"my_input"}, label_html:{class:"pool-stake"}, wrapper_html:{class:"my_wrapper"}, placeholder: "For how much are we playing?" %>
-                    <div class="fake-btn btn btn-primary">Fake Btn</div>
-                    <div class="fake-div hidden"></div>
-                    <div class="real-submit hidden">
-                    <%= f.button :submit, class: 'btn btn-primary bold-text' %>
+    <h2><em><strong>Create your b€t today!.</strong></em></h2>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+              <div class="form-group">
+                <%= simple_form_for(@pool) do |f| %>
+                  <%= f.input :title, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Title of your b€t.." %>
+                  <div class="fake-btn btn btn-primary">Fake Btn</div>
+                  <div class="fake-div hidden">
+                    <div class="body-tabs">
+                      <ul class="tabs">
+                        <li class="tab-link current" data-tab="description">What Are the Terms?</li>
+                        <li class="tab-link" data-tab="selections">What are the Choices?</li>
+                        <li class="tab-link" data-tab="stake">What is the Buy in?</li>
+                        <li class="tab-link" data-tab="share">Invite Friends to Bet</li>
+                      </ul>
+                      <div id="description" class="tab-content current">
+                        <%= f.input :title, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "What are the terms of the bet?" %>
+                      </div>
+                      <div id="selections" class="tab-content">
+                     <!-- Selection code to be interted here -->
+                     </div>
+                     <div id="stake" class="tab-content">
+                      <div class="row">
+                        <div class="form-group">
+                          <div class="col-xs-8" id="pool-stake">
+                            <%= f.input :stake, required: false, input_html:{class:"my_input"}, label_html:{class:"pool-stake"}, wrapper_html:{class:"my_wrapper"}, placeholder: "For how much are we playing?" %>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  <% end %>
-                  <%#= render 'selections/new' %>
-                </div>
-            </div>
-         </div>
-      </div>
+                    <div id="share" class="tab-content">
+                      <%= render 'share/invite' %>
+                    </div>                    
+                   </div>
+                  </div>
+                  <div class="real-submit hidden">
+                  <%= f.button :submit, class: 'btn btn-primary bold-text' %>
+                  </div>
+                <% end %>
+                <%#= render 'selections/new' %>
+              </div>
+          </div>
+       </div>
+    </div>
   </div>
 </div>
-
-
-
