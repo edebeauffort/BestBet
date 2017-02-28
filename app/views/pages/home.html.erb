@@ -6,28 +6,52 @@
         <div class="col-xs-12">
           <div class="form-group">
             <%= simple_form_for(@pool) do |f| %>
-            <%= f.input :title, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Title of your b€t.." %>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group">
-          <div class="col-xs-8" id="pool-stake">
-            <%= f.simple_fields_for :selections do |ff| %>
-            <%= render 'selection_fields', f: ff %>
+              <%= f.input :title, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Title of your b€t.." %>
+              <div class="fake-btn btn btn-primary">Start a bet</div>
+              <div class="fake-div hidden">
+                <div class="body-tabs">
+                  <ul class="tabs">
+                    <li class="tab-link current" data-tab="description">What Are the Terms?</li>
+                    <li class="tab-link" data-tab="selections">What are the Choices?</li>
+                    <li class="tab-link" data-tab="stake">What is the Buy in?</li>
+                    <li class="tab-link" data-tab="share">Invite Friends to Bet</li>
+                  </ul>
+                  <div id="description" class="tab-content current">
+                    <%= f.input :title, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "What are the terms of the bet?" %>
+                  </div>
+                  <div id="selections" class="tab-content">
+                    <%= f.simple_fields_for :selections do |ff| %>
+                    <%= render 'selection_fields', f: ff %>
+                    <% end %>
+                    <div class="links">
+                      <%= link_to_add_association 'add selection', f, :selections%>
+                    </div>
+                  </div>
+                  <div id="stake" class="tab-content">
+                    <div class="row">
+                      <div class="form-group">
+                        <div class="col-xs-8" id="pool-stake">
+                          <%= f.input :stake, required: false, input_html:{class:"my_input"}, label_html:{class:"pool-stake"}, wrapper_html:{class:"my_wrapper"}, placeholder: "For how much are we playing?" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="share" class="tab-content">
+                    <%= render 'share/invite' %>
+                  </div>
+                </div>
+              </div>
+              <div class="real-submit hidden">
+              <%= f.button :submit, class: 'btn btn-primary bold-text' %>
+              </div>
             <% end %>
-            <div class="links">
-              <%= link_to_add_association 'add selection', f, :selections%>
-            </div>
-            <%= f.button :submit, class: 'btn btn-primary bold-text pool-start' %>
-            <% end %>
+            <%#= render 'selections/new' %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 
 
