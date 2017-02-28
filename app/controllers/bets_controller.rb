@@ -6,13 +6,12 @@ class BetsController < ApplicationController
   #   @pool = Pool.find(params[:pool_id])
   #   @selection = Selection.find(params[:selection_id])
   #   @user = User.find(params[:user_id])
-  # end
-  def new
-    @pool = Pool.find(params[:pool_id])
-    @selection = Selection.find(params[:selection_id])
-    @user = User.find(params[:user_id])
-    @bet = Bet.new
+   def show
+    @bet = Bet.find(params[:id])
+    @pool = @bet.pool
+    @selection = @bet.selection
   end
+  # end
 
   def create
     @pool = Pool.find(params[:pool_id])
@@ -20,18 +19,13 @@ class BetsController < ApplicationController
     @user = current_user
     @bet = Bet.new(user_id: @user.id, selection_id: @selection.id, pool_id: @pool.id)
     if @bet.save!
-     redirect_to root_path
+     redirect_to  pool_selection_bet_path(@pool, @selection, @bet)
    else
       redirect_to root_path
     end
   end
 
-  # def show
-  #   @bet = Bet.find(params[:id])
-  #   @pool = Pool.find(params[:id])
-  #   @selection = Selection.find(params[:id])
-  #   @user = User.find(params[:id])
-  # end
+
   private
 
 end
