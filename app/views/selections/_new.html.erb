@@ -1,0 +1,10 @@
+<div class = "container-fluid">
+  <div class = "row">
+    <div class = "col-xs-6">
+      <%= simple_form_for(@selection, remote: true) do |f|%>
+      <%= f.input :title %>
+      <%= f.button :submit, class: 'btn btn-primary bold-text pool-start' %>
+      <% end %>
+    </div>
+  </div>
+</div>
