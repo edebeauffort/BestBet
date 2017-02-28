@@ -1,13 +1,13 @@
+    <div class="container">
 <div class="banner-create">
   <div class="banner-content">
     <h2><em><strong>Create your b€t today!</strong></em></h2>
-    <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
             <%= simple_form_for(@pool) do |f| %>
               <%= f.input :title, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Title of your b€t.." %>
-              <div class="fake-btn btn btn-primary">Start a bet</div>
+              <input type="button" class="fake-btn btn btn-primary" value="Start a bet"></input>
                 <div class="fake-div hidden">
                   <div class="body-tabs">
                     <ul class="tabs">
@@ -50,7 +50,9 @@
       </div>
     </div>
   </div>
+  <%= render 'poolcard' %>
 </div>
+
 
 
 
