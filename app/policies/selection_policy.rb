@@ -1,7 +1,7 @@
-#class SelectionPolicy < ApplicationPolicy
-#  class Scope < Scope
-#    def resolve
-#      scope
-#    end
-#  end
-#end
+class SelectionPolicy < ApplicationPolicy
+ class Scope < Scope
+   def resolve
+     scope
+   end
+ end
+end
