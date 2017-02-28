@@ -1,35 +1,38 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row ">
-    <div class="bettitle">
-     <h1><%= @pool.title %></h1>
-   </div>
+    <div class="col-xs-12">
+      <div class="bettitle">
+       <h1><%= @pool.title %></h1>
+     </div>
 
-   <div class="betsshow-details">
-     <ul class="list-inline">
-       <li>
-        <i class="fa fa-users fa-3x" aria-hidden="true"></i>
+     <div class="betsshow-details">
+       <ul class="list-inline">
+         <li>
+          <i class="fa fa-users fa-3x" aria-hidden="true"></i>
         </li>
         <li>
-        <h1>
-         <%= @bet.user.id   %>
-       </h1>
-     </li>
-   </ul>
-   <ul class="list-inline">
-     <li>
-      <i class="fa fa-money fa-3x" aria-hidden="true"></i>
-    </li>
-    <li>
-      <h1><%= @bet.pool.stake %></h1>
-    </li>
-  </ul>
-</div>
-<div>
-  ___________________________________________________________________________________________________________________________________________________________________________________________________________________
+          <h1>
+           <%= @bet.user.id   %>
+         </h1>
+       </li>
+     </ul>
+     <ul class="list-inline">
+       <li>
+        <i class="fa fa-money fa-3x" aria-hidden="true"></i>
+      </li>
+      <li>
+        <h1><%= @bet.pool.stake %></h1>
+      </li>
+    </ul>
   </div>
+  <div class="HSVHSV">
+
+  </div>
+
   <div class="descriptionbet">
- <h1><%= @bet.pool.description %></h1>
- </div>
+    <h1><%= @bet.pool.description %></h1>
+  </div>
+</div>
 </div>
 </div>
 
