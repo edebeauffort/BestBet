@@ -1,0 +1,20 @@
+  <div class="container">
+  <div class="row">
+      <% @pools.each do |pool| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card">
+          <%= link_to pool_path(pool) do %>
+          <div class="card-description">
+              <h3><%= pool.title %> </h3>
+              <h4> 4 </h4>
+              <h4><%= pool.stake %></h4>
+              <h4>10:00:00</h4>
+              <p><%= pool.description %></p>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+   </div>
+</div>
+

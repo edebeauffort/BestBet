@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  height: 200px;
+  text-shadow: 0 1px 3px;
+  background-color: white;
+  position: relative;
+}
+
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.card-description {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.card-description h3 {
+  font-size: 24px;
+}
+
+.card-description h4 {
+  font-size: 18px;
+}
+
+.card-description p {
+  font-size: 13px;
+  }
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover{
+  opacity: 0.1;
+}

@@ -6,7 +6,10 @@ class PoolsController < ApplicationController
 
   def new
     @pool = Pool.new
+  end
 
+  def index
+    @pools = Pool.all
   end
 
   def create

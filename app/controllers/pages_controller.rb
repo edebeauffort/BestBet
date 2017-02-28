@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @pool = Pool.new
     @selection = Selection.new
+    @pools = Pool.all
   end
 
   def create
