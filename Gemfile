@@ -10,6 +10,7 @@ gem 'devise'
 gem 'pundit'
 gem 'redis'
 gem 'omniauth-facebook'
+gem 'countdown'
 
 gem 'sass-rails'
 gem 'jquery-rails'
