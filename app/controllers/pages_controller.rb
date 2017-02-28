@@ -22,7 +22,7 @@ class PagesController < ApplicationController
   end
 
   def pool_params
-    params.require(:pool).permit(:title, :description, :stake, :closing_date)
+    params.require(:pool).permit(:title, :description, :stake, :end_date)
   end
 
 end

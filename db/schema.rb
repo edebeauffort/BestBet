@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227152159) do
+ActiveRecord::Schema.define(version: 20170228155955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 20170227152159) do
     t.string   "title"
     t.text     "description"
     t.float    "stake"
-    t.date     "closing_date"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.datetime "end_date"
     t.index ["user_id"], name: "index_pools_on_user_id", using: :btree
   end
 
