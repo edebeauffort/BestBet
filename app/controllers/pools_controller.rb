@@ -1,5 +1,8 @@
 class PoolsController < ApplicationController
 
+  def new
+  end
+
   def create
     @pool = Pool.new(pool_params)
     #@pool.user = current_user
