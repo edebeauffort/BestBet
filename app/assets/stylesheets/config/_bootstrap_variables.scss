@@ -11,9 +11,8 @@ $line-height-base:        $base-height;
 $headings-font-family:    $header-font;
 
 // Semantic color scheme
-// => http://getbootstrap.com/customize/#colors
-$gray-base:       $grey;
-$brand-primary:  #4285F4;
+$gray-base:       $gray;
+$brand-primary:   $brand-color;
 $brand-success:   $green;
 $brand-info:      $yellow;
 $brand-danger:    $red;

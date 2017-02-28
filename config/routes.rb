@@ -9,7 +9,7 @@ resources :bets, only: [:create, :new, :show, :index]
 
   resources :pools, only: [:new, :create]
   resources :selections, only: [:create]
-
+  resources :bets
  devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 

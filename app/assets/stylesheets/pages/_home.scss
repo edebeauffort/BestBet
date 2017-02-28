@@ -10,6 +10,14 @@
 //   font-weight: bold;
 // }
 
+.container-fluid {
+  width: 700px;
+  text-align: center;
+  color: $green;
+  font-family: $base-font;
+
+}
+
 .btn-lg {
   font-family: $header-font;
   background-color: $blue;
@@ -19,47 +27,49 @@
   padding-bottom: 2px;
 }
 
-.pool-stake {
+.fake-btn {
   position: absolute;
+  background-color: blue;
 }
 
 /* Style the tab */
-body{
-      margin-top: 100px;
-      font-family: 'Trebuchet MS', serif;
-      line-height: 1.6
-    }
-    .container-fluid{
-      width: 800px;
-      margin: 0 auto;
-    }
+.body-tabs {
+  margin-top: 100px;
+  font-family: 'Trebuchet MS', serif;
+  line-height: 1.6
+}
 
+.container-fluid {
+  width: 800px;
+  margin: 0 auto;
+}
 
+ul.tabs {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
 
-    ul.tabs{
-      margin: 0px;
-      padding: 0px;
-      list-style: none;
-    }
-    ul.tabs li{
-      background: none;
-      color: #222;
-      display: inline-block;
-      padding: 10px 15px;
-      cursor: pointer;
-    }
+ul.tabs li {
+  background: none;
+  color: #222;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
 
-    ul.tabs li.current{
-      background: #ededed;
-      color: #222;
-    }
+ul.tabs li.current {
+  background: #ededed;
+  color: #222;
+}
 
-    .tab-content{
-      display: none;
-      background: #ededed;
-      padding: 15px;
-    }
+.tab-content {
+  display: none;
+  background: #ededed;
+  padding: 15px;
+}
 
-    .tab-content.current{
-      display: inherit;
-    }
+.tab-content.current {
+  display: inherit;
+}
+
