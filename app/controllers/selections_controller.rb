@@ -1,8 +1,8 @@
 class SelectionsController < ApplicationController
 
   def create
-    @selection = Selection.new(pool_params)
-    #@pool.user = current_user
+    @selection = Selection.new(selection_params)
+    @selection.pool = @pool
 
     if @selection.save
       redirect_to selection_path(@selection)
@@ -11,5 +11,7 @@ class SelectionsController < ApplicationController
     end
   end
 
-
+  def selection_params
+    params.require(:selection).permit(:title)
+  end
 end
