@@ -18,11 +18,26 @@
   border: solid black 1px;
 
 }
-.betselections{
-  background-color: #244C62;
+.betselection{
+  background-color: #333333;
   height: 70px;
   text-align:center;
   color: white;
   margin-top: 30px;
+    font-size: 40px;
 }
-
+.selectedoption{
+  background-color: #B12D30;
+  height: 70px;
+  text-align:center;
+  color: white;
+  margin-top: 30px;
+  font-size: 40px;
+}
+.descriptionbetdetails{
+  display:flex;
+  width: 40px;
+}
+.moneeey{
+  padding-left: 10px;
+}
