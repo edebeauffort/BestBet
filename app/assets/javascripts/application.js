@@ -9,6 +9,7 @@ $(function(){
     $(this).addClass('hidden');
     $(".real-submit").removeClass('hidden');
   });
+});
 
 $(document).ready(function(){
 
