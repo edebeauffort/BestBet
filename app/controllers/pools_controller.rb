@@ -4,9 +4,8 @@ class PoolsController < ApplicationController
     @pool = Pool.find(params[:id])
   end
 
-  def new
-    @pool = Pool.new
-
+  def index
+    @pools = Pool.all
   end
 
   def create
@@ -22,8 +21,10 @@ class PoolsController < ApplicationController
     end
   end
 
+  private
+
   def pool_params
-    params.require(:pool).permit(:title, :description, :stake, :closing_date,  selections_attributes: [:id, :title, :_destroy])
+    params.require(:pool).permit(:title, :description, :stake, :end_date,  selections_attributes: [:id, :title, :_destroy], invites_attributes: [:id, :user_id, :_destroy])
   end
 
 end

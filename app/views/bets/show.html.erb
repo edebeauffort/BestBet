@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row ">
+    <div class="col-xs-12">
+      <div class="bettitle">
+       <h1><%= @pool.title %></h1>
+     </div>
+
+     <div class="betsshow-details">
+
+       <div class="descriptionbetdetails">
+        <i class="fa fa-users fa-3x" aria-hidden="true"></i>
+        <h1><%= Bet.all.where(pool_id: @pool.id).count %></h1>
+      </div>
+
+
+
+
+      <div class="descriptionbetdetails">
+
+        <i class="fa fa-money fa-3x" aria-hidden="true"></i>
+        <h1 id= "moneeey"><%= @pool.stake %></h1>
+      </div>
+
+
+
+    </div>
+
+    <div class="HSVHSV">
+    </div>
+
+    <div class="descriptionbet">
+      <h1><%= @pool.description %></h1>
+    </div>
+
+    <% @pool.selections.each do |selection| %>
+    <div class=" col-xs-6 col-md-4">
+
+      <% if selection.id == @selection.id %>
+
+      <div class="selectedoption">
+
+        <%= @selection.title %>
+      </div>
+      <h2>Your guess</h2>
+      <% else %>
+      <div class="betselection">
+        <%= selection.title %>
+      </div>
+      <% end %>
+
+    </div>
+    <% end %>
+
+  </div>
+</div>
+</div>

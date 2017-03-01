@@ -1,0 +1,33 @@
+  <div class="row">
+    <% @pools.each do |pool| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card">
+        <div class="card-description">
+        <%= link_to "", pool_path(pool), class: 'card-link' %>
+          <h3><%= pool.title %> </h3>
+          <ul class="list-unstyled list-inline">
+            <li><%=image_tag "group.png", class: "card-icon"%> 4 </li>
+            <li><%=image_tag "Cash.png", class: "card-icon"%><%= pool.stake %></li>
+            <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
+          </ul>
+          <hr>
+          <p><%= pool.description %></p>
+        </div>
+      </div>
+    </div>
+
+    <% content_for(:after_js) do %>
+    <script type="text/javascript">
+      $("#pool-<%=pool.id%>")
+      .countdown("<%= pool.end_date %>", function(event) {
+        $(this).text(
+          event.strftime('%Dd %H:%M:%S')
+          );
+        $(this).on('finish.countdown', function(){
+        $("#pool-<%=pool.id%>").html("Bet closed").addClass("finish");
+        });
+      })
+    </script>
+    <% end %>
+    <% end %>
+  </div>

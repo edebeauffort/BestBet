@@ -87,6 +87,6 @@ $(function () {
             checkedItems[counter] = $(li).text();
             counter++;
         });
-        $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
+        // $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
     });
 });
