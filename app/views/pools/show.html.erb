@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row ">
-    <div class="col-xs-12">
+    <div class="col-xs-12 ">
       <div class="bettitle">
        <h1><%= @pool.title %></h1>
      </div>
@@ -13,10 +13,10 @@
         <li>
           <h1>
 
-         </h1>
-       </li>
-     </ul>
-     <ul class="list-inline">
+          </h1>
+        </li>
+      </ul>
+      <ul class="list-inline">
        <li>
         <i class="fa fa-money fa-3x" aria-hidden="true"></i>
       </li>
@@ -32,15 +32,13 @@
   <div class="descriptionbet">
     <h1><%= @pool.description %></h1>
   </div>
+  <%= render "placebet" %>
 
-  <% @pool.selections.each do |selection| %>
-  <div class=" col-xs-6 col-md-4">
-    <div class="betselections">
-    <%= link_to selection.title,  pool_selection_bets_path( @pool, selection), method: :post %>
-   </div>
- </div>
- <% end %>
 
+    </div>
+
+
+
+  </div>
 </div>
-</div>
-</div>
+

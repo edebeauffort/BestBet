@@ -1,0 +1,32 @@
+
+  <div class="row">
+
+
+    <div class="col-xs-12">
+
+
+
+        <div class="form-group radio_buttons optional bet_selection_id">
+        <input type="hidden" name="bet[selection_id]" value="">
+        <div class="row full-width">
+        <% @options.each do |option| %>
+                <div class="col-xs-12 col-md-6">
+        <label class="control-label radio_buttons optional">
+        <span class="btn btn-lg checkbox radio optionselection">
+          <label for="bet_selection_id_#{option}  ">
+            <input class="radio_buttons optional " type="radio" value="2" name="bet[selection_id]" id="bet_selection_id_#{option}"><%= option %>
+          </label>
+        </span>
+        </label>
+        </div>
+          <% end %>
+          </div>
+          </div>
+          <input type="submit" name="commit" value="Confirm your bet" class="tn btn-lg btn-success confirmbutton" data-disable-with="Confirm your bet">
+
+
+        </div>
+
+
+
+      </div>

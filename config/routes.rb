@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :pools, only: [:create,:new,:show] do
-    resources :selections, only: [:create] do
-      resources :bets, only: [:create, :show]
-    end
+    resources :selections, only: [:create]
   end
-  resources :bets, only: [:show, :index]
+  resources :bets, only: [:show, :index, :create]
 end
