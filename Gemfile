@@ -21,6 +21,10 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "cocoon"
 
+source 'https://rails-assets.org' do
+gem 'rails-assets-jquery.countdown'
+end
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
