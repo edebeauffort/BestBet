@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     end
   end
   resources :bets, only: [:show, :index]
+  resources :users, only: [:show]
 end
