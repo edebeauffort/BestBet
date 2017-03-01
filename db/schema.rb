@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227152159) do
+ActiveRecord::Schema.define(version: 20170301170102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20170227152159) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "selection_id"
+    t.index ["selection_id"], name: "index_pools_on_selection_id", using: :btree
     t.index ["user_id"], name: "index_pools_on_user_id", using: :btree
   end
 
@@ -85,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170227152159) do
   add_foreign_key "bets", "users"
   add_foreign_key "chats", "pools"
   add_foreign_key "chats", "users"
+  add_foreign_key "pools", "selections"
   add_foreign_key "pools", "users"
   add_foreign_key "selections", "pools"
 end

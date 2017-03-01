@@ -4,6 +4,7 @@
 .fa-money{
   color: green;
   width: 20px;
+  padding-right: 50px;
 }
 .pools_show-details{
   display: flex;
@@ -17,9 +18,9 @@
 .descriptionbet{
   text-align: center;
 }
-.HSVHSV{
-  border: solid black 1px;
 
+.seperator-line{
+  border: solid black 1px;
 }
 .betselections{
   font-family: $base-font;
@@ -31,4 +32,26 @@
   padding: 15px;
   color: white;
   margin-top: 30px;
+}
+
+.bet-stats {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bet-stats-content {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  h1 {
+    margin: 0;
+  }
+
+  i {
+    margin-right: 20px;
+  }
 }
