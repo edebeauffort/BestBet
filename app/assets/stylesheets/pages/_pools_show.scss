@@ -1,8 +1,11 @@
+.container {
+
+}
 .fa-money{
   color: green;
   width: 20px;
 }
-.betsshow-details{
+.pools_show-details{
   display: flex;
  justify-content: space-around;
 }
@@ -19,9 +22,13 @@
 
 }
 .betselections{
-  background-color: #244C62;
+  font-family: $base-font;
+  font-size: 25px;
+  background-color: $blue;
   height: 70px;
+  border-radius: 10px;
   text-align:center;
+  padding: 15px;
   color: white;
   margin-top: 30px;
 }
