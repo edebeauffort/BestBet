@@ -2,45 +2,41 @@
   <div class="row ">
     <div class="col-xs-12">
       <div class="bettitle">
-       <h1><%= @pool.title %></h1>
-     </div>
+        <h1><%= @pool.title %></h1>
+      </div>
 
-     <div class="betsshow-details">
-       <ul class="list-inline">
-         <li>
-          <i class="fa fa-users fa-3x" aria-hidden="true"></i>
-        </li>
-        <li>
-          <h1>
+      <div class="pools_show-details">
 
-         </h1>
-       </li>
-     </ul>
-     <ul class="list-inline">
-       <li>
-        <i class="fa fa-money fa-3x" aria-hidden="true"></i>
-      </li>
-      <li>
-        <h1><%= @pool.stake %></h1>
-      </li>
-    </ul>
+        <div class="bet-stats">
+          <div class="bet-stats-content">
+            <i class="fa fa-users fa-3x" aria-hidden="true"></i>
+            <h1>3</h1>
+          </div>
+          <div class="bet-stats-content">
+            <i class="fa fa-money fa-3x" aria-hidden="true"></i>
+            <h1><%= @pool.stake %></h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="seperator-line"></div>
+
+      <div class="descriptionbet">
+        <h1><%= @pool.description %></h1>
+      </div>
+      <div class="row">
+        <% @pool.selections.each do |selection| %>
+        <div class=" col-xs-6 col-md-4">
+          <div class="betselections">
+            <%= link_to selection.title,  pool_selection_bets_path( @pool, selection), method: :post %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+      <% if current_user == @pool.user %>
+      <%= render 'confirm_winner' %>
+      <% end %>
+    </div>
   </div>
-
-  <div class="HSVHSV">
-  </div>
-
-  <div class="descriptionbet">
-    <h1><%= @pool.description %></h1>
-  </div>
-
-  <% @pool.selections.each do |selection| %>
-  <div class=" col-xs-6 col-md-4">
-    <div class="betselections">
-    <%= link_to selection.title,  pool_selection_bets_path( @pool, selection), method: :post %>
-   </div>
- </div>
- <% end %>
-
-</div>
-</div>
 </div>
