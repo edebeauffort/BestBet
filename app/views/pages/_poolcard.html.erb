@@ -3,6 +3,7 @@
     <div class="col-xs-12 col-sm-4">
       <div class="card">
         <div class="card-description">
+        <%= link_to "", pool_path(pool), class: 'card-link' %>
           <h3><%= pool.title %> </h3>
           <ul class="list-unstyled list-inline">
             <li><%=image_tag "group.png", class: "card-icon"%> 4 </li>
@@ -12,7 +13,6 @@
           <hr>
           <p><%= pool.description %></p>
         </div>
-        <%= link_to "", pool_path(pool), class: 'card-link' %>
       </div>
     </div>
 
