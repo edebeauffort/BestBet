@@ -17,3 +17,8 @@
 
     </ion-content>
  -->
+<hr>
+<%= simple_form_for @pool do |f| %>
+  <%= f.association :winning_selection %>
+  <%= f.submit "Declare winner!", class: "btn btn-primary" %>
+<% end %>
