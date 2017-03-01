@@ -1,3 +1,4 @@
+
     <div class="container">
       <div class="banner-create">
         <div class="banner-content">
@@ -27,29 +28,21 @@
                       <div class="links">
                         <%= link_to_add_association 'add selection', f, :selections %>
                       </div>
-                      <div id="selections" class="tab-content">
-                        <%= f.simple_fields_for :selections do |ff| %>
-                        <%= render 'selection_fields', f: ff %>
-                        <% end %>
-                        <div class="links">
-                          <%= link_to_add_association 'add selection', f, :selections %>
-                        </div>
-                      </div>
-                      <div id="stake" class="tab-content">
-                        <div class="row">
-                          <div class="form-group">
-                            <div class="col-xs-8" id="pool-stake">
-                              <%= f.input :stake, label:false, placeholder: "For how much are we playing?" %>
-                            </div>
+                    </div>
+                    <div id="stake" class="tab-content">
+                      <div class="row">
+                        <div class="form-group">
+                          <div class="col-xs-8" id="pool-stake">
+                            <%= f.input :stake, label:false, placeholder: "For how much are we playing?" %>
                           </div>
                         </div>
                       </div>
-                      <div id="timer" class="tab-content">
-                        <div class="row">
-                          <div class="form-group">
-                            <div class="col-xs-8" id="pool-stake">
-                              <%= f.input :end_date, label:false, placeholder: "In how many hours does the bet end?" %>
-                            </div>
+                    </div>
+                    <div id="timer" class="tab-content">
+                      <div class="row">
+                        <div class="form-group">
+                          <div class="col-xs-8" id="pool-stake">
+                            <%= f.input :end_date, label:false, placeholder: "In how many hours does the bet end?" %>
                           </div>
                         </div>
                       </div>
@@ -64,8 +57,6 @@
                       <%# render 'share/invite' %>
                     </div>
                   </div>
-                <div class="real-submit hidden">
-                <%= f.button :submit, class: 'btn btn-primary bold-text' %>
                 </div>
                 <div class="real-submit hidden">
                   <%= f.button :submit, class: 'btn btn-primary bold-text' %>
@@ -78,7 +69,6 @@
       </div>
       <%= render 'poolcard' %>
     </div>
-</div>
 
 
 
