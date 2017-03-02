@@ -1,6 +1,5 @@
 class InvitesController < ApplicationController
   def create
-    raise
     @invite = Invite.new(invite_params)
     @invite.
   end

@@ -1,0 +1,24 @@
+<!--
+
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">One Checkbox Selected</h1>
+    </ion-header-bar>
+
+    <ion-content>
+
+        <ion-list>
+            <ion-item class="item-checkbox" ng-repeat="item in itens">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="item.checked" ng-click="updateSelection($index, itens, item.title)">
+                </label>
+                test
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+ -->
+<hr>
+<%= simple_form_for @pool, url: declare_winner_path(@pool), method: :post do |f| %>
+  <%= f.association :winning_selection %>
+  <%= f.submit "Declare winner!", class: "btn btn-primary" %>
+<% end %>

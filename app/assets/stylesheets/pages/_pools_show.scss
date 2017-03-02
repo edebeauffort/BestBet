@@ -1,0 +1,57 @@
+.container {
+
+}
+.fa-money{
+  color: green;
+  width: 20px;
+  padding-right: 50px;
+}
+.pools_show-details{
+  display: flex;
+ justify-content: space-around;
+}
+.bettitle{
+  padding: 20px;
+  font-size: 40px;
+  text-align: center;
+}
+.descriptionbet{
+  text-align: center;
+}
+
+.seperator-line{
+  border: solid black 1px;
+}
+.betselections{
+  font-family: $base-font;
+  font-size: 25px;
+  background-color: $blue;
+  height: 70px;
+  border-radius: 10px;
+  text-align:center;
+  padding: 15px;
+  color: white;
+  margin-top: 30px;
+}
+
+.bet-stats {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bet-stats-content {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  h1 {
+    margin: 0;
+  }
+
+  i {
+    margin-right: 20px;
+  }
+}
