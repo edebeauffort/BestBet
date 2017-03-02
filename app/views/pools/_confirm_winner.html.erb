@@ -1,24 +1,23 @@
-<!--
 
-    <ion-header-bar class="bar-positive">
-      <h1 class="title">One Checkbox Selected</h1>
-    </ion-header-bar>
+<div>
+<form novalidate="novalidate" class="simple_form edit_pool" id="edit_pool_<%= @pool.id %>" action="/pools/<%= @pool.id %>/declare_winner" accept-charset="UTF-8" method="post">
+  <label class="wrapper" for="selections">Declare Winning Selection:</label>
+  <div class="button dropdown" placeholder="Select the Winning Choice">
+    <select id="declarewinner" class="form-control select optional" name="pool[selection_id]" id="pool_selection_id">
+      <%= @pool.selections.each do |selection| %>
+      <hr>
+      <option value="<%= selection.id %>"><%= selection.title %></option>
+      <% end %>
+    </select>
+  </div>
+  <input type="submit" name="commit" value="Declare winner!" class="btn btn-primary" data-disable-with="Declare winner!">
+  <input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="rzJWaLodhFTcxCw/JgIDOBy5egK1P9qAP8tS/cw8XnQqFfEMpqiLHnRXIVhNUpTWwCz1zD9YEEUZXgN/eDGzWA==">
+</form>
+</div>
 
-    <ion-content>
+<div class="output" id="winner">
+  <% if @winner %>
+  <h1><%= @winner + " Wins!" %></h1>
+  <% end %>
+</div>
 
-        <ion-list>
-            <ion-item class="item-checkbox" ng-repeat="item in itens">
-                <label class="checkbox">
-                    <input type="checkbox" ng-model="item.checked" ng-click="updateSelection($index, itens, item.title)">
-                </label>
-                test
-            </ion-item>
-        </ion-list>
-
-    </ion-content>
- -->
-<hr>
-<%= simple_form_for @pool, url: declare_winner_path(@pool), method: :post do |f| %>
-  <%= f.association :winning_selection, collection: Selection.all.where(pool: @pool) %>
-  <%= f.submit "Declare winner!", class: "btn btn-primary" %>
-<% end %>

@@ -20,6 +20,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "cocoon"
+gem 'jquery-ui-rails'
 
 source 'https://rails-assets.org' do
 gem 'rails-assets-jquery.countdown'

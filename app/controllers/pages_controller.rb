@@ -16,5 +16,10 @@ class PagesController < ApplicationController
     redirect_to root_path
   end
 
+  private
+
+  def invite_params
+    params.require(:invite).permit(:message)
+  end
 
 end
