@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20170301170714) do
   add_foreign_key "invites", "pools"
   add_foreign_key "invites", "users"
   add_foreign_key "pools", "selections"
+
   add_foreign_key "pools", "users"
   add_foreign_key "selections", "pools"
 end
