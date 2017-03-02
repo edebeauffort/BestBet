@@ -4,10 +4,11 @@
   background: white;
   transition: all 0.3s ease;
   display: flex;
-  height: 70px;
+  height: 55px;
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
+  background-color: #EDEFF0;
 }
 
 /* Optional class to fix the navbar on top */
@@ -40,7 +41,7 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #616668;
+  color: #333333;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
@@ -50,14 +51,26 @@
 
 /* Navbar right button */
 .navbar-wagon-button {
-  margin-left: 10px;
+
   padding: 0 20px;
-  border-radius: 20em;
-  line-height: 40px;
-  background-color: #D23333;
+  border-radius: 5px;
+  line-height: 35px;
+  background-color: #FF5A5F;
   color: white;
   font-size: 14px;
-  border: 2px solid #D23333;
+  border: 2px solid #FF5A5F;
+  margin-left: 15px;
+
+}
+.navbar-wagon-button-login{
+   margin-left: 15px;
+  padding: 0 20px;
+  border-radius: 5px;
+  line-height: 35px;
+  background-color: #4285F4;
+  color: white;
+  font-size: 14px;
+  border: 2px solid #4285F4;
 }
 .navbar-wagon-button:hover {
   color: white;
@@ -96,14 +109,17 @@
   outline: none;
 }
 .navbar-wagon-search-input:focus  {
-  border: 1px solid #CCCCCC;
+  border: 1px solid #333333;
 }
+
 
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
+  width: 30;
+  height: 30;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
@@ -129,3 +145,12 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+.avatar-user{
+  height: 40px;
+  border-radius: 100%;
+}
+.home-icon{
+  color:#FF5A5F;
+}
+
+
