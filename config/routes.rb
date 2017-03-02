@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   end
   resources :bets, only: [:show, :index]
   resources :users, only: [:show]
+
+  post "/pools/:id/declare_winner" => "pools#declare_winner", as: :declare_winner
 end
