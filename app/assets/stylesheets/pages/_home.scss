@@ -13,11 +13,19 @@
 }
 
 .banner-create {
+  display: flex;
   background-color: $blue;
+  justify-content: space-around;
+}
+
+
+
+.bet-title {
+  margin: 5px;
 }
 
 .fake-btn {
-  display: block;
+
 }
 
     ul.tabs{
