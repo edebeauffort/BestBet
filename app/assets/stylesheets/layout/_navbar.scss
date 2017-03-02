@@ -8,9 +8,12 @@
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
-  background-color: #EDEFF0;
+  background-color: #254C62;
+  color:white;
 }
+.airbnblogo h2{
 
+}
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;
@@ -41,7 +44,7 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #333333;
+  color: white;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
