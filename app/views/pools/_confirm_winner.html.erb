@@ -19,6 +19,6 @@
  -->
 <hr>
 <%= simple_form_for @pool, url: declare_winner_path(@pool), method: :post do |f| %>
-  <%= f.association :winning_selection %>
+  <%= f.association :winning_selection, collection: Selection.all.where(pool: @pool) %>
   <%= f.submit "Declare winner!", class: "btn btn-primary" %>
 <% end %>
