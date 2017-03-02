@@ -1,46 +1,50 @@
 <div class="container">
   <div class="row ">
-    <div class="col-xs-12 ">
-      <div class="bettitle">
+    <div class="col-xs-12">
+      <div class="bet-description">
         <h1><%= @pool.title %></h1>
+        <ul class="list-unstyled list-inline tags">
+          <li><%=image_tag "group.png", class: "bet-icon"%> 4 </li>
+          <li><%=image_tag "Cash.png", class: "bet-icon"%><%= @pool.stake %></li>
+          <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
+        </ul>
+          <hr>
+        <h3><%= @pool.description %></h3>
       </div>
-
-      <div class="pools_show-details">
-
-
-        <div class="bet-stats">
-          <div class="bet-stats-content">
-            <i class="fa fa-users fa-3x" aria-hidden="true"></i>
-            <h1>3</h1>
-          </div>
-          <div class="bet-stats-content">
-            <i class="fa fa-money fa-3x" aria-hidden="true"></i>
-            <h1><%= @pool.stake %></h1>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="seperator-line"></div>
-
-
-  <%= render 'placebet' %>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-      <% if current_user == @pool.user %>
-      <%= render 'confirm_winner' %>
-      <% end %>
     </div>
   </div>
-
+  <div class ="row">
+    <% @pool.selections.each do |selection| %>
+      <div class=" col-xs-6 col-md-4">
+        <div class="betselections">
+        <p><%= selection.title %></p>
+        <%= link_to "",  pool_selection_bets_path(@pool, selection), method: :post, class: "bet-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+    <%= render 'placebet' %>
+    <% if current_user == @pool.user %>
+    <%= render 'confirm_winner' %>
+    <% end %>
 </div>
 
+
+<!-- This is JS for the selections to be unclickable after countdown = 0 -->
+<% content_for(:after_js) do %>
+<script type="text/javascript">
+  $("#pool-<%=@pool.id%>")
+  .countdown("<%= @pool.end_date %>", function(event) {
+    $(this).text(
+      event.strftime('%Dd %H:%M:%S')
+      );
+    $(this).on('finish.countdown', function(){
+      $("#pool-<%=@pool.id%>").html("Bet closed").addClass("finish");
+      $(".betselections").click(function(e){
+      $("#pool-<%=@pool.id%>").effect("shake");
+      return false;
+      });
+    });
+  })
+</script>
+<% end %>
