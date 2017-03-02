@@ -1,7 +1,39 @@
-<div class="container profile-show ">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-    <h1>Test</h1>
+<div>
+  <h1 class="invites-page">Check Your Invitations</h1>
+    <div class="container">
+      <div class="row">
+        <% @user.invites.each do |invite| %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="invite-tag">
+              <p>Invite</p>
+            </div>
+              <div class="card-invites">
+                <div class="card-description-invites">
+                <%= link_to "", pool_path(invite.pool), class: 'card-link' %>
+                  <p><%= "You friend #{invite.pool.user.email} has invited you to bet on the event #{invite.pool.title}!" %></p>
+                  <hr>
+                  <ul class="list-unstyled list-inline">
+                    <li><%=image_tag "group.png", class: "card-icon-invites"%> 4 </li>
+                    <li><%=image_tag "Cash.png", class: "card-icon-invites"%><%= invite.pool.stake %></li>
+                    <li><%=image_tag "Clock.png", class: "card-icon-invites"%><span id="pool-<%=invite.pool.id%>"></span></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+            <% content_for(:after_js) do %>
+            <script type="text/javascript">
+              $("#pool-<%=invite.pool.id%>")
+              .countdown("<%= invite.pool.end_date %>", function(event) {
+                $(this).text(
+                  event.strftime('%Dd %H:%M:%S')
+                  );
+                });
+            </script>
+            <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
 </div>
+
+
+
