@@ -2,6 +2,9 @@ class PoolsController < ApplicationController
 
   def show
     @pool = Pool.find(params[:id])
+    @bet = Bet.new
+
+
   end
 
   def index
