@@ -1,0 +1,29 @@
+.confirmbutton{
+text-align: center;
+
+  margin-top: 50px;
+  width: 100%;
+}
+.optionselection{
+  width: 96%;
+  background-color: #3B99FC;
+  margin: 10px;
+  height: 50px;
+}
+.optional{
+  display: flex;
+}
+
+.radio + .radio, .checkbox + .checkbox {
+    /* margin-top: -5px; */
+    margin-top: 10px;
+}
+
+.control-label{
+  font-size: 0.000001px;
+}
+.theheaderforbet{
+  margin-top:20px;
+  color:#234C63;
+}
+
