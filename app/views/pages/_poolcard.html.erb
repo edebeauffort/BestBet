@@ -1,6 +1,6 @@
   <div class="row">
     <% @pools.each do |pool| %>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-sm-6">
       <div class="card">
         <div class="card-description">
         <%= link_to "", pool_path(pool), class: 'card-link' %>
@@ -15,7 +15,6 @@
         </div>
       </div>
     </div>
-
     <% content_for(:after_js) do %>
     <script type="text/javascript">
       $("#pool-<%=pool.id%>")
@@ -24,7 +23,10 @@
           event.strftime('%Dd %H:%M:%S')
           );
         $(this).on('finish.countdown', function(){
-        $("#pool-<%=pool.id%>").html("Bet closed").addClass("finish");
+          $("#pool-<%=pool.id%>").html("Bet closed").addClass("finish");
+          $(".betselections").click(function(){
+          return false;
+          });
         });
       })
     </script>

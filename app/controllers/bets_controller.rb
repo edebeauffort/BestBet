@@ -1,7 +1,9 @@
 
 class BetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :create]
-  # def index
+  def index
+    @bets = Bet.where(user_id: current_user)
+  end
 
   #   @pool = Pool.find(params[:pool_id])
   #   @selection = Selection.find(params[:selection_id])
@@ -14,12 +16,10 @@ class BetsController < ApplicationController
   # end
 
   def create
-    @pool = Pool.find(params[:pool_id])
-    @selection = Selection.find(params[:selection_id])
-    @user = current_user
-    @bet = Bet.new(user_id: @user.id, selection_id: @selection.id, pool_id: @pool.id)
+    @bet = Bet.new(bet_params)
+    @bet.user_id = current_user.id
     if @bet.save!
-     redirect_to  pool_selection_bet_path(@pool, @selection, @bet)
+     redirect_to  pool_path(@bet.pool_id)
    else
       redirect_to root_path
     end
@@ -27,5 +27,9 @@ class BetsController < ApplicationController
 
 
   private
+  def bet_params
+     params.require(:bet).permit(:user_id, :selection_id, :pool_id)
+  end
+
 
 end

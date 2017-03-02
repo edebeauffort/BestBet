@@ -2,9 +2,11 @@ class PoolsController < ApplicationController
 
   def show
     @pool = Pool.find(params[:id])
+
     if @pool.selections.where(winning_selection: true).first
       @winner = @pool.selections.where(winning_selection: true).first.title
     end
+    @bet = Bet.new
   end
 
   def index
