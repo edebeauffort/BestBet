@@ -14,14 +14,7 @@
     </div>
   </div>
   <div class ="row">
-    <% @pool.selections.each do |selection| %>
-      <div class=" col-xs-6 col-md-4">
-        <div class="betselections">
-        <p><%= selection.title %></p>
-        </div>
-      </div>
 
-    <% end %>
 
   </div>
     <%= render 'placebet' %>
@@ -29,6 +22,7 @@
     <%= render 'confirm_winner' %>
     <% end %>
 </div>
+<%= render 'chatroom' %>
 
 
 <!-- This is JS for the selections to be unclickable after countdown = 0 -->
