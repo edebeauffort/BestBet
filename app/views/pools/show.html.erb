@@ -34,18 +34,7 @@
 
 </div>
 
-      <div class="descriptionbet">
-        <h1><%= @pool.description %></h1>
-      </div>
-      <div class="row">
-        <% @pool.selections.each do |selection| %>
-        <div class=" col-xs-6 col-md-4">
-          <div class="betselections">
-            <%= link_to selection.title,  pool_selection_bets_path( @pool, selection), method: :post %>
-          </div>
-        </div>
-        <% end %>
-      </div>
+
 
       <% if current_user == @pool.user %>
       <%= render 'confirm_winner' %>
