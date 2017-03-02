@@ -25,6 +25,7 @@ class PoolsController < ApplicationController
   end
 
   def declare_winner
+    @selection.destroy
     @selection = Selection.find(params[:pool][:selection_id])
     @selection.winning_selection = true
     @pool = Pool.find(params[:id])
