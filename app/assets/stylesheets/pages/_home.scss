@@ -3,53 +3,66 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-/*.container-fluid {
->>>>>>> e76c77d8186dcf96ae13faef8dbd6439b780f772
-  width: 700px;
-  text-align: center;
-  color: $green;
-  font-family: $base-font;
 
-}*/
-
+.banner-create {
+  background-color: $blue;
+}
 
 .fake-btn {
-  position: absolute;
-  background-color: blue;
+  display: block;
 }
 
+    ul.tabs{
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+      background-color: white;
+      display: flex;
+    }
 
-.container-fluid {
-  width: 800px;
-  margin: 0 auto;
-}
+    ul.tabs li{
+      background: white;
+      color: #222;
+      padding: 10px 15px;
+      cursor: pointer;
+      flex: 1 1 auto;
+      border-top-style: none;
+      border-right-style: solid;
+      border-bottom-style: none;
+      border-left-style: none;
+      border-color: $gray;
+      border-width: 2px;
+    }
 
-ul.tabs {
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-}
+    ul.tabs li.current{
+      background: $lighter-blue;
+      color: #222;
+    }
 
-ul.tabs li {
-  background: none;
-  color: #222;
-  display: inline-block;
-  padding: 10px 15px;
-  cursor: pointer;
-}
-
-ul.tabs li.current {
-  background: #ededed;
-  color: #222;
-}
-
-.tab-content {
-  display: none;
-  background: #ededed;
-  padding: 15px;
-}
+    .tab-content{
+      display: none;
+      background: $gray;
+      padding: 15px;
+      min-height: 280px;
+      position: relative;
+    }
 
 .tab-content.current {
   display: inherit;
 }
 
+.real-submit {
+  margin-top: 7px;
+}
+
+.description_wrapper {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+}
+
+.description_input {
+  min-height: 180px;
+  min-width: 315px;
+}

@@ -4,24 +4,17 @@ class PagesController < ApplicationController
   def home
     @pool = Pool.new
     @selection = Selection.new
+    @invte = Invite.new
+    @pools = Pool.all
   end
 
-  def create
-
-    @pool = Pool.new(pool_params)
-    @pool.user = current_user
-
-    if @pool.save!
-      redirect_to new_bet_path(@pool)
-    else
-      render :new
-    end
-
-    authorize @pool
+  def invite
+    @invite = Invite.new
+    # @invite.users = "users in checkbox"
+    invite.message = "This is an invitation"
+    @invite.save
+    redirect_to root_path
   end
 
-  def pool_params
-    params.require(:pool).permit(:title, :description, :stake, :closing_date)
-  end
 
 end
