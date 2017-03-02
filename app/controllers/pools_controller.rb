@@ -2,6 +2,9 @@ class PoolsController < ApplicationController
 
   def show
     @pool = Pool.find(params[:id])
+    @bet = Bet.new
+
+
   end
 
   def index
@@ -20,6 +23,17 @@ class PoolsController < ApplicationController
       render :new
     end
   end
+
+  def declare_winner
+    @selection.destroy
+    @selection = Selection.find(params[:pool][:selection_id])
+    @selection.winning_selection = true
+    @pool = Pool.find(params[:id])
+    if @selection.save
+      redirect_to pool_path(@pool)
+    end
+  end
+
 
   private
 

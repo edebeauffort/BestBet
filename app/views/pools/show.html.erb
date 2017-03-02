@@ -23,6 +23,10 @@
       </div>
     <% end %>
   </div>
+    <%= render 'placebet' %>
+    <% if current_user == @pool.user %>
+    <%= render 'confirm_winner' %>
+    <% end %>
 </div>
 
 
