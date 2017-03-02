@@ -17,6 +17,7 @@ class BetsController < ApplicationController
 
   def create
     @bet = Bet.new(bet_params)
+    @bet.user_id = current_user.id
     if @bet.save!
      redirect_to  pool_path(@bet.pool_id)
    else
