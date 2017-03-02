@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   end
 
   resources :bets, only: [:show, :index, :create]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :update]
+
+  get '/deposit', to: 'users#deposit'
 
   post "/pools/:id/declare_winner" => "pools#declare_winner", as: :declare_winner
 

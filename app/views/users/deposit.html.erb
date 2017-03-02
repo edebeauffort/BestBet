@@ -1,0 +1,4 @@
+<%= simple_form_for(@user) do |f|%>
+<%= f.input :balance, required: false, input_html:{class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "How many credits do you wanna get?" %>
+<%= f.submit "Deposit", class: "btn btn-primary" %>
+<% end %>
