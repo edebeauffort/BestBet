@@ -13,15 +13,7 @@ text-align: center;
 .optional{
   display: flex;
 }
-.radio label, .checkbox label {
-    min-height: 100%;
-    min-width: 100%;
 
-    margin-bottom: 0;
-    font-weight: normal;
-    cursor: pointer;
-    height: 40px;
-}
 .radio + .radio, .checkbox + .checkbox {
     /* margin-top: -5px; */
     margin-top: 10px;
@@ -36,3 +28,4 @@ text-align: center;
     margin-top: 2px \9;
 
 }
+

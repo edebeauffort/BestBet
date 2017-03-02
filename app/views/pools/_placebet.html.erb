@@ -1,18 +1,27 @@
 
 <div class="row">
-  <%= simple_form_for(@bet) do |f| %>
+  <form novalidate="novalidate" class="simple_form new_bet" id="new_bet" action="/bets" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="NBZN0aWg/6Dh5TKE6VxP9m4VBh/Yrglq4VJzyhb3DifeHL3Qn9vuFwNvh9a5/fk5oD+Yu6/8zvXW4LOIuU9sXA==">
 
-  <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id }%>
-  <%= f.input :pool_id, :as => :hidden, :input_html => { :value => @pool.id }
-  %>
-<%  @pool.selections.each do |selection|    %>
-  <div class="col-xs-12 col-md-6">
-    <%= f.input :selection_id,     as: :radio_buttons, collection: [] << selection, :item_wrapper_class => 'btn btn-lg optionselection' %>
-  </div>
-  <% end %>
-  <%= f.submit 'Confirm your bet' , :class => 'tn btn-lg btn-success confirmbutton' %>
-  <% end %>
-</div>
+  <div class="form-group hidden bet_user_id"><input class="form-control hidden" value="2" type="hidden" name="bet[user_id]" id="bet_user_id"></div>
+  <div class="form-group hidden bet_pool_id"><input class="form-control hidden" value="1" type="hidden" name="bet[pool_id]" id="bet_pool_id"></div>
+ <div class="form-group radio_buttons optional bet_selection_id">
+      <input type="hidden" name="bet[selection_id]" value="">
+      <div class="row full-width">
+        <% @pool.selections.each do |selection| %>
+        <div class="col-xs-12 col-md-6">
+          <label class="control-label radio_buttons optional">
+            <span class="btn btn-lg checkbox radio optionselection">
+              <label for="bet_selection_id_#{selection}  " class="labelforinput">
+                <input class="radio_buttons optional " type="radio" value="2" name="bet[selection_id]" id="bet_selection_id_#{selection}"> <div class="titlecenter"><%= selection.title %></div>
+
+              </label>
+            </span>
+          </label>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  <input type="submit" name="commit" value="Confirm your bet" class="tn btn-lg btn-success confirmbutton" data-disable-with="Confirm your bet">
 
 
-
+</form></div>
