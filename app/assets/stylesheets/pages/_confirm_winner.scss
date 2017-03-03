@@ -111,7 +111,7 @@ select:focus {
 
 
 
-option {
+.option {
   font-weight:normal;
   font-family: $base-font;
 }
@@ -140,15 +140,30 @@ option {
   padding: 10px 30px 10px 30px;
 }
 
+
+.winner-output {
+  position: relative;
+  }
+
 .output {
-  background-color: $green;
+  border: 10px;
+  border-style: solid;
+  border-color: yellow;
+  border-radius: 30px;
+  padding: 10px;
+  background: $green;
   font-family: $base-font;
   font-size: 30px;
   text-align: center;
   margin: 0 auto;
   padding: 1em;
-
 }
+
+.edit-winner {
+  position: absolute;
+}
+
+
 .selections {
   padding: 10px;
   color: #fff;
