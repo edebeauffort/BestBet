@@ -9,7 +9,29 @@
   &.active {
   background: $green;
   opacity: 1;
+    &:hover {
+      background-color: $green;
+    }
+    &:active {
+      background-color: $green;
+      box-shadow: 0;
+    }
+    &:focus {
+      background-color: $green !important;
+    }
   }
+
+  &:hover {
+    background-color: $blue;
+  }
+  &:active {
+    background-color: $blue;
+
+  }
+  &:focus {
+    background-color: $blue !important;
+  }
+
 }
 
 .bet-selections {
@@ -33,5 +55,6 @@
   &.active {
     background: $green;
     opacity: 1;
+    box-shadow: none;
   }
 }

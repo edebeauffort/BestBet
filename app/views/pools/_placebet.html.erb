@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="text-center theheaderforbet">
-        <h3>Place Your bet</h3>
       </div>
       <div class="row">
       <form novalidate="novalidate" class="simple_form new_bet" id="new_bet" action="/bets" accept-charset="UTF-8" method="post">
@@ -14,11 +13,17 @@
           <input value="<%= @pool.id %>" type="hidden" name="bet[pool_id]">
           <div class="bet-selections">
             <% @pool.selections.each do |selection| %>
+              <% if my_selection.include?(selection) %>
               <input class="hidden" type="radio" value="<%= selection.id%>" name="bet[selection_id]" id="bet_selection_id_<%=selection.id%>">
-
+              <label for="bet_selection_id_<%=selection.id%>" class="bet-selection active">
+              <%= selection.title %>
+              </label>
+              <% else %>
+              <input class="hidden" type="radio" value="<%= selection.id%>" name="bet[selection_id]" id="bet_selection_id_<%=selection.id%>">
               <label for="bet_selection_id_<%=selection.id%>" class="bet-selection">
               <%= selection.title %>
               </label>
+              <% end %>
             <% end %>
           </div>
         </div>

@@ -24,7 +24,7 @@ class BetsController < ApplicationController
     if @bet.save!
      @user.save
      redirect_to  pool_path(@bet.pool)
-   else
+    else
       redirect_to root_path
     end
   end
