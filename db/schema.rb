@@ -28,12 +28,10 @@ ActiveRecord::Schema.define(version: 20170303114020) do
 
   create_table "chats", force: :cascade do |t|
     t.text     "content"
-    t.integer  "user_id"
     t.integer  "pool_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pool_id"], name: "index_chats_on_pool_id", using: :btree
-    t.index ["user_id"], name: "index_chats_on_user_id", using: :btree
   end
 
   create_table "invites", force: :cascade do |t|
@@ -44,6 +42,18 @@ ActiveRecord::Schema.define(version: 20170303114020) do
     t.datetime "updated_at", null: false
     t.index ["pool_id"], name: "index_invites_on_pool_id", using: :btree
     t.index ["user_id"], name: "index_invites_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "message"
+    t.integer  "pool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "chat_id"
+    t.index ["chat_id"], name: "index_messages_on_chat_id", using: :btree
+    t.index ["pool_id"], name: "index_messages_on_pool_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "pools", force: :cascade do |t|
@@ -95,9 +105,11 @@ ActiveRecord::Schema.define(version: 20170303114020) do
   add_foreign_key "bets", "selections"
   add_foreign_key "bets", "users"
   add_foreign_key "chats", "pools"
-  add_foreign_key "chats", "users"
   add_foreign_key "invites", "pools"
   add_foreign_key "invites", "users"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "pools"
+  add_foreign_key "messages", "users"
   add_foreign_key "pools", "users"
   add_foreign_key "selections", "pools"
 end
