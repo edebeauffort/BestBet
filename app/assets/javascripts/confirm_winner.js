@@ -1,17 +1,23 @@
 
 $(function() {
 
-  $('#declarewinner').change(function(){
-    $('.selections').hide();
-    $('#' + $(this).val()).show();
-  });
+  // $('#declarewinner').change(function(){
+  //   $('.selections').hide();
+  //   $('#' + $(this).val()).show();
+  // });
 
-   var output = $('#winner').text();
-   if (output.length != 0) {
-      $('.hiddeable').addClass('hidden');
-   }
+
+
+   $('.edit_pool').submit(function() {
+     $('.hiddeable').hide()
+   })
 
    $('#admin-change-winner').click(function() {
-      $('.hiddeable').removeClass('hidden');
+      $('.hiddeable').show();
     });
+
+   var output = $('#winner').text().trim();
+   if (output != "") {
+      $('.hiddeable').hide();
+   }
 });
