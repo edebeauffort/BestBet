@@ -27,9 +27,14 @@ class PoolsController < ApplicationController
   end
 
   def declare_winner
+    @pool = Pool.find(params[:id])
+    @pool.selections.each do |selection|
+      selection.winning_selection = false
+      selection.save
+    end
     @selection = Selection.find(params[:pool][:selection_id])
     @selection.winning_selection = true
-    @pool = Pool.find(params[:id])
+
     if @selection.save
       redirect_to pool_path(@pool)
     end

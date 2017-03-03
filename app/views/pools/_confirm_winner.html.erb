@@ -1,6 +1,7 @@
 
 <div class ="container">
 <div class ="wrapper">
+  <div class="hiddeable">
   <label class="wrapper" for="selections">Declare the Winner
   </label>
 
@@ -25,10 +26,13 @@
     <input type="hidden" name="authenticity_token" value="rzJWaLodhFTcxCw/JgIDOBy5egK1P9qAP8tS/cw8XnQqFfEMpqiLHnRXIVhNUpTWwCz1zD9YEEUZXgN/eDGzWA==">
 
   </form>
-
+  </div>
   <div class="output" id="winner">
     <% if @winner %>
     <%= @winner + " Wins!" %>
+    <% end %>
+    <% if current_user == @pool.user %>
+    <i class='fa fa-wrench' id="admin-change-winner"></i>
     <% end %>
   </div>
 </div>
