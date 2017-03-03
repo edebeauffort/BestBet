@@ -8,8 +8,9 @@
           <li><%=image_tag "Cash.png", class: "bet-icon"%><%= @pool.stake %></li>
           <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
         </ul>
-          <hr>
-        <h3><%= @pool.description %></h3>
+        <hr>
+        <h4><%= @pool.description %></h4>
+        <hr>
       </div>
     </div>
   </div>
@@ -17,7 +18,7 @@
 
 
   </div>
-    <%= render 'placebet' %>
+    <%= render 'placebet', my_selection: @my_selection %>
     <% if current_user == @pool.user %>
     <%= render 'confirm_winner' %>
     <% end %>
@@ -28,20 +29,52 @@
 <!-- This is JS for the selections to be unclickable after countdown = 0 -->
 <% content_for(:after_js) do %>
 <script>
-  $("#pool-<%=@pool.id%>")
-  .countdown("<%= @pool.end_date %>", function(event) {
+$(function(){
+
+  $("#pool-<%= @pool.id %>").countdown("<%= @pool.end_date %>", function(event) {
+    // Countdown text logic
     $(this).text(
       event.strftime('%Dd %H:%M:%S')
       );
+
+    //  if countdown if finished
     $(this).on('finish.countdown', function(){
-      $("#pool-<%=@pool.id%>").html("Bet closed").addClass("finish");
-      $(".bet-selections").click(function(){
-        $("#pool-<%=@pool.id%>").effect( "shake", {times:4}, 600 );
-        return false;
-      $(".bet-selection").removeClass("active");
-      $(".confirmbutton").removeClass("active");
+      // add bet closed text insead of the countdown numbers
+      $("#pool-<%= @pool.id %>").html("Bet closed").addClass("finish");
+
+      // if I click on the selection buttons, shake the bet closed and prevent clicking
+      $(".bet-selection").click(function(e){
+        e.preventDefault();
+        $("#pool-<%= @pool.id %>").effect( "shake", {times:4}, 600 );
       });
+      // if I click on submit selections, prevent the submission
+      $(".confirmbutton").click(function(e){
+        e.preventDefault();
+        $("#pool-<%= @pool.id %>").effect( "shake", {times:4}, 600 );
+      })
+
     });
   })
+
+  // if I click on selection of bet
+  $(".bet-selection").click(function(){
+    // if the bet is not finished (hacky code)
+    if ($("#pool-<%= @pool.id %>").text() != "Bet closed"){
+      // make buttons green with active class
+      $(".bet-selection").removeClass("active");
+      $(this).toggleClass("active");
+      $(".confirmbutton").addClass("active");
+    }
+  });
+
+  if ($(".bet-selection").hasClass("active")){
+
+    $(".bet-selections").click(function(e){
+        e.preventDefault()
+      });
+    $(".confirmbutton").hide()
+  }
+
+});
 </script>
 <% end %>
