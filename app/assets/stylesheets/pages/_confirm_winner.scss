@@ -8,10 +8,11 @@
 /* Label styles: style as needed */
 label {
   font-family: $base-font;
+  text-align: left;
   display:block;
-  margin: 2em 1em .25em .75em;
-  font-size: 25px;
-  color:#333;
+  margin-top: 10px;
+  font-size: 30px;
+  color: black;
 }
 
 /* Container used for styling the custom select, the buttom class adds the bg gradient, corners, etc. */
@@ -20,14 +21,16 @@ label {
   display:block;
   margin-top:0.5em;
   padding:0;
-}
+
+  }
 
 /* This is the native select, we're making everything the text invisible so we can see the button styles in the wrapper */
 .dropdown select {
   width:100%;
+  height:100%;
   margin:0;
   background:none;
-  border: 1px solid transparent;
+  border: 0px solid transparent;
   outline: none;
   /* Prefixed box-sizing rules necessary for older browsers */
   -webkit-box-sizing: border-box;
@@ -47,6 +50,7 @@ label {
 .dropdown select,
 label {
   font-family: $base-font;
+  font-size: 20px;
 }
 
 /* Custom arrow sits on top of the select - could be an image, SVG, icon font, etc. or the arrow could just baked into the bg image on the select */
@@ -125,16 +129,29 @@ option {
   background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
 }
 
+.confirm-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  height: 100%;
+  border-radius: 10px;
+  padding: 10px 30px 10px 30px;
+}
+
 .output {
+  background-color: $green;
+  font-family: $base-font;
+  font-size: 30px;
+  text-align: center;
   margin: 0 auto;
   padding: 1em;
+
 }
 .selections {
-  padding: 2em;
+  padding: 10px;
   color: #fff;
   display: none;
-}
-.winner {
-  background: $green;
 }
 

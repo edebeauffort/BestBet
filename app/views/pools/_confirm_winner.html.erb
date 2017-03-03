@@ -1,23 +1,35 @@
 
-<div>
-<form novalidate="novalidate" class="simple_form edit_pool" id="edit_pool_<%= @pool.id %>" action="/pools/<%= @pool.id %>/declare_winner" accept-charset="UTF-8" method="post">
-  <label class="wrapper" for="selections">Declare Winning Selection:</label>
-  <div class="button dropdown" placeholder="Select the Winning Choice">
-    <select id="declarewinner" class="form-control select optional" name="pool[selection_id]" id="pool_selection_id">
-      <%= @pool.selections.each do |selection| %>
-      <hr>
-      <option value="<%= selection.id %>"><%= selection.title %></option>
-      <% end %>
-    </select>
+<div class ="container">
+<div class ="wrapper">
+  <label class="wrapper" for="selections">Declare the Winner
+  </label>
+
+  <form novalidate="novalidate" class="simple_form edit_pool" id="edit_pool_<%= @pool.id %>" action="/pools/<%= @pool.id %>/declare_winner" accept-charset="UTF-8" method="post">
+
+    <div class="button dropdown">
+      <select id="declarewinner" class="form-control select optional" name="pool[selection_id]" id="pool_selection_id">
+      <option value="" disabled selected> Select the Winning Bet: </option>
+        <%= @pool.selections.each do |selection| %>
+        <option value="<%= selection.id %>"><%= selection.title %></option>
+        <% end %>
+      </select>
+    </div>
+
+
+    <div class ="confirm-button">
+      <input type="submit" name="commit" value="Confirm" class="btn btn-primary" data-disable-with="Confirm">
+    </div>
+
+
+    <input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="authenticity_token" value="rzJWaLodhFTcxCw/JgIDOBy5egK1P9qAP8tS/cw8XnQqFfEMpqiLHnRXIVhNUpTWwCz1zD9YEEUZXgN/eDGzWA==">
+
+  </form>
+
+  <div class="output" id="winner">
+    <% if @winner %>
+    <%= @winner + " Wins!" %>
+    <% end %>
   </div>
-  <input type="submit" name="commit" value="Declare winner!" class="btn btn-primary" data-disable-with="Declare winner!">
-  <input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="rzJWaLodhFTcxCw/JgIDOBy5egK1P9qAP8tS/cw8XnQqFfEMpqiLHnRXIVhNUpTWwCz1zD9YEEUZXgN/eDGzWA==">
-</form>
 </div>
-
-<div class="output" id="winner">
-  <% if @winner %>
-  <h1><%= @winner + " Wins!" %></h1>
-  <% end %>
 </div>
-
