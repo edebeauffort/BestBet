@@ -10,7 +10,7 @@ class BetsController < ApplicationController
   #   @user = User.find(params[:user_id])
    def show
     @bet = Bet.find(params[:id])
-    @pool = @bet.pool
+    @pool = @bet.selection.pool
     @selection = @bet.selection
   end
   # end

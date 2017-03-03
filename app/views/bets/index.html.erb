@@ -6,15 +6,15 @@
         <div class="card-description">
         <%= link_to "", bet_path(bet), class: 'card-link' %>
 
-          <h3 class="text-center"><%= bet.pool.title %> </h3>
+          <h3 class="text-center"><%= bet.selection.pool.title %> </h3>
           <ul class="list-unstyled list-inline">
-            <li><%=image_tag "group.png", class: "card-icon"%> <%= @bets.where(pool_id: bet.pool_id).count %></li>
-            <li><%=image_tag "Cash.png", class: "card-icon"%><%= bet.pool.stake %></li>
+            <li><%=image_tag "group.png", class: "card-icon"%> <%= @bets.where(pool_id: bet.selection.pool_id).count %></li>
+            <li><%=image_tag "Cash.png", class: "card-icon"%><%= bet.selection.pool.stake %></li>
 
           </ul>
           <hr>
           <div class="text-center">
-          <p><%= bet.pool.description %></p>
+          <p><%= bet.selection.pool.description %></p>
           </div>
         </div>
       </div>
@@ -22,13 +22,13 @@
 
     <% content_for(:after_js) do %>
     <script type="text/javascript">
-      $("#bet.pool-<%=bet.pool.id%>")
-      .countdown("<%= bet.pool.end_date %>", function(event) {
+      $("#bet.selection.pool-<%=bet.selection.pool.id%>")
+      .countdown("<%= bet.selection.pool.end_date %>", function(event) {
         $(this).text(
           event.strftime('%Dd %H:%M:%S')
           );
         $(this).on('finish.countdown', function(){
-        $("#bet.pool-<%=bet.pool.id%>").html("Bet closed").addClass("finish");
+        $("#bet.selection.pool-<%=bet.selection.pool.id%>").html("Bet closed").addClass("finish");
         });
       })
     </script>
