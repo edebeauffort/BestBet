@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @selection = Selection.new
     @invte = Invite.new
     @pools = Pool.all
+    @bets = Bet.where(pool_id: @pool.id).count
   end
 
   def invite
