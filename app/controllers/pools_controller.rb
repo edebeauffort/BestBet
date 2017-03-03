@@ -7,6 +7,14 @@ class PoolsController < ApplicationController
       @winner = @pool.selections.where(winning_selection: true).first.title
     end
     @bet = Bet.new
+    @my_selection = []
+    @pool.bets.each do |bet|
+      if bet.user == current_user
+        @my_selection << bet.selection
+      end
+    end
+
+
   end
 
   def index
