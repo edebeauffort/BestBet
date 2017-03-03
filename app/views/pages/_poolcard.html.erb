@@ -8,7 +8,7 @@
         <%= link_to "", pool_path(pool), class: 'card-link' %>
           <h3><%= pool.title %> </h3>
           <ul class="list-unstyled list-inline">
-            <li><%=image_tag "group.png", class: "card-icon"%> 4 </li>
+            <li><%=image_tag "group.png", class: "card-icon"%><%= @bets %></li>
             <li><%=image_tag "Cash.png", class: "card-icon"%><%= pool.stake %></li>
             <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
           </ul>

@@ -41,34 +41,27 @@
 
 
 <%= content_for(:after_js) do %>
-  <script>
+<script>
   $(function() {
-
     // $('#declarewinner').change(function(){
     //   $('.selections').hide();
     //   $('#' + $(this).val()).show();
     // });
-
     if (<%= Time.now < @pool.end_date %>) {
-
       $('.hiddeable').show();
-
       $(".selection-submit").prop('disabled', true);
       document.getElementById("declarewinner").disabled = true;
     }
-
-     $('.edit_pool').submit(function() {
-       $('.hiddeable').hide()
-     })
-
-     $('#admin-change-winner').click(function() {
-        $('.hiddeable').show();
-      });
-
-     var output = $('#winner').text().trim();
-     if (output != "") {
-        $('.hiddeable').hide();
-     }
+    $('.edit_pool').submit(function() {
+     $('.hiddeable').hide()
+   })
+    $('#admin-change-winner').click(function() {
+      $('.hiddeable').show();
+    });
+    var output = $('#winner').text().trim();
+    if (output != "") {
+      $('.hiddeable').hide();
+    }
   });
-  </script>
+</script>
 <% end %>

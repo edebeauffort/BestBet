@@ -4,8 +4,8 @@
       <div class="bet-description">
         <h1><%= @pool.title %></h1>
         <ul class="list-unstyled list-inline tags">
-          <li><%=image_tag "group.png", class: "bet-icon"%> 4 </li>
-          <li><%=image_tag "Cash.png", class: "bet-icon"%><%= @pool.stake %></li>
+          <li><%=image_tag "group.png", class: "bet-icon"%><%= @bets %></li>
+          <li><%=image_tag "Cash.png", class: "bet-icon"%><%= @jackpot %> €</li>
           <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
         </ul>
         <hr>

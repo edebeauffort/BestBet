@@ -2,6 +2,9 @@ class PoolsController < ApplicationController
 
   def show
     @pool = Pool.find(params[:id])
+    @bets = Bet.where(pool_id: @pool.id).count
+    @jackpot = (@bets * @pool.stake).to_i
+
 
     if @pool.selections.where(winning_selection: true).first
       @winner = @pool.selections.where(winning_selection: true).first.title
