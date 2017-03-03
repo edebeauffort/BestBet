@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20170302101618) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.datetime "end_date"
     t.integer  "selection_id"
+    t.datetime "end_date"
     t.index ["selection_id"], name: "index_pools_on_selection_id", using: :btree
     t.index ["user_id"], name: "index_pools_on_user_id", using: :btree
   end
