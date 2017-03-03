@@ -18,7 +18,7 @@
 
 
     <div class ="confirm-button">
-      <input type="submit" name="commit" value="Confirm" class="btn btn-primary" data-disable-with="Confirm">
+      <input type="submit" name="commit" value="Confirm" class="btn btn-primary selection-submit" data-disable-with="Confirm">
     </div>
 
 
@@ -37,3 +37,11 @@
   </div>
 </div>
 </div>
+
+<%= content_for(:after_js) do %>
+  <script>
+    if ("<%= Time.now < @pool.end_date %>") {
+      $(".selection-submit").prop('disabled', true);
+    }
+  </script>
+<% end %>
