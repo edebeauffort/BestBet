@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302101618) do
+ActiveRecord::Schema.define(version: 20170303111404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,12 +28,10 @@ ActiveRecord::Schema.define(version: 20170302101618) do
 
   create_table "chats", force: :cascade do |t|
     t.text     "content"
-    t.integer  "user_id"
     t.integer  "pool_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pool_id"], name: "index_chats_on_pool_id", using: :btree
-    t.index ["user_id"], name: "index_chats_on_user_id", using: :btree
   end
 
   create_table "invites", force: :cascade do |t|
@@ -46,6 +44,18 @@ ActiveRecord::Schema.define(version: 20170302101618) do
     t.index ["user_id"], name: "index_invites_on_user_id", using: :btree
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "message"
+    t.integer  "pool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "chat_id"
+    t.index ["chat_id"], name: "index_messages_on_chat_id", using: :btree
+    t.index ["pool_id"], name: "index_messages_on_pool_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+  end
+
   create_table "pools", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -53,8 +63,8 @@ ActiveRecord::Schema.define(version: 20170302101618) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.datetime "end_date"
     t.integer  "selection_id"
+    t.datetime "end_date"
     t.index ["selection_id"], name: "index_pools_on_selection_id", using: :btree
     t.index ["user_id"], name: "index_pools_on_user_id", using: :btree
   end
@@ -97,9 +107,11 @@ ActiveRecord::Schema.define(version: 20170302101618) do
   add_foreign_key "bets", "selections"
   add_foreign_key "bets", "users"
   add_foreign_key "chats", "pools"
-  add_foreign_key "chats", "users"
   add_foreign_key "invites", "pools"
   add_foreign_key "invites", "users"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "pools"
+  add_foreign_key "messages", "users"
   add_foreign_key "pools", "selections"
   add_foreign_key "pools", "users"
   add_foreign_key "selections", "pools"

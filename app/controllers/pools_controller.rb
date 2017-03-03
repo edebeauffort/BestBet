@@ -7,6 +7,7 @@ class PoolsController < ApplicationController
       @winner = @pool.selections.where(winning_selection: true).first.title
     end
     @bet = Bet.new
+    @message = Message.new
   end
 
   def index

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :bets, only: [:show, :index, :create]
 
   resources :users, only: [:show, :update]
+  resources :chats, only: [:create]
+  resources :messages, only: [:create]
 
   get '/deposit', to: 'users#deposit'
 

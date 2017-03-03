@@ -18,7 +18,7 @@
           <label class="control-label radio_buttons optional">
             <span class="btn btn-lg checkbox radio optionselection">
               <label for="bet_selection_id_#{selection}  " class="labelforinput">
-                <input class="radio_buttons optional " type="radio" value="2" name="bet[selection_id]" id="bet_selection_id_#{selection}"> <div class="titlecenter"><%= selection.title %></div>
+                <input class="radio_buttons optional " type="radio" value="<%= selection.id %>" name="bet[selection_id]" id="bet_selection_id_#{selection}"> <div class="titlecenter"><%= selection.title %></div>
 
               </label>
             </span>
