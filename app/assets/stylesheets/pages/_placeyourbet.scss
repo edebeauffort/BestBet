@@ -1,29 +1,37 @@
 .confirmbutton{
-text-align: center;
-
-  margin-top: 50px;
+  text-align: center;
+  margin-top: 25px;
   width: 100%;
+  background: $blue;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0;
+  &.active {
+  background: $green;
+  opacity: 1;
+  }
 }
-.optionselection{
-  width: 96%;
-  background-color: #3B99FC;
-  margin: 10px;
-  height: 50px;
-}
-.optional{
+
+.bet-selections {
   display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  flex-wrap: wrap;
 }
 
-.radio + .radio, .checkbox + .checkbox {
-    /* margin-top: -5px; */
-    margin-top: 10px;
+.bet-selection {
+  color: white;
+  flex: 0 0 30%;
+  background: $blue;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  &:hover {
+    box-shadow: 3px 3px 5px #888888;
+    cursor: pointer;
+  }
+  &.active {
+    background: $green;
+    opacity: 1;
+  }
 }
-
-.control-label{
-  font-size: 0.000001px;
-}
-.theheaderforbet{
-  margin-top:20px;
-  color:#234C63;
-}
-
