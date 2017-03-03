@@ -5,19 +5,20 @@
 
 
 .banner-create {
-  display: flex;
   background-color: $blue;
-  justify-content: space-around;
 }
 
-
+.form-group{
+  margin: 0px;
+}
 
 .bet-title {
   margin: 5px;
 }
 
 .fake-btn {
-
+  width: 99%;
+  margin: 5px;
 }
 
     ul.tabs{
@@ -73,4 +74,8 @@
 .description_input {
   min-height: 180px;
   min-width: 315px;
+}
+
+.new-pool {
+  width: 100vw;
 }
