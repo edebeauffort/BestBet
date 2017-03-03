@@ -3,6 +3,7 @@ class BetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :create]
   def index
     @bets = Bet.where(user_id: current_user)
+
   end
 
   #   @pool = Pool.find(params[:pool_id])
@@ -10,7 +11,7 @@ class BetsController < ApplicationController
   #   @user = User.find(params[:user_id])
    def show
     @bet = Bet.find(params[:id])
-    @pool = @bet.pool
+    @pool = @bet.selection.pool
     @selection = @bet.selection
   end
   # end
@@ -19,7 +20,9 @@ class BetsController < ApplicationController
     @bet = Bet.new(bet_params)
     @bet.user_id = current_user.id
     @user = current_user
+
     @user.balance -= (@bet.selection.pool.stake).to_f
+
 
     if @bet.save!
      @user.save

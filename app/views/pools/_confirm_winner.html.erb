@@ -1,41 +1,49 @@
 
 <div class ="container">
-<div class ="wrapper">
-  <div class="hiddeable">
-  <label class="wrapper" for="selections">Declare the Winner
-  </label>
+  <div class ="wrapper">
+    <div class="hiddeable">
+      <label class="wrapper" for="selections">Declare the Winner
+      </label>
 
-  <form novalidate="novalidate" class="simple_form edit_pool" id="edit_pool_<%= @pool.id %>" action="/pools/<%= @pool.id %>/declare_winner" accept-charset="UTF-8" method="post">
+      <form novalidate="novalidate" class="simple_form edit_pool" id="edit_pool_<%= @pool.id %>" action="/pools/<%= @pool.id %>/declare_winner" accept-charset="UTF-8" method="post">
 
-    <div class="button dropdown">
-      <select id="declarewinner" class="form-control select optional" name="pool[selection_id]" id="pool_selection_id">
-      <option value="" disabled selected> Select the Winning Bet: </option>
-        <%= @pool.selections.each do |selection| %>
-        <option value="<%= selection.id %>"><%= selection.title %></option>
+        <div class="button dropdown">
+          <select id="declarewinner" class="form-control select optional" name="pool[selection_id]" id="pool_selection_id">
+            <option value="" disabled selected> Select the Winning Bet: </option>
+            <%= @pool.selections.each do |selection| %>
+            <option value="<%= selection.id %>"><%= selection.title %></option>
+            <% end %>
+          </select>
+        </div>
+
+
+        <div class ="confirm-button">
+          <input type="submit" name="commit" value="Confirm" class="btn btn-primary selection-submit" data-disable-with="Confirm">
+        </div>
+
+
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="authenticity_token" value="rzJWaLodhFTcxCw/JgIDOBy5egK1P9qAP8tS/cw8XnQqFfEMpqiLHnRXIVhNUpTWwCz1zD9YEEUZXgN/eDGzWA==">
+
+      </form>
+    </div>
+
+    <div class="container winner-output">
+      <div class="output" id="winner">
+        <% if @winner %>
+        <%= @winner + " Wins!" %>
         <% end %>
-      </select>
+        <% if current_user == @pool.user %>
+        <div class = "edit-winner top">
+        <i class='fa fa-wrench' id="admin-change-winner"></i>
+        </div>
+        <% end %>
+      </div>
     </div>
 
 
-    <div class ="confirm-button">
-      <input type="submit" name="commit" value="Confirm" class="btn btn-primary selection-submit" data-disable-with="Confirm">
-    </div>
 
-
-    <input name="utf8" type="hidden" value="✓">
-    <input type="hidden" name="authenticity_token" value="rzJWaLodhFTcxCw/JgIDOBy5egK1P9qAP8tS/cw8XnQqFfEMpqiLHnRXIVhNUpTWwCz1zD9YEEUZXgN/eDGzWA==">
-
-  </form>
   </div>
-  <div class="output" id="winner">
-    <% if @winner %>
-    <%= @winner + " Wins!" %>
-    <% end %>
-    <% if current_user == @pool.user %>
-    <i class='fa fa-wrench' id="admin-change-winner"></i>
-    <% end %>
-  </div>
-</div>
 </div>
 
 

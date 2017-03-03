@@ -10,6 +10,7 @@ class PoolsController < ApplicationController
       @winner = @pool.selections.where(winning_selection: true).first.title
     end
     @bet = Bet.new
+    @message = Message.new
     @my_selection = []
     @pool.bets.each do |bet|
       if bet.user == current_user
