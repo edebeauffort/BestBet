@@ -19,11 +19,11 @@ class BetsController < ApplicationController
     @bet = Bet.new(bet_params)
     @bet.user_id = current_user.id
     @user = current_user
-    @user.balance -= (@bet.pool.stake).to_f
+    @user.balance -= (@bet.selection.pool.stake).to_f
 
     if @bet.save!
      @user.save
-     redirect_to  pool_path(@bet.pool)
+     redirect_to  pool_path(@bet.selection.pool)
    else
       redirect_to root_path
     end
