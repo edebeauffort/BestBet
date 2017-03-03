@@ -34,10 +34,22 @@ class PoolsController < ApplicationController
     end
     @selection = Selection.find(params[:pool][:selection_id])
     @selection.winning_selection = true
-
-    if @selection.save
-      redirect_to pool_path(@pool)
+    @selection.save
+    @pool = Pool.find(params[:id])
+    @bets = Bet.where(pool_id: @pool.id)
+    @jackpot = (@bets.count * @pool.stake).to_f
+    @winners = @bets.where(selection_id: @selection.id)
+    @winnings = (@jackpot / @winners.count).to_f
+    @user_winners = []
+    @winners.each do |bet|
+      @user_winners << bet.user
     end
+    @user_winners.each do |user|
+      user.balance += @winnings
+      user.save
+    end
+
+    redirect_to :back
   end
 
 

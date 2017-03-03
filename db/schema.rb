@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302101618) do
+ActiveRecord::Schema.define(version: 20170303114020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,11 +51,9 @@ ActiveRecord::Schema.define(version: 20170302101618) do
     t.text     "description"
     t.float    "stake"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.datetime "end_date"
-    t.integer  "selection_id"
-    t.index ["selection_id"], name: "index_pools_on_selection_id", using: :btree
     t.index ["user_id"], name: "index_pools_on_user_id", using: :btree
   end
 
@@ -100,7 +98,6 @@ ActiveRecord::Schema.define(version: 20170302101618) do
   add_foreign_key "chats", "users"
   add_foreign_key "invites", "pools"
   add_foreign_key "invites", "users"
-  add_foreign_key "pools", "selections"
   add_foreign_key "pools", "users"
   add_foreign_key "selections", "pools"
 end

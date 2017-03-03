@@ -16,6 +16,7 @@
             <% @pool.selections.each do |selection| %>
               <input class="hidden" type="radio" value="<%= selection.id%>" name="bet[selection_id]" id="bet_selection_id_<%=selection.id%>">
 
+
               <label for="bet_selection_id_<%=selection.id%>" class="bet-selection">
               <%= selection.title %>
               </label>
