@@ -1,0 +1,22 @@
+.winning_selectionbet{
+ display: flex;
+ height: 175px;
+ width: 100%;
+ background-color: #1DC331;
+ position: relative;
+ margin: 10px 0px;
+ padding: 10px;
+ border-radius: 5px;
+ box-shadow: 2px 2px 4px rgba(200,200,200,0.6);
+}
+.losing_selectionbet{
+  display: flex;
+  height: 175px;
+  width: 100%;
+  background-color: #E85761;
+  position: relative;
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(200,200,200,0.6);
+}

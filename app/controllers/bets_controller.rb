@@ -3,6 +3,7 @@ class BetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :create]
   def index
     @bets = Bet.where(user_id: current_user)
+
   end
 
   #   @pool = Pool.find(params[:pool_id])
@@ -20,7 +21,6 @@ class BetsController < ApplicationController
     @bet.user_id = current_user.id
     @user = current_user
     @user.balance -= (@bet.pool.stake).to_f
-
     if @bet.save!
      @user.save
      redirect_to  pool_path(@bet.pool)
