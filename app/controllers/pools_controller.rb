@@ -7,7 +7,7 @@ class PoolsController < ApplicationController
 
 
     if @pool.selections.where(winning_selection: true).first
-      @winner = @pool.selections.where(winning_selection: true).first.title
+      @winner = @pool.selections.where(winning_selection: true).first
     end
     @bet = Bet.new
     @message = Message.new
