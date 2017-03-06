@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h1 class="text-center">All your bets</h1>
-    <% @bets.order.each do |bet| %>
+    <% @bets.each do |bet| %>
     <% if bet.selection.pool.end_date >= DateTime.now %>
     <div class="col-xs-12 col-md-4 col-sm-6">
       <div class="card">
