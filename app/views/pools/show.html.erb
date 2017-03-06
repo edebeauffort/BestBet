@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row ">
+  <div class="row">
     <div class="col-xs-12">
       <div class="bet-description">
         <h1><%= @pool.title %></h1>
@@ -14,15 +14,18 @@
       </div>
     </div>
   </div>
-  <div class ="row">
 
-  </div>
+  <div>
     <%= render 'placebet', my_selection: @my_selection %>
-   <!--  <%# if current_user == @pool.user %> -->
-    <%= render 'confirm_winner' %>
-  <!--   <%# end %> -->
   </div>
-<%= render 'chatroom' %>
+
+  <div>
+    <%= render 'confirm_winner' %>
+  </div>
+
+  <div>
+    <%= render 'chatroom' %>
+  </div>
 
 <!-- This is JS for the selections to be unclickable after countdown = 0 -->
 <% content_for(:after_js) do %>

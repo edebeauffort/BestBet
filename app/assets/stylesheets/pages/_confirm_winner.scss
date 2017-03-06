@@ -161,7 +161,7 @@ select:focus {
 
 
 .edit-winner {
-  color: $blue;
+  color: white;
 }
 
 .edit-winner:hover{
@@ -169,11 +169,13 @@ select:focus {
 }
 
 
-.bottomright {
-  position: absolute;
-  bottom: 15px;
-  right: 35px;
-  font-size: 18px;
+.center {
+    position: absolute;
+    left: 0;
+    top: 62%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
 }
 
 
