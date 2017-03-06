@@ -2,22 +2,25 @@
   <div class="row">
     <div class="col-xs-12">
       <div id="chatroom">
-        <h1>CHAT-ROOM</h1>
-        <%= simple_form_for @message do |f| %>
-        <%= f.input :pool_id, as: :hidden , :input_html =>{:value => @pool.id} %>
-        <%= f.input :user_id, as: :hidden , :input_html => {:value => current_user.id} %>
-        <%= f.input :message, input_html: {id: "your-message"} %>
-        <%= f.button :submit, :class => "send btn btn-primary submitbutton"   %>
-        <% end %>
+      <h1>CHAT-ROOM</h1>
         <div class="row chatbox">
-          <% @pool.messages.each do |message| %>
-          <div id="messages">
-            <p><%= message.user.email%> : <%= message.message %>
-            </p>
-          </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+          <ul id="messages" class="messages-list">
+           <% @pool.messages.last(15).each do |message| %>
+           <% if message.user == current_user %>
+           <div class= "ownmessagediv">
+             <li> <%= message.message %></li>
+           </div>
+           <% else %>
+           <div class= "messagediv" id="messagediv">
+             <li><%= message.user.username %>:
+               <br> <%= message.message %></li>
+             </div>
+             <% end %>
+             <% end %>
+           </ul>
+           <%= render :partial => 'messages/form' %>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>

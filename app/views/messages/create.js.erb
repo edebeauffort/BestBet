@@ -1,0 +1,14 @@
+console.log('new message');
+
+<% if @message.errors.any? %>
+ $('#new_message').html("<%= j render 'messages/form', pool: @pool, message: @message %>");
+<% else %>
+var name = '<%= @message.user.email%>';
+var message = '<%= @message.message %>';
+  var new_message = $('<div class="ownmessagediv">' + '<li>' + message + '</li>' + '</div>')
+  $('#messages').append(new_message);
+  new_message.slideDown();
+  <% @message = Message.new %>
+  $('#new_message').html("<%= j render 'messages/form', pool: @pool, message: @message %>");
+<% end %>
+
