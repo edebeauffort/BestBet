@@ -39,7 +39,7 @@ class PoolsController < ApplicationController
     if @pool.save
       redirect_to pool_path(@pool)
     else
-      render :new
+      redirect_to root_path
     end
   end
 
