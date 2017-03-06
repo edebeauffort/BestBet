@@ -27,11 +27,11 @@
         <% if @pool.selections.where(winning_selection: true).count > 0 %>
           <h3><%= @winner.title + " Wins!" %></h3>
         <% else %>
-        <h3><i> No Winner Has Been Named Yet...</i>i </h3>
+        <h3><i> No Winner Has Been Named Yet...</i></h3>
         <% end %>
         <% if current_user == @pool.user %>
-        <div class = "edit-winner bottomright">
-        <i class='fa fa-wrench' id="admin-change-winner"></i>
+        <div class = "edit-winner center">
+        <i class='fa fa-pencil' id="admin-change-winner"></i>
         </div>
         <% end %>
       </div>
@@ -67,7 +67,7 @@
     };
 
     $('.edit_pool').submit(function(e) {
-      confirm('You have selected: ' + $('#declarewinner option:selected').text() + 'as the winner. Are you sure?')
+      confirm('You have selected: ' + $('#declarewinner option:selected').text() + ' as the winner. Are you sure?')
       $('.hiddeable').hide();
     })
 

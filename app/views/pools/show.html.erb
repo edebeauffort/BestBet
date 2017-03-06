@@ -14,16 +14,16 @@
       </div>
     </div>
   </div>
-  <div class ="row">
 
-  </div>
+  <div>
     <%= render 'placebet', my_selection: @my_selection %>
-   <!--  <%# if current_user == @pool.user %> -->
-    <%= render 'confirm_winner' %>
-  <!--   <%# end %> -->
   </div>
-  <div class="dynamic"><%= render partial: 'chatroom' %></div>
 
+  <div>
+    <%= render 'confirm_winner' %>
+  </div>
+
+  <div class="dynamic"><%= render partial: 'chatroom' %></div>
 
 <!-- This is JS for the selections to be unclickable after countdown = 0 -->
 <% content_for(:after_js) do %>
