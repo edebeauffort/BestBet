@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
   get '/deposit', to: 'users#deposit'
 
-  post "/pools/:id/declare_winner" => "pools#declare_winner", as: :declare_winner
+  patch "/pools/:id/declare_winner", to: "pools#declare_winner", as: :declare_winner
 
 end
