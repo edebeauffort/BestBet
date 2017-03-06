@@ -3,36 +3,129 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-
 .banner-create {
+  border-radius: 3px;
   background-color: $blue;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 20px;
+  .form-control:focus{
+    box-shadow: none;
+    border-color: white;
+  }
+  form {
+    width: 100%;
+  }
 }
 
-.form-group{
-  margin: 0px;
+.form-control{
+  margin: 0;
+  outline: none;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  color: $gray-lighter;
+  font-size: 17px;
 }
 
-.bet-title {
-  margin: 5px;
+.bet-title::placeholder {
+  color: $gray-lighter;
 }
 
 .fake-btn {
-  width: 99%;
-  margin: 5px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.fake-div {
+  padding: 3px;
+  width: 100%;
+}
+
+.icon {
+  color: $blue;
+}
+
+.nested-fields {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px;
+  align-items: center;
+  align-content: center;
+  background: white;
+  font-size: 25px;
+  margin: 7px;
+  border-radius: 4px;
+  .form-control{
+    padding: 12px 0 0 0;
+    color: $blue;
+    border: none;
+    font-size: 16px;
+    background-color: white;
+    width: auto;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .fa-times {
+    color: $blue;
+  }
+}
+
+  .form-control::prompt {
+    color: $gray-lighter;
+  }
+
+.fa-plus {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  background: $lighter-blue;
+  color: $blue;
+  font-size: 25px;
+  margin: 7px;
+  padding: 15px 0;
+  border-radius: 4px;
+  &:hover {
+    color: white;
+  }
+}
+
+.tab-link{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-family: $base-font;
+    color: $blue;
+  }
+}
+
+
+.links a {
+  text-decoration: none;
 }
 
     ul.tabs{
       margin: 0px;
       padding: 0px;
       list-style: none;
-      background-color: white;
+      background-color: none;
       display: flex;
     }
 
     ul.tabs li{
       background: white;
       color: #222;
-      padding: 10px 15px;
+      padding: 10px 10px;
       cursor: pointer;
       flex: 1 1 auto;
       border-top-style: none;
@@ -40,7 +133,13 @@
       border-bottom-style: none;
       border-left-style: none;
       border-color: $gray;
-      border-width: 2px;
+      border-width: 1px;
+      &:first-child {
+        border-radius: 4px 0 0 4px;
+      }
+      &:last-child {
+        border-radius: 0 4px 4px 0;
+      }
     }
 
     ul.tabs li.current{
@@ -50,10 +149,10 @@
 
     .tab-content{
       display: none;
-      background: $gray;
       padding: 15px;
-      min-height: 280px;
+      min-height: 80px;
       position: relative;
+      outline: none;
     }
 
 .tab-content.current {
@@ -72,10 +171,17 @@
 }
 
 .description_input {
-  min-height: 180px;
-  min-width: 315px;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid white;
+  -webkit-appearance: none;
+  background: transparent;
+  color: white;
+  font-size: 17px;
+  outline: 0;
+  height: 37px !important;
 }
 
-.new-pool {
-  width: 100vw;
-}
