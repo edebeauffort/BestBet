@@ -18,6 +18,11 @@ class PoolsController < ApplicationController
       end
     end
 
+    invited_users = []
+    @pool.invites. each do |invite|
+      invited_users << invite.user
+    end
+    @invited = invited_users.include? current_user
 
   end
 
