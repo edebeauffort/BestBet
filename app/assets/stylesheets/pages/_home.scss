@@ -140,18 +140,18 @@ ul.tabs{
   display: flex;
 }
 
-    ul.pool-tabs {
-      background-color: #254C62;
-      border-radius: 5px;
-    }
+ul.pool-tabs {
+  background-color: #254C62;
+  border-radius: 5px;
+}
 
-    ul.tabs{
-      margin: 0px;
-      padding: 0px;
-      list-style: none;
-      background-color: none;
-      display: flex;
-    }
+ul.tabs{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  background-color: none;
+  display: flex;
+}
 
 ul.tabs li{
   background: white;
@@ -263,3 +263,4 @@ ul.tabs li.current{
 
 .separator-home {
   height: 20px;
+}
