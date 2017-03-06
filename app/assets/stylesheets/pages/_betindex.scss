@@ -9,6 +9,7 @@
  border-radius: 5px;
  box-shadow: 2px 2px 4px rgba(200,200,200,0.6);
 }
+
 .losing_selectionbet{
   display: flex;
   height: 175px;
@@ -19,6 +20,10 @@
   padding: 10px;
   border-radius: 5px;
   box-shadow: 2px 2px 4px rgba(200,200,200,0.6);
+}
+.betending{
+  font-size:20px;
+  color: red;
 }
 .bettititlell{
  color: $gray;
@@ -31,11 +36,14 @@
   padding-bottom: 20px;
 }
 .bettititlell ul {
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   justify-content: space-between;
 }
 
 .bettititlell p {
   font-size: 16px;
+}
+.betending{
+  color:yellow;
 }

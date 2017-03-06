@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [:show, :edit]
+before_action :set_user, only: [:show, :edit, :update]
 
   def show
   end
+
   def edit
   end
 
@@ -12,14 +13,24 @@ before_action :set_user, only: [:show, :edit]
     @user = current_user
   end
 
-  def update
-    @user = current_user
+  def update_deposit
+     @user = current_user
     @user.balance += (params[:user][:balance]).to_f
     if @user.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def update
+      @user.update(user_params)
+    if @user.save
+      redirect_to root_path
+    else
+      redirect_to edit_user_registration_path(@user)
+    end
+
   end
 
   #def update_balance
@@ -35,7 +46,7 @@ before_action :set_user, only: [:show, :edit]
 
   private
   def user_params
-      params.require(:user).permit(:email, :password, :balance)
+      params.require(:user).permit(:email, :password, :balance, :first_name, :last_name, :username)
   end
 
   def set_user

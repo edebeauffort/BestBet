@@ -1,0 +1,6 @@
+<%= simple_form_for(@message, remote: true) do |f|%>
+        <%= f.input :pool_id, as: :hidden , :input_html =>{:value => @pool.id} %>
+        <%= f.input :user_id, as: :hidden , :input_html => {:value => current_user.id} %>
+        <%= f.input :message, input_html: {id: "your-message"}, label: false %>
+        <%= f.button :submit, 'Send', :class => "send btn btn-primary submitbutton" %>
+        <% end %>
