@@ -1,72 +1,101 @@
 
-    <div class="container">
-    <h2><em><strong>Create your b€t today!</strong></em></h2>
-      <div class="row">
-        <div class="col-xs-12">
-            <div class="banner-create">
-                <%= simple_form_for(@pool) do |f| %>
-                <%= f.input :title, label: false,   required: false, input_html:{class:"bet-title"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"}, placeholder: "Title of your b€t.." %>
-                <div class="fake-btn btn btn-primary">Start a bet</div>
-                <div class="fake-div hidden">
-                  <div class="body-tabs">
-                    <ul class="tabs">
-                      <li class="tab-link current" data-tab="description"><em>Terms</em></li>
-                      <li class="tab-link" data-tab="selections"><em>Opt</em></li>
-                      <li class="tab-link" data-tab="stake"><em>Stake</em></li>
-                      <li class="tab-link" data-tab="timer"><em>End</em></li>
-                      <li class="tab-link last-tab" data-tab="share"><em>Inv</em></li>
-                    </ul>
-                    <div id="description" class="tab-content current">
-                      <%= f.input :description, label:false, input_html:{class:"description_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"description_wrapper"}, placeholder: "What are the terms of the bet?" %>
-                    </div>
-                    <div id="selections" class="tab-content">
-                      <%= f.simple_fields_for :selections do |ff| %>
-                      <%= render 'selection_fields', f: ff %>
-                      <% end %>
-                      <div class="links">
-                        <%= link_to_add_association 'add selection', f, :selections %>
-                      </div>
-                    </div>
-                    <div id="stake" class="tab-content">
-                      <div class="row">
-                        <div class="form-group">
-                          <div class="col-xs-8" id="pool-stake">
-                            <%= f.input :stake, label:false, placeholder: "For how much are we playing?" %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div id="timer" class="tab-content">
-                      <div class="row">
-                        <div class="form-group">
-                          <div class="col-xs-8" id="pool-stake">
-                            <%= f.input :end_date, label:false, placeholder: "In how many hours does the bet end?" %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div id="share" class="tab-content">
-                      <%= f.simple_fields_for :invites do |ff| %>
-                      <%= render 'invite_fields', f: ff %>
-                      <% end %>
-                      <div class="links">
-                        <%= link_to_add_association 'add invtie', f, :invites %>
-                      </div>
-                      <%# render 'share/invite' %>
-                    </div>
-                  </div>
-                </div>
-                <div class="real-submit hidden">
-                  <%= f.button :submit, class: 'btn btn-primary bold-text' %>
-                </div>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-xs-12">
+      <h3>Create your bet today!</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="banner-create">
+        <%= simple_form_for(@pool) do |f| %>
+        <%= f.input :title, label: false,   required: false, input_html:{class:"bet-title"}, placeholder: "Give a title to your bet..." %>
+        <div class="fake-btn btn btn-primary">Start a bet</div>
+        <div class="fake-div hidden">
+          <div class="body-tabs">
+            <ul class="tabs">
+              <li class="tab-link current" data-tab="description">
+                <i class = "fa fa-comment icon"></i>
+                <p>terms</p>
+              </li>
+              <li class="tab-link" data-tab="selections"><i class = "fa fa-check icon">
+                </i>
+                <p>results</p>
+              </li>
+              <li class="tab-link" data-tab="stake"><i class = "fa fa-money icon icon-green">
+                </i>
+                <p>stake</p>
+              </li>
+              <li class="tab-link" data-tab="timer"><i class = "fa fa-clock-o">
+                </i>
+                <p>start</p>
+              </li>
+              <li class="tab-link last-tab" data-tab="share"><i class = "fa fa-share icon">
+                </i>
+                <p>share</p>
+              </li>
+            </ul>
+            <div id="description" class="tab-content current">
+              <%= f.input :description, label:false, input_html:{class:"description_input"}, placeholder: "What are the terms of the bet?" %>
+            </div>
+            <div id="selections" class="tab-content">
+              <%= f.simple_fields_for :selections do |ff| %>
+              <%= render 'selection_fields', f: ff %>
+              <% end %>
+              <div class="links">
+                <%= link_to_add_association f, :selections do %>
+                <i class="fa fa-plus"></i>
                 <% end %>
               </div>
             </div>
-
+            <div id="stake" class="tab-content">
+              <div class="row">
+                  <div class="col-xs-12">
+                    <%= f.input :stake, label:false, placeholder: "For how much are we playing?" %>
+                  </div>
+              </div>
+            </div>
+            <div id="timer" class="tab-content">
+              <div class="row">
+                <div class="form-group">
+                  <div class="col-xs-12" id="pool-stake">
+                    <%= f.input :end_date, as: :string, label: false, placeholder: "When does your event starts?" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="share" class="tab-content">
+              <%= f.simple_fields_for :invites do |ff| %>
+              <%= render 'invite_fields', f: ff %>
+              <% end %>
+              <div class="links">
+                <%= link_to_add_association f, :invites do %>
+                <i class="fa fa-plus"></i>
+                <% end %>
+              </div>
+              <%# render 'share/invite' %>
+            </div>
+          </div>
+        </div>
+        <div class="real-submit hidden">
+          <%= f.button :submit, class: 'btn btn-primary bold-text fake-btn' %>
+        </div>
+        <% end %>
       </div>
-      <%= render 'poolcard' %>
     </div>
 
+  </div>
+  <%= render 'poolcard' %>
+</div>
+
+
+<%= content_for :after_js do %>
+<script>
+  $('#pool_end_date').datetimepicker({
+    format: 'DD/MM/YYYY HH:mm'
+  })
+</script>
+<% end %>
 
 
 
