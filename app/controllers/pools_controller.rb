@@ -5,10 +5,10 @@ class PoolsController < ApplicationController
     @bets = Bet.where(pool_id: @pool.id).count
     @jackpot = (@bets * @pool.stake).to_i
 
-
     if @pool.selections.where(winning_selection: true).first
       @winner = @pool.selections.where(winning_selection: true).first.title
     end
+
     @bet = Bet.new
     @message = Message.new
     @my_selection = []
@@ -17,8 +17,6 @@ class PoolsController < ApplicationController
         @my_selection << bet.selection
       end
     end
-
-
   end
 
   def index
@@ -63,6 +61,13 @@ class PoolsController < ApplicationController
 
     redirect_to :back
   end
+
+  # def refresh_part
+  #   @pool = Pool.all
+  #   respond_to do |format|
+  #     format.js
+  #   end
+  # end
 
 
   private

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h1 class="text-center">All your bets</h1>
-    <% @bets.each do |bet| %>
+    <% @bets.order.each do |bet| %>
     <% if bet.selection.pool.end_date >= DateTime.now %>
     <div class="col-xs-12 col-md-4 col-sm-6">
       <div class="card">
@@ -10,6 +10,7 @@
           <h3 class="text-center "><%= bet.selection.pool.title %> </h3>
           <ul class="list-unstyled list-inline">
             <li><%=image_tag "group.png", class: "card-icon"%> <%= @bets.where(pool_id: bet.selection.pool_id).count %></li>
+            <li >Bet is still going</li>
             <li><%=image_tag "Cash.png", class: "card-icon"%><%= bet.selection.pool.stake %></li>
 
           </ul>
