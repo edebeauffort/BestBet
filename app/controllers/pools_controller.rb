@@ -24,6 +24,11 @@ class PoolsController < ApplicationController
     end
     @invited = invited_users.include? current_user
 
+    betting_users = []
+    @pool.bets. each do |bet|
+      betting_users << bet.user
+    end
+    @betted = betting_users.include? current_user
   end
 
   def index
