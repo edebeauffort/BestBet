@@ -7,12 +7,18 @@ Rails.application.routes.draw do
 
   resources :bets, only: [:show, :index, :create]
 
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update, :edit]
   resources :chats, only: [:create]
-  resources :messages, only: [:create]
+  resources :messages, only: [:create, :show]
 
   get '/deposit', to: 'users#deposit'
 
+  patch '/deposit', to: 'users#update_deposit'
+
+  get '/refresh_part', to: 'pools#refresh_part'
+
+
   patch "/pools/:id/declare_winner", to: "pools#declare_winner", as: :declare_winner
+
 
 end

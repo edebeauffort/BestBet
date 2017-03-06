@@ -1,6 +1,9 @@
 .chatbox{
-  background-color: white;
+  background-color: #254C62;
   margin: 20px;
+  // position: relative;
+  width: 100%;
+
 }
 .message-list{
   list-style-type: none;
@@ -11,3 +14,31 @@
 .messagename{
   color: red;
 }
+
+.submitbutton{
+  margin-top: 10px;
+}
+.messages-list{
+list-style: none;
+}
+.messagediv{
+  border: solid black 0.1px;
+  width: 50%;
+  margin-top: 5px;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: white;
+}
+.ownmessagediv{
+  // position:absolute;
+  right: 10px;
+    border: solid black 0.1px;
+  width: 50%;
+  margin-top: 5px;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: #EBF5E5;
+  margin-left: 50%;
+}
+
+

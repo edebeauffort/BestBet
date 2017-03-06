@@ -1,37 +1,66 @@
-<div class="row">
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">All your bets</h1>
     <% @bets.each do |bet| %>
-
-    <div class="col-xs-12 col-sm-4">
+    <% if bet.selection.pool.end_date >= DateTime.now %>
+    <div class="col-xs-12 col-md-4 col-sm-6">
       <div class="card">
-        <div class="card-description">
-        <%= link_to "", bet_path(bet), class: 'card-link' %>
-
-          <h3 class="text-center"><%= bet.selection.pool.title %> </h3>
+        <div class="card-description ">
+          <%= link_to "",  pool_path(bet.selection.pool), class: 'card-link' %>
+          <h3 class="text-center "><%= bet.selection.pool.title %> </h3>
           <ul class="list-unstyled list-inline">
             <li><%=image_tag "group.png", class: "card-icon"%> <%= @bets.where(pool_id: bet.selection.pool_id).count %></li>
+            <li >Bet is still going</li>
             <li><%=image_tag "Cash.png", class: "card-icon"%><%= bet.selection.pool.stake %></li>
 
           </ul>
           <hr>
           <div class="text-center">
-          <p><%= bet.selection.pool.description %></p>
+            <p><%= bet.selection.pool.description %></p>
           </div>
         </div>
       </div>
     </div>
+    <% else %>
+    <% if bet.selection.winning_selection%>
+    <div class="col-xs-12 col-md-4 col-sm-6">
+      <div class="winning_selectionbet">
+        <div class="bettititlell">
+          <%= link_to "",  pool_path(bet.selection.pool), class: 'card-link' %>
+          <h3 class="text-center"><%= bet.selection.pool.title %> </h3>
+          <ul class="list-unstyled list-inline">
+            <li><%=image_tag "group.png", class: "card-icon"%> <%= @bets.where(pool_id: bet.selection.pool_id).count %></li>
+            <li class="betending">You have won</li>
+            <li><%=image_tag "Cash.png", class: "card-icon"%><%= bet.selection.pool.stake %></li>
 
-    <% content_for(:after_js) do %>
-    <script type="text/javascript">
-      $("#bet.selection.pool-<%=bet.selection.pool.id%>")
-      .countdown("<%= bet.selection.pool.end_date %>", function(event) {
-        $(this).text(
-          event.strftime('%Dd %H:%M:%S')
-          );
-        $(this).on('finish.countdown', function(){
-        $("#bet.selection.pool-<%=bet.selection.pool.id%>").html("Bet closed").addClass("finish");
-        });
-      })
-    </script>
+          </ul>
+          <hr>
+          <div class="text-center">
+            <p><%= bet.selection.pool.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% else %>
+    <div class="col-xs-12 col-md-4 col-sm-6">
+      <div class="losing_selectionbet">
+        <div class="bettititlell">
+          <%= link_to "", pool_path(bet.selection.pool), class: 'card-link' %>
+          <h3 class="text-center"><%= bet.selection.pool.title %> </h3>
+          <ul class="list-unstyled list-inline">
+            <li><%=image_tag "group.png", class: "card-icon"%> <%= @bets.where(pool_id: bet.selection.pool_id).count %></li>
+            <li class="betending">You have lost</li>
+            <li><%=image_tag "Cash.png", class: "card-icon"%><%= bet.selection.pool.stake %></li>
+          </ul>
+          <hr>
+          <div class="text-center">
+            <p><%= bet.selection.pool.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
     <% end %>
     <% end %>
   </div>
+</div>
