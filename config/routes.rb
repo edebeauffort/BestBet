@@ -12,7 +12,13 @@ Rails.application.routes.draw do
   resources :messages, only: [:create, :show]
 
   get '/deposit', to: 'users#deposit'
+
   patch '/deposit', to: 'users#update_deposit'
-  post "/pools/:id/declare_winner" => "pools#declare_winner", as: :declare_winner
+
   get '/refresh_part', to: 'pools#refresh_part'
+
+
+  patch "/pools/:id/declare_winner", to: "pools#declare_winner", as: :declare_winner
+
+
 end

@@ -16,15 +16,13 @@
   </div>
   <div class ="row">
 
-
   </div>
     <%= render 'placebet', my_selection: @my_selection %>
-    <% if current_user == @pool.user %>
+   <!--  <%# if current_user == @pool.user %> -->
     <%= render 'confirm_winner' %>
-    <% end %>
+  <!--   <%# end %> -->
   </div>
   <div class="dynamic"><%= render partial: 'chatroom' %></div>
-
 
 
 <!-- This is JS for the selections to be unclickable after countdown = 0 -->
@@ -74,6 +72,15 @@ $(function(){
         e.preventDefault()
       });
     $(".confirmbutton").hide()
+  }
+
+ var invited = <%= @invited %>;
+ var userValidation = <%= current_user == @pool.user %>
+  if (invited != true && userValidation != true) {
+    $(".confirmbutton").click(function(e){
+      e.preventDefault();
+      alert("We're sorry but you were not invited to this bet");
+    });
   }
 
 });

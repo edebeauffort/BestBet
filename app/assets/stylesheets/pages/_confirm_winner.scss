@@ -135,8 +135,6 @@ select:focus {
 }
 
 .btn-primary {
-  height: 100%;
-  border-radius: 10px;
   padding: 10px 30px 10px 30px;
 }
 
@@ -159,8 +157,21 @@ select:focus {
   padding: 1em;
 }
 
+
 .edit-winner {
+  color: $blue;
+}
+
+.edit-winner:hover{
+  opacity: 0.4;
+}
+
+
+.bottomright {
   position: absolute;
+  bottom: 15px;
+  right: 35px;
+  font-size: 18px;
 }
 
 

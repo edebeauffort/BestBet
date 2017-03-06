@@ -22,6 +22,9 @@ gem 'autoprefixer-rails'
 gem "cocoon"
 gem 'jquery-ui-rails'
 
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+
 source 'https://rails-assets.org' do
 gem 'rails-assets-jquery.countdown'
 end

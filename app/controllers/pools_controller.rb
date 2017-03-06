@@ -6,7 +6,7 @@ class PoolsController < ApplicationController
     @jackpot = (@bets * @pool.stake).to_i
 
     if @pool.selections.where(winning_selection: true).first
-      @winner = @pool.selections.where(winning_selection: true).first.title
+      @winner = @pool.selections.where(winning_selection: true).first
     end
 
     @bet = Bet.new
@@ -17,6 +17,20 @@ class PoolsController < ApplicationController
         @my_selection << bet.selection
       end
     end
+
+
+    invited_users = []
+    @pool.invites. each do |invite|
+      invited_users << invite.user
+    end
+    @invited = invited_users.include? current_user
+
+    betting_users = []
+    @pool.bets. each do |bet|
+      betting_users << bet.user
+    end
+    @betted = betting_users.include? current_user
+
   end
 
   def index

@@ -1,12 +1,13 @@
 
 <div class ="container">
   <div class ="wrapper">
+
+    <% if current_user == @pool.user %>
     <div class="hiddeable">
       <label class="wrapper" for="selections">Declare the Winner
       </label>
 
-      <form novalidate="novalidate" class="simple_form edit_pool" id="edit_pool_<%= @pool.id %>" action="/pools/<%= @pool.id %>/declare_winner" accept-charset="UTF-8" method="post">
-
+      <%= simple_form_for @pool, url: declare_winner_path do |f| %>
         <div class="button dropdown">
           <select id="declarewinner" class="form-control select optional" name="pool[selection_id]" id="pool_selection_id">
             <option value="" disabled selected> Select the Winning Bet: </option>
@@ -16,32 +17,25 @@
           </select>
         </div>
 
-
-        <div class ="confirm-button">
-          <input type="submit" name="commit" value="Confirm" class="btn btn-primary selection-submit" data-disable-with="Confirm">
-        </div>
-
-
-        <input name="utf8" type="hidden" value="✓">
-        <input type="hidden" name="authenticity_token" value="rzJWaLodhFTcxCw/JgIDOBy5egK1P9qAP8tS/cw8XnQqFfEMpqiLHnRXIVhNUpTWwCz1zD9YEEUZXgN/eDGzWA==">
-
-      </form>
+        <%= f.submit "Confirm", class: "btn btn-primary selection-submit" %>
+      <% end %>
     </div>
+    <% end %>
 
     <div class="container winner-output">
       <div class="output" id="winner">
-        <% if @winner %>
-        <%= @winner + " Wins!" %>
+        <% if @pool.selections.where(winning_selection: true).count > 0 %>
+          <h3><%= @winner.title + " Wins!" %></h3>
+        <% else %>
+        <h3><i> No Winner Has Been Named Yet...</i>i </h3>
         <% end %>
         <% if current_user == @pool.user %>
-        <div class = "edit-winner top">
+        <div class = "edit-winner bottomright">
         <i class='fa fa-wrench' id="admin-change-winner"></i>
         </div>
         <% end %>
       </div>
     </div>
-
-
 
   </div>
 </div>
@@ -49,19 +43,34 @@
 
 <%= content_for(:after_js) do %>
 <script>
+// $(function myFunction() {
+//     var x;
+//     if (confirm("You have chosen") == true) {
+//         x = "You pressed OK!";
+//     } else {
+//         x = "You pressed Cancel!";
+//     }
+//     document.getElementById("confirm-winner").innerHTML = x;
+// }
+//  });
+
   $(function() {
     // $('#declarewinner').change(function(){
     //   $('.selections').hide();
     //   $('#' + $(this).val()).show();
     // });
+
     if (<%= Time.now < @pool.end_date %>) {
       $('.hiddeable').show();
       $(".selection-submit").prop('disabled', true);
       document.getElementById("declarewinner").disabled = true;
-    }
-    $('.edit_pool').submit(function() {
-     $('.hiddeable').hide()
-   })
+    };
+
+    $('.edit_pool').submit(function(e) {
+      confirm('You have selected: ' + $('#declarewinner option:selected').text() + 'as the winner. Are you sure?')
+      $('.hiddeable').hide();
+    })
+
     $('#admin-change-winner').click(function() {
       $('.hiddeable').show();
     });
