@@ -132,12 +132,26 @@
 }
 
 ul.tabs{
+
   margin: 0px;
   padding: 0px;
   list-style: none;
   background-color: none;
   display: flex;
 }
+
+    ul.pool-tabs {
+      background-color: #254C62;
+      border-radius: 5px;
+    }
+
+    ul.tabs{
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+      background-color: none;
+      display: flex;
+    }
 
 ul.tabs li{
   background: white;
@@ -159,10 +173,27 @@ ul.tabs li{
   }
 }
 
+
 ul.tabs li.current{
   background: $lighter-blue;
   color: #222;
 }
+
+    ul.pool-tabs li{
+    border-radius: 5px;
+    width: 70px;
+    margin-left: 10px;
+    border-style: none;
+    padding: 0px;
+    margin: 5px;
+    text-align: center;
+    }
+
+ul.tabs li.current{
+  background: $lighter-blue;
+  color: #222;
+}
+
 
 .tab-content{
   display: none;
@@ -171,7 +202,6 @@ ul.tabs li.current{
   position: relative;
   outline: none;
 }
-
 .tab-content.current {
   display: inherit;
 }
@@ -202,6 +232,7 @@ ul.tabs li.current{
   height: 37px !important;
 }
 
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 0px) and (max-width: 768px) {
   .bet_creation-icon {
@@ -229,3 +260,6 @@ ul.tabs li.current{
     width: 50px;
   }
 }
+
+.separator-home {
+  height: 20px;

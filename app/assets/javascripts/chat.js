@@ -1,15 +1,13 @@
-$('#messages').ready(function () {
-  setInterval('refresh', 1000); // Every 1 second, the `refresh` function is called.
-});
- $('.send').submit('click', function(event){ // change to your own promo id
-  event.preventDefault();
-  var baseUrl = "localhost:3000/bets"
- $.ajax({
-      type: "POST",
-      url: baseUrl,
-      data: post,
+// $(document).ready(function () {
+//     // will call refreshPartial every 3 seconds
+//     setInterval(refreshPartial, 3000)
 
-    });
-});
-//   document.getElementById("myForm").submit();
+// });
+
+// // calls action refreshing the partial
+// function refreshPartial() {
+//   $.ajax({
+//     url: "/refresh_part"
+//  })
+//   // $('.dynamic').html(<%= j render partial: 'chatroom'%>)}");
 // }

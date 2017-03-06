@@ -1,4 +1,4 @@
-<div class="container">
+  <div class="container">
   <div class="row ">
     <div class="col-xs-12">
       <div class="bet-description">
@@ -9,20 +9,21 @@
           <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
         </ul>
         <hr>
-        <h4><%= @pool.description %></h4>
+        <h4 class="text-center"><%= @pool.description %></h4>
         <hr>
       </div>
     </div>
   </div>
-  <div class ="row">
 
-  </div>
+  <div>
     <%= render 'placebet', my_selection: @my_selection %>
-   <!--  <%# if current_user == @pool.user %> -->
-    <%= render 'confirm_winner' %>
-  <!--   <%# end %> -->
   </div>
-<%= render 'chatroom' %>
+
+  <div>
+    <%= render 'confirm_winner' %>
+  </div>
+
+  <div class="dynamic"><%= render partial: 'chatroom' %></div>
 
 <!-- This is JS for the selections to be unclickable after countdown = 0 -->
 <% content_for(:after_js) do %>
@@ -85,6 +86,3 @@ $(function(){
 });
 </script>
 <% end %>
-
-<%= @invited %>
-<%= current_user == @pool.user %>
