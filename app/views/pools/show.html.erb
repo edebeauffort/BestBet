@@ -14,20 +14,32 @@
       </div>
     </div>
   </div>
+  </div>
 
-  <div>
+<div partials-container>
+  <div class="placebet">
     <%= render 'placebet', my_selection: @my_selection %>
   </div>
 
-  <div>
+  <div class="confirm-winner">
     <%= render 'confirm_winner' %>
   </div>
+
+  <div class="invite">
+  <h3>Invite More People to Join the Pool</h3>
+  <%= render 'invite' %>
+  </div>
+
 
   <div class="dynamic"><%= render partial: 'chatroom' %></div>
 
   <div class="share-links-container">
   <%= render partial: 'share_links' %>
+  </div>
+
 </div>
+</div>
+
 <!-- This is JS for the selections to be unclickable after countdown = 0 -->
 <% content_for(:after_js) do %>
 <script>
