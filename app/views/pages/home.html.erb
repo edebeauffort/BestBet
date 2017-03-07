@@ -15,7 +15,7 @@
           <div class="body-tabs">
             <ul class="tabs">
               <li class="tab-link current" data-tab="description">
-                <%=image_tag "warning.png", class:"bet_creation-icon"%>
+                <%=image_tag "file.png", class:"bet_creation-icon"%>
                 <p>1. terms</p>
               </li>
               <li class="tab-link" data-tab="selections"><%=image_tag "list.png", class:"bet_creation-icon"%>
@@ -103,7 +103,8 @@
 <%= content_for :after_js do %>
 <script>
   $('#pool_end_date').datetimepicker({
-    format: 'DD/MM/YYYY HH:mm'
+    format: 'DD/MM/YYYY HH:mm',
+    minDate: new Date()
   })
 
   $('form').click(function() {
@@ -112,5 +113,8 @@
     }
   })
 
+  $('#share').on('cocoon:after-insert', function(e, insertedItem) {
+    $('#share select').selectpicker();
+  });
 </script>
 <% end %>

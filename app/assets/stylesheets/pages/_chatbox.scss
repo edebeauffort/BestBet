@@ -1,9 +1,13 @@
+#chatroom h1{
+  color:#254C62;
+  text-align: center;
+}
 .chatbox{
   background-color: #254C62;
   margin: 20px;
   // position: relative;
   width: 100%;
-
+  color: black;
 }
 .message-list{
   list-style-type: none;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306185456) do
+ActiveRecord::Schema.define(version: 20170307114546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 20170306185456) do
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.integer  "user_id"
+    t.integer  "balance_cents", default: 0, null: false
+    t.json     "payment"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
   create_table "pools", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -98,6 +108,7 @@ ActiveRecord::Schema.define(version: 20170306185456) do
     t.string   "token"
     t.datetime "token_expiry"
     t.string   "username"
+    t.integer  "balance_cents",          default: 0,   null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -111,6 +122,7 @@ ActiveRecord::Schema.define(version: 20170306185456) do
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "pools"
   add_foreign_key "messages", "users"
+  add_foreign_key "orders", "users"
   add_foreign_key "pools", "users"
   add_foreign_key "selections", "pools"
 end
