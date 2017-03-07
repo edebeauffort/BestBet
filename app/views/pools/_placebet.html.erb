@@ -1,53 +1,50 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="text-center theheaderforbet">
-      </div>
-      <div class="row">
-      <form novalidate="novalidate" class="simple_form new_bet" id="new_bet" action="/bets" accept-charset="UTF-8" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input type="hidden" name="authenticity_token" value="NBZN0aWg/6Dh5TKE6VxP9m4VBh/Yrglq4VJzyhb3DifeHL3Qn9vuFwNvh9a5/fk5oD+Yu6/8zvXW4LOIuU9sXA==">
-        <input type="hidden" name="pool_id" value="<%= @pool.id %>">
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="text-center theheaderforbet">
+    </div>
+    <div class="row">
+    <form novalidate="novalidate" class="simple_form new_bet" id="new_bet" action="/bets" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value="NBZN0aWg/6Dh5TKE6VxP9m4VBh/Yrglq4VJzyhb3DifeHL3Qn9vuFwNvh9a5/fk5oD+Yu6/8zvXW4LOIuU9sXA==">
+      <input type="hidden" name="pool_id" value="<%= @pool.id %>">
 
 
-        <div class="form-group">
-          <input value="<%= @pool.id %>" type="hidden" name="bet[pool_id]">
-          <div class="bet-selections" id="choose-winner">
-            <% @pool.selections.each do |selection| %>
-              <% if my_selection.include?(selection) %>
-              <input class="hidden" type="radio" value="<%= selection.id%>" name="bet[selection_id]" id="bet_selection_id_<%=selection.id%>">
-              <label for="bet_selection_id_<%=selection.id%>" class="bet-selection active" data-selection="<%= selection.title %>">
-              <%= selection.title %>
-              </label>
-              <% else %>
-              <input class="hidden" type="radio" value="<%= selection.id%>" name="bet[selection_id]" id="bet_selection_id_<%=selection.id%>">
-              <label for="bet_selection_id" class="bet-selection" data-selection="<%= selection.title %>">
-              <%= selection.title %>
-              </label>
-              <% end %>
+      <div class="form-group">
+        <input value="<%= @pool.id %>" type="hidden" name="bet[pool_id]">
+        <div class="bet-selections" id="choose-winner">
+          <% @pool.selections.each do |selection| %>
+            <% if my_selection.include?(selection) %>
+            <input class="hidden" type="radio" value="<%= selection.id%>" name="bet[selection_id]" id="bet_selection_id_<%=selection.id%>">
+            <label for="bet_selection_id_<%=selection.id%>" class="bet-selection active" data-selection="<%= selection.title %>">
+            <%= selection.title %>
+            </label>
+            <% else %>
+            <input class="hidden" type="radio" value="<%= selection.id%>" name="bet[selection_id]" id="bet_selection_id_<%=selection.id%>">
+            <label for="bet_selection_id" class="bet-selection" data-selection="<%= selection.title %>">
+            <%= selection.title %>
+            </label>
             <% end %>
-          </div>
+          <% end %>
         </div>
-        <div onclick="confirmBet()">
-        <input type="submit" name="commit" value="Confirm your <%= @pool.stake %> $ bet" class="tn btn-lg btn-success confirmbutton" id= "confirm-bet-choice" data-disable-with="Confirm your bet">
-        </div>
-      </form>
       </div>
+      <div onclick="confirmBet()">
+      <input type="submit" name="commit" value="Confirm your <%= @pool.stake %> $ bet" class="tn btn-lg btn-success confirmbutton" id= "confirm-bet-choice" data-disable-with="Confirm your bet">
+      </div>
+    </form>
     </div>
   </div>
 </div>
 
 
+
 <%= content_for(:after_js) do %>
 <script>
 
-$('.bet-selection').click(function(){
-    alert('You are putting your money on ' + $(this).data('selection') + ' to win');
+$(".pop-up").addClass("hidden")
+$('.confirm-bet-choice').click(function(){
+    $(".pop-up").removeClass("hidden")
 });
-
-function confirmBet() {
-    confirm("Press OK to confirm your selection and place your bet!");
-}
 
 </script>
 <% end %>

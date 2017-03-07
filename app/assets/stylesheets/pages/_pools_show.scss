@@ -1,15 +1,14 @@
-.container {
-
-}
 .pools_show-details{
   display: flex;
- justify-content: space-around;
+  justify-content: space-around;
 }
+
 .bettitle{
   padding: 20px;
   font-size: 40px;
   text-align: center;
 }
+
 .descriptionbet{
   text-align: center;
 }
@@ -17,6 +16,7 @@
 .seperator-line{
   border: solid black 1px;
 }
+
 .betselections{
   font-family: $base-font;
   font-size: 25px;
