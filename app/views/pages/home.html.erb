@@ -103,7 +103,8 @@
 <%= content_for :after_js do %>
 <script>
   $('#pool_end_date').datetimepicker({
-    format: 'DD/MM/YYYY HH:mm'
+    format: 'DD/MM/YYYY HH:mm',
+    minDate: new Date()
   })
 
   $('form').click(function() {
@@ -112,5 +113,8 @@
     }
   })
 
+  $('#share').on('cocoon:after-insert', function(e, insertedItem) {
+    $('#share select').selectpicker();
+  });
 </script>
 <% end %>
