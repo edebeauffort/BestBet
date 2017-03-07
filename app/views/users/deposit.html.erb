@@ -1,9 +1,20 @@
 <div class="container">
   <div class="row">
-  <h1>Top up your account</h1>
+
+  <div class="progress-amount col-xs-4">
+    <p>Step 1: Select Amount</p>
+  </div>
+  <div class="progress-details col-xs-4">
+    <p>Step 2: Card Details</p>
+  </div>
+  <div class="progress-finished col-xs-4">
+    <p>Step 3: Balance Updated</p>
+  </div>
+  <hr>
+  <h2>Top up your account</h2>
     <%= form_tag orders_path do %>
       <%= hidden_field_tag 'user_id', current_user.id %>
-      <%= number_field_tag :balance %>
+      <input type="number" name="balance" id="balance" class="deposit-input">
       <%= submit_tag 'Deposit', class: 'btn btn-primary' %>
     <% end %>
   </div>

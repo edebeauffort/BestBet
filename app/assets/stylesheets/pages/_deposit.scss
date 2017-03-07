@@ -1,3 +1,35 @@
-.depositbutton{
-  margin-top: 10px;
+.deposit-input {
+  color: red;
+}
+
+.progress-amount {
+  background-color: $gray-dark;
+  margin-top: 50px;
+  height: 30px;
+  text-align: left;
+  color: #fff;
+  font-size: 14px;
+}
+@media only screen and (max-width: 500px) {
+.progress-amount {
+  font-size: 10px;
+}
+  }
+
+.progress-details {
+  background-color: $gray;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.progress-finished {
+  background-color: $gray-light;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 14px;
 }
