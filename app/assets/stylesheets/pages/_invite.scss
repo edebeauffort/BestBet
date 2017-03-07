@@ -1,46 +1,46 @@
-// .nested-fields {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-around;
-//   padding: 0px 15px;
-//   align-items: center;
-//   align-content: center;
-//   background: white;
-//   font-size: 25px;
-//   margin: 7px;
-//   border-radius: 4px;
-//   .form-control{
-//     padding: 12px 0 0 0;
+// // .nested-fields {
+// //   display: flex;
+// //   flex-direction: row;
+// //   justify-content: space-around;
+// //   padding: 0px 15px;
+// //   align-items: center;
+// //   align-content: center;
+// //   background: white;
+// //   font-size: 25px;
+// //   margin: 7px;
+// //   border-radius: 4px;
+// //   .form-control{
+// //     padding: 12px 0 0 0;
+// //     color: $blue;
+// //     border: none;
+// //     font-size: 16px;
+// //     background-color: white;
+// //     width: auto;
+// //     &:focus {
+// //       box-shadow: none;
+// //     }
+// //   }
+
+// .fa-times {
 //     color: $blue;
-//     border: none;
-//     font-size: 16px;
-//     background-color: white;
-//     width: auto;
-//     &:focus {
-//       box-shadow: none;
-//     }
 //   }
 
-.fa-times {
-    color: $blue;
-  }
+//   .form-control::prompt {
+//     color: $gray-lighter;
+//   }
 
-  .form-control::prompt {
-    color: $gray-lighter;
-  }
-
-.fa-plus {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
-  background: $lighter-blue;
-  color: $blue;
-  font-size: 25px;
-  margin: 7px;
-  padding: 15px 0;
-  border-radius: 4px;
-  &:hover {
-    color: white;
-  }
-}
+// .fa-plus {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+//   align-content: center;
+//   background: $lighter-blue;
+//   color: $blue;
+//   font-size: 25px;
+//   margin: 7px;
+//   padding: 15px 0;
+//   border-radius: 4px;
+//   &:hover {
+//     color: white;
+//   }
+// }
