@@ -20,6 +20,7 @@
       </div>
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
   </div>
   </div>
 
@@ -40,6 +41,9 @@
 
   <div class="dynamic"><%= render partial: 'chatroom' %></div>
 =======
+=======
+
+>>>>>>> 8d8d8355f5078dce5acae3ee4e49baeae582b3b2
     <div class="row">
       <div class="col-xs-12">
         <div class="flipper">
@@ -47,9 +51,16 @@
             <div>
               <%= render 'placebet', my_selection: @my_selection %>
             </div>
+            
+             <div class="invite">
+                <h3>Invite More People to Join the Pool</h3>
+                 <%= render 'invite' %>
+               </div>
+            
             <div class="dynamic">
               <%= render partial: 'chatroom' %>
             </div>
+            
           </div>
           <div class="back">
             <%= render 'confirm_winner' %>
@@ -60,15 +71,16 @@
 <!--   </div> -->
 </div>
 
+<<<<<<< HEAD
 
 >>>>>>> 904228fb8ef993aae0b1a21842f8b79f8d308244
 
+=======
+>>>>>>> 8d8d8355f5078dce5acae3ee4e49baeae582b3b2
   <div class="share-links-container">
   <%= render partial: 'share_links' %>
   </div>
 
-</div>
-</div>
 
 <!-- This is JS for the selections to be unclickable after countdown = 0 -->
 <% content_for(:after_js) do %>
