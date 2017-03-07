@@ -43,6 +43,8 @@
 .fake-btn {
   width: 100%;
   border-radius: 3px;
+  font-family: $header-font;
+  font-size: 20px;
 }
 
 .real-submit {
@@ -53,6 +55,10 @@
 .fake-div {
   padding: 3px;
   width: 100%;
+  p {
+    color: white;
+    text-align: center;
+  }
 }
 
 .steps{
@@ -208,6 +214,8 @@ ul.tabs li.current{
 
 .real-submit {
   margin-top: 7px;
+  font-family: $header-font;
+  font-size: 20px;
 }
 
 .description_wrapper {
