@@ -12,43 +12,25 @@
 
         <div class="form-group">
           <input value="<%= @pool.id %>" type="hidden" name="bet[pool_id]">
-          <div class="bet-selections" id="choose-winner">
+          <div class="bet-selections">
             <% @pool.selections.each do |selection| %>
               <% if my_selection.include?(selection) %>
               <input class="hidden" type="radio" value="<%= selection.id%>" name="bet[selection_id]" id="bet_selection_id_<%=selection.id%>">
-              <label for="bet_selection_id_<%=selection.id%>" class="bet-selection active" data-selection="<%= selection.title %>">
+              <label for="bet_selection_id_<%=selection.id%>" class="bet-selection active">
               <%= selection.title %>
               </label>
               <% else %>
               <input class="hidden" type="radio" value="<%= selection.id%>" name="bet[selection_id]" id="bet_selection_id_<%=selection.id%>">
-              <label for="bet_selection_id" class="bet-selection" data-selection="<%= selection.title %>">
+              <label for="bet_selection_id_<%=selection.id%>" class="bet-selection">
               <%= selection.title %>
               </label>
               <% end %>
             <% end %>
           </div>
         </div>
-        <div onclick="confirmBet()">
-        <input type="submit" name="commit" value="Confirm your <%= @pool.stake %> $ bet" class="tn btn-lg btn-success confirmbutton" id= "confirm-bet-choice" data-disable-with="Confirm your bet">
-        </div>
+        <input type="submit" name="commit" value="Confirm your <%= @pool.stake %> $ bet" class="tn btn-lg btn-success confirmbutton" data-disable-with="Confirm your bet">
       </form>
       </div>
     </div>
   </div>
 </div>
-
-
-<%= content_for(:after_js) do %>
-<script>
-
-$('.bet-selection').click(function(){
-    alert('You are putting your money on ' + $(this).data('selection') + ' to win');
-});
-
-function confirmBet() {
-    confirm("Press OK to confirm your selection and place your bet!");
-}
-
-</script>
-<% end %>
-

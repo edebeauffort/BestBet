@@ -9,7 +9,7 @@ class BetsController < ApplicationController
   #   @pool = Pool.find(params[:pool_id])
   #   @selection = Selection.find(params[:selection_id])
   #   @user = User.find(params[:user_id])
-   def show
+  def show
     @bet = Bet.find(params[:id])
     @pool = @bet.selection.pool
     @selection = @bet.selection
@@ -21,7 +21,7 @@ class BetsController < ApplicationController
     @bet.user_id = current_user.id
     @user = current_user
 
-    @user.balance -= (@bet.selection.pool.stake).to_f
+    @user.balance_cents -= (@bet.pool.stake * 100).to_i
 
 
     if @bet.save!
