@@ -1,36 +1,52 @@
-  <div class="container">
-  <div class="row ">
-    <div class="col-xs-12">
-      <div class="bet-description">
-        <h1><%= @pool.title %></h1>
-        <ul class="list-unstyled list-inline tags">
-          <li><%=image_tag "group.png", class: "bet-icon"%><%= @bets %></li>
-          <li><%=image_tag "Cash.png", class: "bet-icon"%><%= @jackpot %> €</li>
-          <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
-        </ul>
-        <hr>
-        <h4 class="text-center"><%= @pool.description %></h4>
-        <hr>
+
+<div class="container">
+ <!--  <div class="flip-container" ontouchstart="this.classList.toggle('hover');"> -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class = settings>
+        </div>
+        <div class="bet-description">
+          <h1><%= @pool.title %></h1>
+          <ul class="list-unstyled list-inline tags">
+            <li><%=image_tag "group.png", class: "bet-icon"%><%= @bets %></li>
+            <li><%=image_tag "Cash.png", class: "bet-icon"%><%= @jackpot %> €</li>
+            <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
+          </ul>
+          <hr>
+          <h4 class="text-center"><%= @pool.description %></h4>
+          <hr>
+          <div class = "pop-up">You just placed your bet, good luck!</div>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="flipper">
+          <div class="front">
+            <div>
+              <%= render 'placebet', my_selection: @my_selection %>
+            </div>
+            <div class="dynamic">
+              <%= render partial: 'chatroom' %>
+            </div>
+          </div>
+          <div class="back">
+            <%= render 'confirm_winner' %>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--   </div> -->
+</div>
 
-  <div>
-    <%= render 'placebet', my_selection: @my_selection %>
-  </div>
 
-  <div>
-    <%= render 'confirm_winner' %>
-  </div>
-
-  <div class="dynamic"><%= render partial: 'chatroom' %></div>
 
 <!-- This is JS for the selections to be unclickable after countdown = 0 -->
 <% content_for(:after_js) do %>
 <script>
-$(function(){
+  $(function(){
 
-  $("#pool-<%= @pool.id %>").countdown("<%= @pool.end_date %>", function(event) {
+    $("#pool-<%= @pool.id %>").countdown("<%= @pool.end_date %>", function(event) {
     // Countdown text logic
     $(this).text(
       event.strftime('%Dd %H:%M:%S')
@@ -69,13 +85,20 @@ $(function(){
   if ($(".bet-selection").hasClass("active")){
 
     $(".bet-selections").click(function(e){
-        e.preventDefault()
-      });
+      e.preventDefault()
+    });
     $(".confirmbutton").hide()
   }
 
- var invited = <%= @invited %>;
- var userValidation = <%= current_user == @pool.user %>
+
+
+
+
+
+
+
+  var invited = <%= @invited %>;
+  var userValidation = <%= current_user == @pool.user %>
   if (invited != true && userValidation != true) {
     $(".confirmbutton").click(function(e){
       e.preventDefault();
