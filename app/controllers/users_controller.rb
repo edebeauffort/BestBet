@@ -7,22 +7,6 @@ before_action :set_user, only: [:show, :edit, :update]
   def edit
   end
 
-
-
-  def deposit
-    @user = current_user
-  end
-
-  def update_deposit
-     @user = current_user
-    @user.balance += (params[:user][:balance]).to_f
-    if @user.save
-      redirect_to root_path
-    else
-      render :new
-    end
-  end
-
   def update
       @user.update(user_params)
     if @user.save

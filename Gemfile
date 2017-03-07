@@ -21,6 +21,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "cocoon"
 gem 'jquery-ui-rails'
+gem 'coffee-script'
+gem 'money-rails'
+gem 'stripe'
 
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
