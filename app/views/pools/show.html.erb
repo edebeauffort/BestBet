@@ -27,16 +27,16 @@
             <div>
               <%= render 'placebet', my_selection: @my_selection %>
             </div>
-            
-             <div class="invite">
-                <h3>Invite More People to Join the Pool</h3>
-                 <%= render 'invite' %>
-               </div>
-            
+
+           <div class="invite">
+              <h3>Invite More People to Join the Pool</h3>
+              <%= render 'invite' %>
+            </div>
+
             <div class="dynamic">
               <%= render partial: 'chatroom' %>
             </div>
-            
+
           </div>
           <div class="back">
             <%= render 'confirm_winner' %>
@@ -101,11 +101,10 @@
     $(".confirmbutton").hide()
   }
 
-
-
-
-
-
+  $('#share select').selectpicker();
+  $('#share').on('cocoon:after-insert', function(e, insertedItem) {
+    $('#share select').selectpicker();
+  });
 
 
   var invited = <%= @invited %>;

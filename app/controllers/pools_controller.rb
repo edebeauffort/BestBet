@@ -53,6 +53,12 @@ class PoolsController < ApplicationController
     end
   end
 
+  def update
+    @pool = Pool.find(params[:id])
+    @pool.update(pool_params)
+    redirect_to @pool
+  end
+
   def declare_winner
     @pool = Pool.find(params[:id])
     @pool.selections.each do |selection|

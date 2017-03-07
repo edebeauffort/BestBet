@@ -95,19 +95,17 @@
       border-color: white;
     }
   }
-
-  .pool_invites_user {
-    margin-bottom: 0;
-    height: 40px;
-    width: 100%;
-
-    .bootstrap-select {
-      width: 100%;
-    }
-  }
-
 }
 
+.pool_invites_user {
+  margin-bottom: 0;
+  height: 40px;
+  width: 100%;
+
+  .bootstrap-select {
+    width: 100%;
+  }
+}
 // .form-control{
 //   margin: 0;
 //   outline: none;
