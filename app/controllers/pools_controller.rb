@@ -1,6 +1,9 @@
 class PoolsController < ApplicationController
 
   def show
+
+
+    @user = User.new
     @pool = Pool.find(params[:id])
     @bets = Bet.where(pool_id: @pool.id).count
     @jackpot = (@bets * @pool.stake).to_i

@@ -141,6 +141,7 @@ select:focus {
 
 .winner-output {
   position: relative;
+  margin-top: 40px;
   }
 
 .output {
@@ -153,7 +154,6 @@ select:focus {
   font-family: $base-font;
   font-size: 30px;
   text-align: center;
-  margin: 0 auto;
   padding: 1em;
 }
 

@@ -1,0 +1,36 @@
+<div class="pool-invite-container">
+  <div id="share" class="invite-users">
+  <%= simple_form_for(@pool) do |f| %>
+  <%= f.simple_fields_for :invites do |ff| %>
+
+
+  <div class="invite-users">
+  <%= f.association :user, prompt: "invite a friend", label: false, collection: User.all, label_method: ->(obj){ obj.email } %>
+  <%= link_to_remove_association f do %>
+    <i class="fa fa-times"></i>
+  <% end %>
+  </div>
+    <% end %>
+
+
+  <div class="links">
+    <%= link_to_add_association f, :invites do %>
+    <i class="fa fa-plus"></i>
+    <% end %>
+  </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<!-- <li class="list-group-item" data-color="success">Dapibus ac facilisis in</li>
+<li class="list-group-item" data-color="info">Morbi leo risus</li>
+<li class="list-group-item" data-color="warning">Porta ac consectetur ac</li>
+<li class="list-group-item" data-color="danger">Vestibulum at eros</li> -->
+
+<%#= simple_form_for(@users) do |f|%>
+<%#= f.submit "Accept", class: "btn btn-primary" %>
+<%#= f.submit "Decline", class: "btn btn-danger" %>
+<%# end %>
