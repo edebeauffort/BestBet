@@ -22,6 +22,9 @@ gem 'autoprefixer-rails'
 gem "cocoon"
 gem 'jquery-ui-rails'
 gem 'bootstrap-select-rails'
+gem 'coffee-script'
+gem 'money-rails'
+gem 'stripe'
 
 
 gem 'momentjs-rails', '>= 2.9.0'

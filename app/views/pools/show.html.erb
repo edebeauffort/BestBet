@@ -25,6 +25,9 @@
 
   <div class="dynamic"><%= render partial: 'chatroom' %></div>
 
+  <div class="share-links-container">
+  <%= render partial: 'share_links' %>
+</div>
 <!-- This is JS for the selections to be unclickable after countdown = 0 -->
 <% content_for(:after_js) do %>
 <script>

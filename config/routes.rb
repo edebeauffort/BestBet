@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   resources :chats, only: [:create]
   resources :messages, only: [:create, :show]
 
-  get '/deposit', to: 'users#deposit'
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
 
-  patch '/deposit', to: 'users#update_deposit'
+  get '/deposit', to: 'users#deposit'
 
   get '/refresh_part', to: 'pools#refresh_part'
 
