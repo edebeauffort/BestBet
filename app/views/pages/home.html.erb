@@ -10,7 +10,7 @@
       <div class="banner-create">
         <%= simple_form_for(@pool) do |f| %>
         <%= f.input :title, label: false, required: false, input_html:{class:"bet-title"}, placeholder: "Give a title to your bet..." %>
-        <div class="fake-btn btn btn-primary">Start a bet</div>
+        <div class="fake-btn btn btn-primary">Create a bet</div>
         <div class="fake-div hidden">
           <div class="body-tabs">
             <ul class="tabs">
@@ -33,13 +33,15 @@
             </ul>
 
             <div id="description" class="tab-content current">
-              <%= f.input :description, label:false, input_html:{class:"description_input"}, placeholder: "What are the terms of the bet?" %>
+              <p>What are the rules of the game?</p>
+              <%= f.input :description, label:false, input_html:{class:"description_input"}, placeholder: "e.g. first team to reach 10 goals" %>
             </div>
 
             <div id="selections" class="tab-content">
-                <%= f.simple_fields_for :selections do |ff| %>
-                <%= render 'selection_fields', f: ff %>
-                <% end %>
+              <p>What are the possible outcomes?</p>
+              <%= f.simple_fields_for :selections do |ff| %>
+              <%= render 'selection_fields', f: ff %>
+              <% end %>
 
               <div class="links">
                 <%= link_to_add_association f, :selections do %>
@@ -51,7 +53,8 @@
             <div id="stake" class="tab-content">
               <div class="row">
                   <div class="col-xs-12">
-                    <%= f.input :stake, label:false, placeholder: "For how much are we playing?", required: true %>
+                    <p>For how much are we playing?</p>
+                    <%= f.input :stake, label:false, placeholder: "e.g. 5€", required: true %>
                   </div>
               </div>
             </div>
@@ -60,13 +63,15 @@
               <div class="row">
                 <div class="form-group">
                   <div class="col-xs-12" id="pool-stake">
-                    <%= f.input :end_date, as: :string, label: false, placeholder: "When does your event starts?", required: true %>
+                    <p>Until when are bets accepted?</p>
+                    <%= f.input :end_date, as: :string, label: false, placeholder: "choose a date and time", required: true %>
                   </div>
                 </div>
               </div>
             </div>
 
             <div id="share" class="tab-content">
+              <p>Who do you want to invite?</p>
               <%= f.simple_fields_for :invites do |ff| %>
               <%= render 'invite_fields', f: ff %>
               <% end %>
@@ -75,17 +80,21 @@
                 <i class="fa fa-plus"></i>
                 <% end %>
               </div>
-              <%# render 'share/invite' %>
             </div>
           </div>
         </div>
+
         <div class="real-submit hidden">
-          <%= f.button :submit, disabled: true, class: 'btn btn-primary bold-text real-submit' %>
+          <%= f.button :submit, "Start betting!", disabled: true, class: 'btn btn-primary bold-text real-submit' %>
         </div>
         <% end %>
       </div>
     </div>
-
+  <div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="10" aria-valuemax="10" style="width: 50%">
+   50%
+  </div>
+</div>
   </div>
   <%= render 'poolcard' %>
 </div>
@@ -97,16 +106,11 @@
     format: 'DD/MM/YYYY HH:mm'
   })
 
-
-
   $('form').click(function() {
-    if( $('#pool_title').val() != "" && $('#pool_description').val() != "" && $('#selections').find( ".nested-fields" ).length >= 2 && $('#pool_stake').val() != "" && $('#pool_end_date').val() != "" ) {
+    if( $('#pool_title').val() != "" && $('#pool_description').val() != "" && $('#selections').find( ".nested-fields" ).length >= 2 && $('#pool_stake').val() != "" && $('#pool_end_date').val() != "" && $('#share').find( ".nested-fields" ).length >= 1) {
       $('.real-submit').prop('disabled', false);
     }
   })
+
 </script>
 <% end %>
-
-
-
-
