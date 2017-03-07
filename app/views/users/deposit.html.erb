@@ -1,5 +1,12 @@
-<%= simple_form_for(@user) do |f|%>
-<%= f.input :balance, required: false, placeholder: "How many credits do you wanna get?", input_html:{value: "", class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"} %>
-<% #NEED TO DISPLAY THE PLACEHOLDER INSTEAD OF DISPLAYING THE CURRENT BALANCE VALUE %>
-<%= f.submit "Deposit", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="row">
+  <h1>Top up your account</h1>
+    <%= simple_form_for(@user, url: deposit_path) do |f|%>
+    <%= f.input :balance, required: false, placeholder: "How many credits do you wanna get?", input_html:{value: "", class:"my_input"}, label_html:{class:"my_label"}, wrapper_html:{class:"my_wrapper"} %>
+    <% #NEED TO DISPLAY THE PLACEHOLDER INSTEAD OF DISPLAYING THE CURRENT BALANCE VALUE %>
+    <%= f.submit "Deposit", class: "btn btn-primary depositbutton" %>
+    <% end %>
+  </div>
+</div>
+
+

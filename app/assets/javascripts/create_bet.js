@@ -1,5 +1,5 @@
 $(function(){
-
+  $(".bet-title").focus()
   $(".fake-btn").on("click", function(e){
     $(".fake-div").removeClass('hidden');
     $(this).addClass('hidden');

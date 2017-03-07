@@ -1,11 +1,6 @@
 .container {
 
 }
-.fa-money{
-  color: green;
-  width: 20px;
-  padding-right: 50px;
-}
 .pools_show-details{
   display: flex;
  justify-content: space-around;
@@ -46,6 +41,11 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+
+  .pool-confirm_winner {
+    margin-top: 20px;
+  }
 
   h1 {
     margin: 0;

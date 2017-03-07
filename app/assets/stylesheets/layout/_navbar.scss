@@ -5,11 +5,12 @@
   transition: all 0.3s ease;
   display: flex;
   height: 55px;
-  padding: 0px 30px;
+  padding-left: 10px;
   align-items: center;
   justify-content: space-between;
   background-color: #254C62;
   color:white;
+
 }
 .airbnblogo h2{
 
@@ -39,7 +40,7 @@
 .navbar-wagon-item {
   flex: 0 1 auto;
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 /* Navbar standard link */

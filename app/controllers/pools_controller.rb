@@ -5,10 +5,10 @@ class PoolsController < ApplicationController
     @bets = Bet.where(pool_id: @pool.id).count
     @jackpot = (@bets * @pool.stake).to_i
 
-
     if @pool.selections.where(winning_selection: true).first
       @winner = @pool.selections.where(winning_selection: true).first
     end
+
     @bet = Bet.new
     @message = Message.new
     @my_selection = []
@@ -18,11 +18,18 @@ class PoolsController < ApplicationController
       end
     end
 
+
     invited_users = []
     @pool.invites. each do |invite|
       invited_users << invite.user
     end
     @invited = invited_users.include? current_user
+
+    betting_users = []
+    @pool.bets. each do |bet|
+      betting_users << bet.user
+    end
+    @betted = betting_users.include? current_user
 
   end
 
@@ -39,7 +46,7 @@ class PoolsController < ApplicationController
     if @pool.save
       redirect_to pool_path(@pool)
     else
-      render :new
+      redirect_to root_path
     end
   end
 
@@ -68,6 +75,13 @@ class PoolsController < ApplicationController
 
     redirect_to :back
   end
+
+  # def refresh_part
+  #   @pool = Pool.all
+  #   respond_to do |format|
+  #     format.js
+  #   end
+  # end
 
 
   private
