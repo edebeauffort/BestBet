@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :invites
   has_many :messages
   devise :omniauthable, omniauth_providers: [:facebook]
+  monetize :balance_cents
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)

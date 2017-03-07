@@ -15,26 +15,110 @@
   flex-grow: 1;
   justify-content: center;
   padding: 20px;
-  .form-control:focus{
-    box-shadow: none;
-    border-color: white;
-  }
   form {
     width: 100%;
   }
+
+  #selections input {
+    padding: 12px 0 0 0;
+    color: #234C63;
+    border: none;
+    font-size: 16px;
+    background-color: white;
+    width: auto;
+
+    &:focus{
+      box-shadow: none;
+      border-color: white;
+    }
+  }
+  #pool_description{
+     margin: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    color: #fbfbfb;
+    font-size: 17px;
+    &:focus{
+      box-shadow: none;
+      border-color: white;
+    }
+
+  }
+  #pool_stake {
+    margin: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    color: #fbfbfb;
+    font-size: 17px;
+    &:focus{
+      box-shadow: none;
+      border-color: white;
+    }
+  }
+
+  #pool_end_date {
+    margin: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    color: #fbfbfb;
+    font-size: 17px;
+    &:focus{
+      box-shadow: none;
+      border-color: white;
+    }
+  }
+
+  #pool_title {
+    margin: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    color: $gray-lighter;
+    font-size: 17px;
+    &:focus{
+      box-shadow: none;
+      border-color: white;
+    }
+  }
+
+  .pool_invites_user {
+    margin-bottom: 0;
+    height: 40px;
+    width: 100%;
+
+    .bootstrap-select {
+      width: 100%;
+    }
+  }
+
 }
 
-.form-control{
-  margin: 0;
-  outline: none;
-  display: block;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid white;
-  background: transparent;
-  color: $gray-lighter;
-  font-size: 17px;
-}
+// .form-control{
+//   margin: 0;
+//   outline: none;
+//   display: block;
+//   width: 100%;
+//   border: none;
+//   border-bottom: 1px solid white;
+//   background: transparent;
+//   color: $gray-lighter;
+//   font-size: 17px;
+// }
 
 .bet-title::placeholder {
   color: $gray-lighter;
@@ -82,17 +166,17 @@
   font-size: 25px;
   margin: 7px;
   border-radius: 4px;
-  .form-control{
-    padding: 12px 0 0 0;
-    color: $blue;
-    border: none;
-    font-size: 16px;
-    background-color: white;
-    width: auto;
-    &:focus {
-      box-shadow: none;
-    }
-  }
+  // .form-control{
+  //   padding: 12px 0 0 0;
+  //   color: $blue;
+  //   // border: none;
+  //   font-size: 16px;
+  //   background-color: white;
+  //   width: auto;
+  //   &:focus {
+  //     box-shadow: none;
+  //   }
+  // }
   .fa-times {
     color: $blue;
   }
