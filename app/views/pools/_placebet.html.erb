@@ -28,7 +28,12 @@
             <% end %>
           </div>
         </div>
+        <% if current_user.balance_cents >= (@pool.stake * 100) %>
+        <%# raise %>
         <input type="submit" name="commit" value="Confirm your <%= @pool.stake %> $ bet" class="tn btn-lg btn-success confirmbutton" data-disable-with="Confirm your bet">
+        <% else %>
+        <input type="submit" name="commit" value="Confirm your <%= @pool.stake %> $ bet" class="tn btn-lg btn-success confirmbutton prevent-negative" data-disable-with="Confirm your bet">
+        <% end %>
       </form>
       </div>
     </div>
