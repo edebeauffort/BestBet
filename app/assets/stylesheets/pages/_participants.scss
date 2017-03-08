@@ -1,0 +1,20 @@
+.avatar-participant{
+  height: 65px;
+  width: 65px;
+  border-radius: 100%;
+}
+
+.flex-participants {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-initial;
+  align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.flex-participants p {
+ margin-left: 10px;
+}

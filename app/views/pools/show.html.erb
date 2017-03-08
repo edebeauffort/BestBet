@@ -20,6 +20,10 @@
       </div>
     </div>
 
+    <div class="row text-center dynamic participants">
+      <%= render partial: 'participants' %>
+    </div>
+
     <div class="row">
       <div class="col-xs-12">
         <div class="flipper">
@@ -27,7 +31,7 @@
             <div>
               <%= render 'placebet', my_selection: @my_selection %>
             </div>
-
+<p>
            <div class="invite">
               <h3>Invite More People to Join the Pool</h3>
               <%= render 'invite' %>
@@ -115,6 +119,12 @@
       alert("We're sorry but you were not invited to this bet");
     });
   }
+
+  setInterval(function(){
+    $.get("<%= pool_path(@pool) %>", function(data) {
+      console.log("test")
+    });
+  }, 3000);
 
 });
 </script>
