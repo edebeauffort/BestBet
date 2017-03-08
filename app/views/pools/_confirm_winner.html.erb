@@ -1,6 +1,13 @@
 
 <div class ="container">
   <div class ="wrapper">
+  <div class="line-separator"></div>
+
+    <div class="declare-winner">
+    <h3>And the Winner is...</h3>
+    <div class = "edit-winner">
+      <i class='fa fa-pencil' id="admin-change-winner"></i>
+    </div>
 
     <% if current_user == @pool.user %>
     <div class="hiddeable">
@@ -22,23 +29,24 @@
     </div>
     <% end %>
 
-    <div class="container winner-output">
-      <div class="output" id="winner">
+
+      <div class="winner-output" id="winner">
         <% if @pool.selections.where(winning_selection: true).count > 0 %>
-          <h3><%= @winner.title + " Wins!" %></h3>
+          <p><%= @winner.title + " Wins!" %></p>
         <% else %>
-        <h3><i> No Winner Has Been Named Yet...</i></h3>
+        <p><i> No Winner Yet!</i></p>
         <% end %>
         <% if current_user == @pool.user %>
-        <div class = "edit-winner center">
-        <i class='fa fa-pencil' id="admin-change-winner"></i>
-        </div>
         <% end %>
       </div>
     </div>
 
+    <div class="line-separator"></div>
+
   </div>
 </div>
+
+
 
 
 <%= content_for(:after_js) do %>
