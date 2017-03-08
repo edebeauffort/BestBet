@@ -1,11 +1,9 @@
 class PoolsController < ApplicationController
 
   def show
-
-
     @user = User.new
     @pool = Pool.find(params[:id])
-    @bets = Bet.where(pool_id: @pool.id).count
+    @bets = @pool.bets.count
     @jackpot = (@bets * @pool.stake).to_i
 
     if @pool.selections.where(winning_selection: true).first
@@ -85,13 +83,13 @@ class PoolsController < ApplicationController
     redirect_to :back
   end
 
-  # def refresh_part
-  #   @pool = Pool.all
-  #   respond_to do |format|
-  #     format.js
-  #   end
-  # end
+  def participants
+    @pool = Pool.find(params[:id])
 
+    respond_to do |format|
+      format.js
+    end
+  end
 
   private
 

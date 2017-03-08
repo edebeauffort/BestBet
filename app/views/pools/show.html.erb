@@ -8,8 +8,8 @@
         <div class="bet-description">
           <h1><%= @pool.title %></h1>
           <ul class="list-unstyled list-inline tags">
-            <li><%=image_tag "group.png", class: "bet-icon"%><%= @bets %></li>
-            <li><%=image_tag "Cash.png", class: "bet-icon"%><%= @jackpot %> €</li>
+            <li><%=image_tag "group.png", class: "bet-icon"%><span class="nb_people"><%= @bets %></span></li>
+            <li><%=image_tag "Cash.png", class: "bet-icon"%><span class="jackpot"><%= @jackpot %></span> €</li>
             <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
           </ul>
           <hr>
@@ -121,9 +121,7 @@
   }
 
   setInterval(function(){
-    $.get("<%= pool_path(@pool) %>", function(data) {
-      console.log("test")
-    });
+    $.get("<%= participants_pool_path(@pool) %>", function() {});
   }, 3000);
 
 });
