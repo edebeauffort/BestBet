@@ -15,8 +15,14 @@
           <em>My invitations</em>
           <div class="badge badge-red">
             <% if user_signed_in? %>
+            <% invitesnumber = 0 %>
+              <% current_user.invites.each do |invite| %>
+              <% if invite.pool.end_date >= DateTime.now %>
 
-            <%= current_user.invites.count %>
+            <% invitesnumber += 1 %>
+            <% end %>
+            <% end %>
+            <%= invitesnumber %>
             <% end %>
           </div>
         </li>
