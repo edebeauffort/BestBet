@@ -9,13 +9,15 @@
           <h1><%= @pool.title %></h1>
           <ul class="list-unstyled list-inline tags">
             <li><%=image_tag "group.png", class: "bet-icon"%><%= @bets %></li>
-            <li><%=image_tag "Cash.png", class: "bet-icon"%><%= @jackpot %> €</li>
+            <li><%=image_tag "gold-ingots.png", class: "bet-icon"%><%= @jackpot %> €</li>
             <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
           </ul>
           <hr>
           <h4 class="text-center"><%= @pool.description %></h4>
-          <hr>
-          <div class = "pop-up">You just placed your bet, good luck!</div>
+
+          <% if @pool.bets.where(user_id: current_user.id).any? %>
+            <div class="pop-up">You just placed a bet, good luck!</div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -81,6 +83,11 @@
 
     });
   })
+
+
+
+
+
 
   // if I click on selection of bet
   $(".bet-selection").click(function(){

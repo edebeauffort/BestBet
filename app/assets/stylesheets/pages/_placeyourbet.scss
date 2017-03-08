@@ -1,7 +1,13 @@
+.new_bet {
+  text-align: center;
+}
+
 .confirmbutton{
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
   margin-top: 25px;
-  width: 100%;
+  width: 50%;
   background: $blue;
   border: none;
   border-radius: 5px;
