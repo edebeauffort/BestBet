@@ -1,3 +1,71 @@
 .edit-profile{
   margin-top: 20px;
 }
+#user_first_name{
+       margin: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+
+    background: transparent;
+
+    font-size: 17px;
+    color:#254C62;
+
+    &:focus{
+      box-shadow: none;
+      border:solid 1px #CCCCCC;
+    }
+}
+#headeredit{
+  color:#254C62;
+}
+#user_last_name{
+         margin: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+
+    background: transparent;
+
+    font-size: 17px;
+    color:#254C62;
+
+    &:focus{
+      box-shadow: none;
+      border:solid 1px #CCCCCC;
+    }
+}
+#user_email{
+        margin: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+
+    background: transparent;
+
+    font-size: 17px;
+    color:#254C62;
+
+    &:focus{
+      box-shadow: none;
+      border:solid 1px #CCCCCC;
+    }
+}
+#user_username{
+        margin: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+
+    background: transparent;
+
+    font-size: 17px;
+    color:#254C62;
+
+    &:focus{
+      box-shadow: none;
+      border:solid 1px #CCCCCC;
+    }
+}
+
