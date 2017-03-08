@@ -14,10 +14,6 @@
           </ul>
           <hr>
           <h4 class="text-center"><%= @pool.description %></h4>
-
-          <% if @pool.bets.where(user_id: current_user.id).any? %>
-            <div class="pop-up">You just placed a bet, good luck!</div>
-          <% end %>
         </div>
       </div>
     </div>
@@ -30,10 +26,12 @@
       <div class="col-xs-12">
         <div class="flipper">
           <div class="front">
+          <% if @pool.bets.where(user_id: current_user.id).any? %>
+            <div class="pop-up">You just placed a bet, good luck!</div>
+          <% end %>
             <div>
               <%= render 'placebet', my_selection: @my_selection %>
             </div>
-<p>
            <div class="invite">
               <%= render 'invite' %>
             </div>
