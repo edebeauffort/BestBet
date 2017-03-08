@@ -1,0 +1,3 @@
+$('.participants').html("<%= escape_javascript(render partial: 'participants') %>")
+$('.nb_people').html('<%= @pool.bets.count %>');
+$('.jackpot').html('<%= @pool.bets.count * @pool.stake %>');
