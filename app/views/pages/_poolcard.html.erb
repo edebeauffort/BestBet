@@ -1,11 +1,26 @@
   <div class="separator-home">
   </div>
   <div class="row">
-  <div class="buton-holder" style="width:250px; margin: 0 auto;">
+  <div class="buton-holder">
       <ul class="tabs pool-tabs">
-        <li class="tab-link current" data-tab="Admin"><em>Created</em></li>
-        <li class="tab-link" data-tab="Invites"><em>Invited</em></li>
-        <li class="tab-link" data-tab="Bets"><em>Bets</em></li>
+        <li class="tab-link current" data-tab="Admin">
+          <em>Bets I Created</em>
+          <div class="badge badge-red">
+            <%= current_user.pools.count %>
+          </div>
+        </li>
+        <li class="tab-link" data-tab="Invites">
+          <em>My invitations</em>
+          <div class="badge badge-red">
+            <%= current_user.invites.count %>
+          </div>
+        </li>
+        <li class="tab-link" data-tab="Bets">
+          <em>My previous bets</em>
+          <div class="badge badge-red">
+            <%= current_user.bets.count %>
+          </div>
+        </li>
       </ul>
       </div>
 
@@ -17,11 +32,12 @@
             <div class="card">
               <div class="card-description">
               <%= link_to "", pool_path(pool), class: 'card-link' %>
-                <h3 class="text-center"><%= pool.title %> </h3>
-                <ul class="list-unstyled list-inline listofcard">
-                  <li><%=image_tag "group.png", class: "card-icon"%><%= @bets %></li>
-                  <li><%=image_tag "Cash.png", class: "card-icon"%><%= pool.stake %></li>
-                  <li class="betclosedtag"><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
+
+                <h3><%= pool.title %> </h3>
+                <ul class="list-unstyled list-inline">
+                  <li><%=image_tag "group.png", class: "card-icon"%><%= pool.bets.count %></li>
+                  <li><%=image_tag "gold-ingots.png", class: "card-icon"%><%= pool.stake.to_i %></li>
+                  <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
                 </ul>
                 <hr>
                 <p class="text-center"><%= pool.description %></p>
@@ -59,8 +75,8 @@
                 <p><%= "You friend #{invite.pool.user.email} has invited you to bet on the event #{invite.pool.title}!" %></p>
                 <hr>
                 <ul class="list-unstyled list-inline">
-                  <li><%=image_tag "group.png", class: "card-icon-invites"%> 4 </li>
-                  <li><%=image_tag "Cash.png", class: "card-icon-invites"%><%= invite.pool.stake %></li>
+                  <li><%=image_tag "group.png", class: "card-icon-invites"%><%= pool.bets.count %></li>
+                  <li><%=image_tag "gold-ingots.png", class: "card-icon-invites"%><%= invite.pool.stake.to_i %></li>
                   <li><%=image_tag "Clock.png", class: "card-icon-invites"%><span id="pool-<%=invite.pool.id%>"></span></li>
                 </ul>
             </div>
@@ -91,8 +107,8 @@
               <%= link_to "", pool_path(pool), class: 'card-link' %>
                 <h3 class="text-center"><%= pool.title %> </h3>
                 <ul class="list-unstyled list-inline">
-                  <li><%=image_tag "group.png", class: "card-icon"%><%= @bets %></li>
-                  <li><%=image_tag "Cash.png", class: "card-icon"%><%= pool.stake %></li>
+                  <li><%=image_tag "group.png", class: "card-icon"%><%= pool.bets.count %></li>
+                  <li><%=image_tag "gold-ingots.png", class: "card-icon"%><%= pool.stake.to_i %></li>
                   <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
                 </ul>
                 <hr>

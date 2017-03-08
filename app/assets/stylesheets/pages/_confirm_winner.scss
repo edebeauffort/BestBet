@@ -1,11 +1,11 @@
-// body {
-//   font: 100%/1.5 AvenirNext-Regular, Corbel, "Lucida Grande", "Trebuchet Ms", sans-serif;
-//   color: #111;
-//   background-color: #fff;
-//   margin: 2em 10%
-// }
 
-/* Label styles: style as needed */
+.line-separator {
+  height:1px;
+  background:#717171;
+  border-bottom:1px solid #313030;
+}
+
+
 label {
   font-family: $base-font;
   text-align: left;
@@ -110,7 +110,6 @@ select:focus {
 
 
 
-
 .option {
   font-weight:normal;
   font-family: $base-font;
@@ -139,41 +138,33 @@ select:focus {
 }
 
 
-.winner-output {
+.declare-winner {
   position: relative;
-  margin-top: 40px;
-  }
-
-.output {
-  border: 10px;
-  border-style: solid;
-  border-color: yellow;
-  border-radius: 30px;
-  padding: 10px;
-  background: $green;
-  font-family: $base-font;
-  font-size: 30px;
   text-align: center;
-  padding: 1em;
+  font-family: $header-font;
+  font-size: 25px;
+  color: $green;
 }
-
 
 .edit-winner {
-  color: white;
+  color: #92A6B2;
+  font-size: 20px;
+  position: absolute;
+  top: 0px;
 }
+
+.winner-output {
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 25px;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+
 
 .edit-winner:hover{
   opacity: 0.4;
-}
-
-
-.center {
-    position: absolute;
-    left: 0;
-    top: 62%;
-    width: 100%;
-    text-align: center;
-    font-size: 15px;
 }
 
 
