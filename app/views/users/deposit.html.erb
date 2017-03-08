@@ -1,23 +1,42 @@
 <div class="container">
   <div class="row">
-
-  <div class="progress-amount col-xs-4">
+    <div class="col-xs-12">
+      <div class="deposit">
+  <!-- <div class="progress-amount col-xs-4">
     <p>Step 1: Select Amount</p>
   </div>
-  <div class="progress-details col-xs-4">
+  <div class="progress-detailscol-xs-4">
     <p>Step 2: Card Details</p>
   </div>
   <div class="progress-finished col-xs-4">
     <p>Step 3: Balance Updated</p>
-  </div>
-  <hr>
-  <h2>Top up your account</h2>
-    <%= form_tag orders_path do %>
+  </div> -->
+  <!-- <hr> -->
+      <h3>Top up your account</h3>
+      <%= form_tag orders_path do %>
       <%= hidden_field_tag 'user_id', current_user.id %>
       <input type="number" name="balance" id="balance" class="deposit-input">
-      <%= submit_tag 'Deposit', class: 'btn btn-primary' %>
+      <%= submit_tag 'Deposit', class: 'btn btn-primary depositbtn' %>
     <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
 
+<%= content_for :after_js do %>
+<script>
+
+$('.deposit-input').change(function(){
+  if( $('.deposit-input').val() == "") {
+    $('.depositbtn').click(function(e){
+    e.preventDefault();
+    });
+  }
+});
+
+
+
+
+</script>
+<%end%>

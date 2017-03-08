@@ -1,5 +1,5 @@
 .deposit-input {
-  color: red;
+  color: $gray;
 }
 
 .progress-amount {
@@ -33,3 +33,36 @@
   color: #fff;
   font-size: 14px;
 }
+
+.deposit, .payement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  h3 {
+    padding: 20px;
+    color: $green;
+  }
+}
+
+
+.depositbtn {
+  background-color: $blue;
+  border-color: $blue;
+  &:hover {
+    background-color: none;
+  }
+}
+
+
+#balance {
+  height: 44px;
+}
+
+.balance {
+  text-align: center;
+  margin: 20px 0 40px 0;
+}
+
+

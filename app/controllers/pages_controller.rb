@@ -17,6 +17,10 @@ class PagesController < ApplicationController
     redirect_to root_path
   end
 
+   #def action_name
+    #  render :partial => "participants/dynamic"
+   #end
+
   private
 
   def invite_params

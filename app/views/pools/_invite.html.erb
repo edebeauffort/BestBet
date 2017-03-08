@@ -1,23 +1,26 @@
-<div class="pool-invite-container">
-  <div id="share" class="invite-users">
-
+<div class="pool-invite-container hidden">
+  <div class ="wrapper">
     <div class="line-separator"></div>
 
-  <h3>Invite Others to Join</h3>
-    <%= simple_form_for(@pool) do |f| %>
-    <%= f.simple_fields_for :invites do |ff| %>
+    <div id="share" class="invite-users">
 
-    <%= render 'invite_fields', f: ff %>
-    <% end %>
+      <% if current_user == @pool.user %>
+        <h2>INVITE OTHERS TO JOIN</h2>
+          <%= simple_form_for(@pool) do |f| %>
+            <%= f.simple_fields_for :invites do |ff| %>
+              <%= render 'invite_fields', f: ff %>
+            <% end %>
 
       <div class="links">
-      <%= link_to_add_association f, :invites do %>
-      <i class="fa fa-plus"></i>
-      <% end %>
+          <%= link_to_add_association f, :invites do %>
+          <i class='fa fa-plus' id="add-pool-user"></i>
+        <% end %>
 
-      <%= f.submit class: "btn btn-primary update-users" %>
-    </div>
-    <% end %>
+        <%= f.submit class: "btn btn-primary update-users" %>
+      </div>
+
+        <% end %>
+      <% end %>
 
     <div class="line-separator"></div>
 
@@ -26,12 +29,33 @@
 
 
 
-<!-- <li class="list-group-item" data-color="success">Dapibus ac facilisis in</li>
-<li class="list-group-item" data-color="info">Morbi leo risus</li>
-<li class="list-group-item" data-color="warning">Porta ac consectetur ac</li>
-<li class="list-group-item" data-color="danger">Vestibulum at eros</li> -->
+<%= content_for(:after_js) do %>
+<script>
 
-<%#= simple_form_for(@users) do |f|%>
-<%#= f.submit "Accept", class: "btn btn-primary" %>
-<%#= f.submit "Decline", class: "btn btn-danger" %>
-<%# end %>
+  $(function() {
+
+
+    if (<%= Time.now > @pool.end_date %>) {
+      $(".update-users").prop('disabled', true);
+      $()
+    };
+
+
+    $('#add-pool-user').click(function() {
+      $('.hiddeable').show();
+    });
+
+
+    if (<%= Time.now < @pool.end_date %>) {
+      console.log('hiiii')
+      $('.pool-invite-container').removeClass('hidden');
+    }
+    if (<%= Time.now > @pool.end_date %>) {
+      $(".fa-times").prop('disabled', true);
+    };
+
+
+  });
+
+</script>
+<% end %>
