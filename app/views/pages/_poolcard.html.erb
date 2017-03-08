@@ -26,12 +26,13 @@
 
       <div id="Admin" class="tab-content pool-tab-content current">
       <% i = 0 %>
-        <% @pools.each do |pool| %>
+        <% @pools.reverse.each do |pool| %>
         <% if pool.user == current_user %>
           <div class="col-xs-12 col-sm-6">
             <div class="card">
               <div class="card-description">
               <%= link_to "", pool_path(pool), class: 'card-link' %>
+
                 <h3><%= pool.title %> </h3>
                 <ul class="list-unstyled list-inline">
                   <li><%=image_tag "group.png", class: "card-icon"%><%= pool.bets.count %></li>
@@ -39,7 +40,7 @@
                   <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
                 </ul>
                 <hr>
-                <p><%= pool.description %></p>
+                <p class="text-center"><%= pool.description %></p>
               </div>
             </div>
           </div>
@@ -65,7 +66,7 @@
       <div id="Invites" class="tab-content pool-tab-content">
       <% i = 0 %>
         <% @pools.each do |pool| %>
-        <% pool.invites.each do |invite| %>
+        <% pool.invites.reverse.each do |invite| %>
         <% if invite.user == current_user %>
           <div class="col-xs-12 col-sm-6">
             <div class="card-invites">
@@ -97,21 +98,21 @@
       </div>
       <div id="Bets" class="tab-content pool-tab-content">
       <% i = 0 %>
-        <% @pools.each do |pool| %>
+        <% @pools.reverse.each do |pool| %>
         <% pool.bets.each do |invite| %>
         <% if invite.user == current_user %>
           <div class="col-xs-12 col-sm-6">
             <div class="card">
               <div class="card-description">
               <%= link_to "", pool_path(pool), class: 'card-link' %>
-                <h3><%= pool.title %> </h3>
+                <h3 class="text-center"><%= pool.title %> </h3>
                 <ul class="list-unstyled list-inline">
                   <li><%=image_tag "group.png", class: "card-icon"%><%= pool.bets.count %></li>
                   <li><%=image_tag "gold-ingots.png", class: "card-icon"%><%= pool.stake.to_i %></li>
                   <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
                 </ul>
                 <hr>
-                <p><%= pool.description %></p>
+                <p class="text-center"><%= pool.description %></p>
               </div>
             </div>
           </div>
