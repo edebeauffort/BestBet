@@ -1,10 +1,10 @@
 <div class="container">
 <h1 id="headeredit">Edit your profile</h1>
   <%= simple_form_for @user do |f|%>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :email %>
-    <%= f.input :username %>
+    <%= f.input :first_name, class: "firstnameedit" %>
+    <%= f.input :last_name, class: "lastnameedit" %>
+    <%= f.input :email, class: "emailedit" %>
+    <%= f.input :username, class: "usernameedit" %>
     <%= f.submit "Save your changes", class: "btn btn-primary edit-profile" %>
   <% end %>
   </div>
