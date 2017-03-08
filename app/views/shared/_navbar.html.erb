@@ -13,7 +13,7 @@
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-       <%= link_to t(".renter", default: "All your bets"), bets_path, class: "navbar-wagon-item navbar-wagon-link" %>
+       <%= link_to t(".renter", default: "my bets"), bets_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to t(".renter", default: "Deposit"), deposit_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Notification -->
