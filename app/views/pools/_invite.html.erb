@@ -1,5 +1,9 @@
 <div class="pool-invite-container">
   <div id="share" class="invite-users">
+
+    <div class="line-separator"></div>
+
+  <h3>Invite Others to Join</h3>
     <%= simple_form_for(@pool) do |f| %>
     <%= f.simple_fields_for :invites do |ff| %>
 
@@ -11,9 +15,12 @@
       <i class="fa fa-plus"></i>
       <% end %>
 
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit class: "btn btn-primary update-users" %>
     </div>
     <% end %>
+
+    <div class="line-separator"></div>
+
   </div>
 </div>
 

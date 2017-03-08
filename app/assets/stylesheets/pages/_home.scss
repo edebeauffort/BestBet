@@ -200,7 +200,13 @@
   }
 }
 
+.buton-holder {
+  display: flex;
+  justify-content: space-around;
+}
+
 .tab-link{
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -220,7 +226,6 @@
 }
 
 ul.tabs{
-
   margin: 0px;
   padding: 0px;
   list-style: none;
@@ -231,6 +236,7 @@ ul.tabs{
 ul.pool-tabs {
   background-color: #254C62;
   border-radius: 5px;
+  width: 500px;
 }
 
 ul.tabs{

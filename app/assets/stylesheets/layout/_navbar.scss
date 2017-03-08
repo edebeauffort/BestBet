@@ -12,9 +12,7 @@
   color:white;
 
 }
-.airbnblogo h2{
 
-}
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;
@@ -26,7 +24,8 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 50px;
+  width: 40px;
+  align-items: center;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -68,6 +67,7 @@
 }
 .navbar-wagon-button-login{
    margin-left: 15px;
+    margin-right: 15px;
   padding: 0 20px;
   border-radius: 5px;
   line-height: 35px;
