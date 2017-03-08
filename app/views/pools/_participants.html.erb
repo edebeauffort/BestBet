@@ -1,4 +1,8 @@
-<h3>The Bold Participants</h3>
+<div class="container">
+<div class="line-separator"></div>
+<h2>THE BOLD PARTICIPANTS</h2>
+<div class="line-separator"></div>
+<div class="participants-roster">
 <% @pool.bets.each do |bet| %>
   <div class="col-xs-12">
     <% participant_url = bet.user.facebook_picture_url || "http://placehold.it/30x30" %>
@@ -8,3 +12,5 @@
     </div>
   </div>
 <% end %>
+</div>
+</div>

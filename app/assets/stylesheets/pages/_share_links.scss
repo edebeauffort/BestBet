@@ -1,8 +1,18 @@
-// *,
-// *::before,
-// *::after {
-//   box-sizing: border-box;
-// }
+
+.line-separator {
+  height:1px;
+  background:#717171;
+  border-bottom:1px solid $gray;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 
 // html,
 // body {
