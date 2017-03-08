@@ -1,13 +1,16 @@
-
 <div class ="container">
   <div class ="wrapper">
-  <div class="line-separator"></div>
+    <div class="line-separator"></div>
 
     <div class="declare-winner">
-    <h3>And the Winner is...</h3>
-    <div class = "edit-winner">
-      <i class='fa fa-pencil' id="admin-change-winner"></i>
-    </div>
+
+    <P>AND THE WINNER IS...</p>
+
+      <% if current_user == @pool.user %>
+        <div class = "edit-winner">
+          <i class='fa fa-pencil' id="admin-change-winner"></i>
+         </div>
+      <% end %>
 
     <% if current_user == @pool.user %>
     <div class="hiddeable">
@@ -32,11 +35,9 @@
 
       <div class="winner-output" id="winner">
         <% if @pool.selections.where(winning_selection: true).count > 0 %>
-          <p><%= @winner.title + " Wins!" %></p>
+          <p><%= @winner.title + "!" %></p>
         <% else %>
         <p><i> No Winner Yet!</i></p>
-        <% end %>
-        <% if current_user == @pool.user %>
         <% end %>
       </div>
     </div>

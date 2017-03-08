@@ -1,6 +1,6 @@
 <div class="nested-fields">
-  <%= f.association :user, prompt: "invite a friend", label: false, collection: User.all, label_method: ->(obj){ obj.email } %>
+  <%= f.association :user, prompt: "invite a friend", label: false, collection: (User.all), label_method: ->(obj){ obj.email } %>
   <%= link_to_remove_association f do %>
-    <i class="fa fa-times"></i>
+    <i class='fa fa-times' id='remove-invite'></i>
   <% end %>
 </div>
