@@ -1,11 +1,13 @@
 <div class="pool-invite-container hidden">
   <div class ="wrapper">
-    <div class="line-separator"></div>
+
 
     <div id="share" class="invite-users">
 
       <% if current_user == @pool.user %>
+      <div class="line-separator"></div>
         <h2>INVITE OTHERS TO JOIN</h2>
+        <div class="line-separator"></div>
           <%= simple_form_for(@pool) do |f| %>
             <%= f.simple_fields_for :invites do |ff| %>
               <%= render 'invite_fields', f: ff %>
@@ -21,8 +23,6 @@
 
         <% end %>
       <% end %>
-
-    <div class="line-separator"></div>
 
   </div>
 </div>
