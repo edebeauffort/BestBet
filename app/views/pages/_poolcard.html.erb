@@ -1,124 +1,170 @@
   <div class="separator-home">
   </div>
   <div class="row">
-  <div class="buton-holder" style="width:250px; margin: 0 auto;">
+    <div class="buton-holder">
       <ul class="tabs pool-tabs">
-        <li class="tab-link current" data-tab="Admin"><em>Created</em></li>
-        <li class="tab-link" data-tab="Invites"><em>Invited</em></li>
-        <li class="tab-link" data-tab="Bets"><em>Bets</em></li>
-      </ul>
-      </div>
-
-      <div id="Admin" class="tab-content pool-tab-content current">
-      <% i = 0 %>
-        <% @pools.each do |pool| %>
-        <% if pool.user == current_user %>
-          <div class="col-xs-12 col-sm-6">
-            <div class="card">
-              <div class="card-description">
-              <%= link_to "", pool_path(pool), class: 'card-link' %>
-                <h3><%= pool.title %> </h3>
-                <ul class="list-unstyled list-inline">
-                  <li><%=image_tag "group.png", class: "card-icon"%><%= @bets %></li>
-                  <li><%=image_tag "Cash.png", class: "card-icon"%><%= pool.stake %></li>
-                  <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
-                </ul>
-                <hr>
-                <p><%= pool.description %></p>
-              </div>
-            </div>
+        <li class="tab-link current" data-tab="Admin">
+          <em>Bets I Created</em>
+          <div class="badge badge-red">
+            <% if user_signed_in? %>
+            <%= current_user.pools.count %>
+            <% end %>
           </div>
-        <% content_for(:after_js) do %>
-        <script type="text/javascript">
-          $("#pool-<%=pool.id%>")
-          .countdown("<%= pool.end_date %>", function(event) {
-            $(this).text(
-              event.strftime('%Dd %H:%M:%S')
-              );
-            $(this).on('finish.countdown', function(){
-              $("#pool-<%=pool.id%>").html("Bet closed").addClass("finish");
-              $(".betselections").click(function(){
-              return false;
-              });
-            });
-          })
-        </script>
-        <% end %>
-        <% end %>
-        <% end %>
-      </div>
-      <div id="Invites" class="tab-content pool-tab-content">
+        </li>
+        <li class="tab-link" data-tab="Invites">
+          <em>My invitations</em>
+          <div class="badge badge-red">
+            <% if user_signed_in? %>
+
+            <%= current_user.invites.count %>
+            <% end %>
+          </div>
+        </li>
+        <li class="tab-link" data-tab="Bets">
+          <em>My previous bets</em>
+          <div class="badge badge-red">
+            <% if user_signed_in? %>
+
+            <%= current_user.bets.count %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="Admin" class="tab-content pool-tab-content current">
       <% i = 0 %>
-        <% @pools.each do |pool| %>
-        <% pool.invites.each do |invite| %>
-        <% if invite.user == current_user %>
-          <div class="col-xs-12 col-sm-6">
-            <div class="card-invites">
-              <div class="card-description-invites">
-              <%= link_to "", pool_path(invite.pool), class: 'card-link' %>
-                <p><%= "You friend #{invite.pool.user.email} has invited you to bet on the event #{invite.pool.title}!" %></p>
-                <hr>
-                <ul class="list-unstyled list-inline">
-                  <li><%=image_tag "group.png", class: "card-icon-invites"%> 4 </li>
-                  <li><%=image_tag "Cash.png", class: "card-icon-invites"%><%= invite.pool.stake %></li>
-                  <li><%=image_tag "Clock.png", class: "card-icon-invites"%><span id="pool-<%=invite.pool.id%>"></span></li>
-                </ul>
-            </div>
+      <% @pools.reverse.each do |pool| %>
+      <% if pool.user == current_user %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="card">
+          <div class="card-description">
+            <%= link_to "", pool_path(pool), class: 'card-link' %>
+
+            <h3><%= pool.title %> </h3>
+            <ul class="list-unstyled list-inline">
+              <li><%=image_tag "group.png", class: "card-icon"%><%= pool.bets.count %></li>
+              <li><%=image_tag "gold-ingots.png", class: "card-icon"%><%= pool.stake.to_i %></li>
+              <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
+            </ul>
+            <hr>
+            <p class="text-center"><%= pool.description %></p>
           </div>
         </div>
-          <% content_for(:after_js) do %>
-          <script type="text/javascript">
-            $("#pool-<%=invite.pool.id%>")
-            .countdown("<%= invite.pool.end_date %>", function(event) {
-              $(this).text(
-                event.strftime('%Dd %H:%M:%S')
-                );
-              });
-          </script>
-          <% end %>
-        <% end %>
-        <% end %>
-        <% end %>
       </div>
-      <div id="Bets" class="tab-content pool-tab-content">
-      <% i = 0 %>
-        <% @pools.each do |pool| %>
-        <% pool.bets.each do |invite| %>
-        <% if invite.user == current_user %>
-          <div class="col-xs-12 col-sm-6">
-            <div class="card">
-              <div class="card-description">
-              <%= link_to "", pool_path(pool), class: 'card-link' %>
-                <h3><%= pool.title %> </h3>
-                <ul class="list-unstyled list-inline">
-                  <li><%=image_tag "group.png", class: "card-icon"%><%= @bets %></li>
-                  <li><%=image_tag "Cash.png", class: "card-icon"%><%= pool.stake %></li>
-                  <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
-                </ul>
-                <hr>
-                <p><%= pool.description %></p>
-              </div>
-            </div>
-          </div>
-        <% content_for(:after_js) do %>
-        <script type="text/javascript">
-          $("#pool-<%=pool.id%>")
-          .countdown("<%= pool.end_date %>", function(event) {
-            $(this).text(
-              event.strftime('%Dd %H:%M:%S')
-              );
-            $(this).on('finish.countdown', function(){
-              $("#pool-<%=pool.id%>").html("Bet closed").addClass("finish");
-              $(".betselections").click(function(){
+      <% content_for(:after_js) do %>
+      <script type="text/javascript">
+        $("#pool-<%=pool.id%>")
+        .countdown("<%= pool.end_date %>", function(event) {
+          $(this).text(
+            event.strftime('%Dd %H:%M:%S')
+            );
+          $(this).on('finish.countdown', function(){
+            $("#pool-<%=pool.id%>").html("Bet closed").addClass("finish");
+            $(".betselections").click(function(){
               return false;
-              });
             });
-          })
-        </script>
+          });
+        })
+      </script>
+      <% end %>
+      <% end %>
+      <% end %>
+    </div>
+    <div id="Invites" class="tab-content pool-tab-content">
+      <% i = 0 %>
+      <% @pools.reverse.each do |pool| %>
+      <% pool.invites.each do |invite| %>
+      <% if invite.user == current_user %>
+      <div class="col-xs-12 col-sm-6">
+        <% if invite.pool.end_date <= DateTime.now %>
+        <div class="invitetaglate">
+          <p>Pool is already closed</p>
+        </div>
+        <div class="card-invites">
+          <div class="card-description-invites">
+            <%= link_to "", pool_path(invite.pool), class: 'card-link' %>
+            <p><%= "You friend #{invite.pool.user.email} has invited you to bet on the event #{invite.pool.title}!" %></p>
+            <hr>
+            <ul class="list-unstyled list-inline">
+              <li><%=image_tag "group.png", class: "card-icon-invites"%><%= pool.bets.count %></li>
+              <li><%=image_tag "gold-ingots.png", class: "card-icon-invites"%><%= invite.pool.stake.to_i %></li>
+              <li><%=image_tag "Clock.png", class: "card-icon-invites"%><span id="pool-<%=invite.pool.id%>"></span></li>
+            </ul>
+          </div>
+        </div>
+        <% else %>
+        <div class="invite-tag">
+          <p>Invite</p>
+        </div>
+        <div class="card-invites">
+          <div class="card-description-invites">
+            <%= link_to "", pool_path(invite.pool), class: 'card-link' %>
+            <p><%= "You friend #{invite.pool.user.email} has invited you to bet on the event #{invite.pool.title}!" %></p>
+            <hr>
+            <ul class="list-unstyled list-inline">
+              <li><%=image_tag "group.png", class: "card-icon-invites"%><%= pool.bets.count %></li>
+              <li><%=image_tag "gold-ingots.png", class: "card-icon-invites"%><%= invite.pool.stake.to_i %></li>
+              <li><%=image_tag "Clock.png", class: "card-icon-invites"%><span id="pool-<%=invite.pool.id%>"></span></li>
+            </ul>
+          </div>
+        </div>
         <% end %>
-        <% end %>
-        <% end %>
-        <% end %>
+
       </div>
+      <% content_for(:after_js) do %>
+      <script type="text/javascript">
+        $("#pool-<%=invite.pool.id%>")
+        .countdown("<%= invite.pool.end_date %>", function(event) {
+          $(this).text(
+            event.strftime('%Dd %H:%M:%S')
+            );
+        });
+      </script>
+      <% end %>
+      <% end %>
+      <% end %>
+      <% end %>
+    </div>
+    <div id="Bets" class="tab-content pool-tab-content">
+      <% i = 0 %>
+      <% @pools.reverse.each do |pool| %>
+      <% pool.bets.each do |invite| %>
+      <% if invite.user == current_user %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="card">
+          <div class="card-description">
+            <%= link_to "", pool_path(pool), class: 'card-link' %>
+            <h3 class="text-center"><%= pool.title %> </h3>
+            <ul class="list-unstyled list-inline">
+              <li><%=image_tag "group.png", class: "card-icon"%><%= pool.bets.count %></li>
+              <li><%=image_tag "gold-ingots.png", class: "card-icon"%><%= pool.stake.to_i %></li>
+              <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
+            </ul>
+            <hr>
+            <p class="text-center"><%= pool.description %></p>
+          </div>
+        </div>
+      </div>
+      <% content_for(:after_js) do %>
+      <script type="text/javascript">
+        $("#pool-<%=pool.id%>")
+        .countdown("<%= pool.end_date %>", function(event) {
+          $(this).text(
+            event.strftime('%Dd %H:%M:%S')
+            );
+          $(this).on('finish.countdown', function(){
+            $("#pool-<%=pool.id%>").html("Bet closed").addClass("finish");
+            $(".betselections").click(function(){
+              return false;
+            });
+          });
+        })
+      </script>
+      <% end %>
+      <% end %>
+      <% end %>
+      <% end %>
+    </div>
 
   </div>

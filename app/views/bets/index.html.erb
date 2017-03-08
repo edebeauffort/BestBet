@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row betindexppp">
     <h1 class="text-center">All your bets</h1>
-    <% @bets.each do |bet| %>
+    <% @bets.reverse.each do |bet| %>
     <% if bet.selection.pool.end_date >= DateTime.now %>
     <div class="col-xs-12 col-md-4 col-sm-6">
       <div class="card">
