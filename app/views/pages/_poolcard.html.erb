@@ -69,6 +69,10 @@
         <% pool.invites.reverse.each do |invite| %>
         <% if invite.user == current_user %>
           <div class="col-xs-12 col-sm-6">
+          <% if invite.pool.end_date <= DateTime.now %>
+            <div class="invitetaglate">
+              <p>Pool is already closed</p>
+            </div>
             <div class="card-invites">
               <div class="card-description-invites">
               <%= link_to "", pool_path(invite.pool), class: 'card-link' %>
@@ -81,6 +85,24 @@
                 </ul>
             </div>
           </div>
+          <% else %>
+          <div class="invite-tag">
+              <p>Invite</p>
+            </div>
+           <div class="card-invites">
+              <div class="card-description-invites">
+              <%= link_to "", pool_path(invite.pool), class: 'card-link' %>
+                <p><%= "You friend #{invite.pool.user.email} has invited you to bet on the event #{invite.pool.title}!" %></p>
+                <hr>
+                <ul class="list-unstyled list-inline">
+                  <li><%=image_tag "group.png", class: "card-icon-invites"%><%= pool.bets.count %></li>
+                  <li><%=image_tag "gold-ingots.png", class: "card-icon-invites"%><%= invite.pool.stake.to_i %></li>
+                  <li><%=image_tag "Clock.png", class: "card-icon-invites"%><span id="pool-<%=invite.pool.id%>"></span></li>
+                </ul>
+            </div>
+          </div>
+          <% end %>
+
         </div>
           <% content_for(:after_js) do %>
           <script type="text/javascript">
