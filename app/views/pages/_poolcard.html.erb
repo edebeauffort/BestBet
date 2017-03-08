@@ -6,11 +6,6 @@
       <ul class="tabs pool-tabs">
         <li class="tab-link current" data-tab="Admin">
           <p>Bets I Created</p>
-          <div class="badge badge-red">
-            <% if user_signed_in? %>
-            <%= current_user.pools.count %>
-            <% end %>
-          </div>
         </li>
         <li class="tab-link" data-tab="Invites">
           <p>My invitations</p>
@@ -29,12 +24,6 @@
         </li>
         <li class="tab-link" data-tab="Bets">
           <p>My previous bets</p>
-          <div class="badge badge-red">
-            <% if user_signed_in? %>
-
-            <%= current_user.bets.count %>
-            <% end %>
-          </div>
         </li>
       </ul>
       </div>
