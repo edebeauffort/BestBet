@@ -2,9 +2,10 @@
   </div>
   <div class="row">
     <div class="buton-holder">
+    <div class="col-xs-12">
       <ul class="tabs pool-tabs">
         <li class="tab-link current" data-tab="Admin">
-          <em>Bets I Created</em>
+          <p>Bets I Created</p>
           <div class="badge badge-red">
             <% if user_signed_in? %>
             <%= current_user.pools.count %>
@@ -12,7 +13,7 @@
           </div>
         </li>
         <li class="tab-link" data-tab="Invites">
-          <em>My invitations</em>
+          <p>My invitations</p>
           <div class="badge badge-red">
             <% if user_signed_in? %>
             <% invitesnumber = 0 %>
@@ -27,7 +28,7 @@
           </div>
         </li>
         <li class="tab-link" data-tab="Bets">
-          <em>My previous bets</em>
+          <p>My previous bets</p>
           <div class="badge badge-red">
             <% if user_signed_in? %>
 
@@ -36,6 +37,7 @@
           </div>
         </li>
       </ul>
+      </div>
     </div>
 
     <div id="Admin" class="tab-content pool-tab-content current">
