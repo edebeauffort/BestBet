@@ -7,6 +7,7 @@
 //= require cocoon
 //= require jquery.countdown
 //= require jquery-ui
+//= require sweetalert
 //= require_tree .
 
 

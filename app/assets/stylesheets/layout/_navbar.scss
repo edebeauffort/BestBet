@@ -19,6 +19,10 @@
   margin-bottom:0.5em;
 }
 
+.icon {
+  height: 10px;
+}
+
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;
@@ -46,6 +50,7 @@
   flex: 0 1 auto;
   cursor: pointer;
   padding: 0 10px;
+  size: 20px;
 }
 
 /* Navbar standard link */
