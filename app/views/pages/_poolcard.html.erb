@@ -18,10 +18,10 @@
               <div class="card-description">
               <%= link_to "", pool_path(pool), class: 'card-link' %>
                 <h3><%= pool.title %> </h3>
-                <ul class="list-unstyled list-inline">
+                <ul class="list-unstyled list-inline listofcard">
                   <li><%=image_tag "group.png", class: "card-icon"%><%= @bets %></li>
                   <li><%=image_tag "Cash.png", class: "card-icon"%><%= pool.stake %></li>
-                  <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
+                  <li class="betclosedtag"><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
                 </ul>
                 <hr>
                 <p><%= pool.description %></p>
