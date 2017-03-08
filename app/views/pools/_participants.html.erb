@@ -4,7 +4,10 @@
     <% participant_url = bet.user.facebook_picture_url || "http://placehold.it/30x30" %>
     <div class="flex-participants">
       <p><%= image_tag participant_url, class: "avatar-participant"%></p>
-      <p><%= "#{bet.user.first_name} #{bet.user.last_name}" %></p>
+      <div>
+      <p id="selection-name"><%= "#{bet.user.first_name} #{bet.user.last_name}" %></p>
+      <p id="selection-text"><%= "#{bet.selection.title}" %></p>
+      </div>
     </div>
   </div>
 <% end %>
