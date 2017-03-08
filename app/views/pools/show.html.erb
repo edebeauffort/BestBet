@@ -87,11 +87,6 @@
     });
   })
 
-
-
-
-
-
   // if I click on selection of bet
   $(".bet-selection").click(function(){
     // if the bet is not finished (hacky code)
@@ -129,6 +124,18 @@
   setInterval(function(){
     $.get("<%= participants_pool_path(@pool) %>", function() {});
   }, 3000);
+
+  if ($(".confirmbutton").hasClass("prevent-negative")){
+
+  $(".confirmbutton").click(function(e){
+    e.preventDefault()
+    swal({
+    title: "Please top-up your account.",
+    text: "You don't have enough funds to make this bet.",
+    imageUrl: "<%= image_path "Cash.png" %>"
+    });
+  });
+  }
 
 });
 </script>
