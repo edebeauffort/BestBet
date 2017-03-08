@@ -1,10 +1,11 @@
-#chatroom h1{
+#chatroom h2{
   color:#254C62;
   text-align: center;
+  text-size: 30px;
+  margin-bottom: 25px;
 }
 .chatbox{
-  background-color: #254C62;
-  margin: 20px;
+  // margin: 20px;
   // position: relative;
   width: 100%;
   color: black;
@@ -13,35 +14,37 @@
   list-style-type: none;
 }
 #messages{
-  border: solid #EBEBEB 0.6px;
+  padding-left: 0;
 }
 .messagename{
   color: red;
 }
-
 .submitbutton{
-  margin-top: 10px;
+  margin-top: 0;
+  margin-bottom: 25px;
 }
 .messages-list{
 list-style: none;
 }
 .messagediv{
-  border: solid black 0.1px;
+  // border: solid #ccc 0.1px;
+  box-shadow: 10px;
   width: 50%;
   margin-top: 5px;
   border-radius: 10px;
   padding: 4px;
-  background-color: white;
+  background-color: #fffbb7;
 }
 .ownmessagediv{
   // position:absolute;
   right: 10px;
-    border: solid black 0.1px;
+  // border: solid #ccc 0.1px;
+  box-shadow: 10px;
   width: 50%;
   margin-top: 5px;
   border-radius: 10px;
   padding: 4px;
-  background-color: #EBF5E5;
+  background-color: #92A6B2;
   margin-left: 50%;
 }
 
