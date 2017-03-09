@@ -25,25 +25,29 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="flipper">
-          <div class="front">
+
           <% if @pool.bets.where(user_id: current_user.id).any? %>
             <div class="pop-up">You just placed a bet on <%= @my_selection.first.title %>, good luck!</div>
           <% end %>
-            <div>
-              <%= render 'placebet', my_selection: @my_selection %>
-            </div>
-           <div class="invite">
+          <div>
+            <%= render 'placebet', my_selection: @my_selection %>
+          </div>
+
+          <% if false %>
+            <div class="invite">
               <%= render 'invite' %>
             </div>
 
             <div class="dynamic">
               <%= render partial: 'chatroom' %>
             </div>
+          <% end %>
 
-          </div>
-          <div class="back">
+          <div id="winner">
             <%= render 'confirm_winner' %>
           </div>
+
+
         </div>
       </div>
     </div>
@@ -88,6 +92,7 @@
   // if I click on selection of bet
   $(".bet-selection").click(function(){
     // if the bet is not finished (hacky code)
+    $(".confirmbutton").addClass("active");
     var hasSelection = <%=  @my_selection.any? %>;
     if (!hasSelection && $("#pool-<%= @pool.id %>").text() != "Bet closed"){
       // make buttons green with active class
