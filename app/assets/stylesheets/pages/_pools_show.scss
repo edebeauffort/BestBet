@@ -93,4 +93,24 @@
   }
 }
 
+#selection-text {
+  font-size: 13px;
+}
+.winner-alert {
+  text-align: center;
+  padding: 10px;
+  background: $red;
+  color: white;
+  a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+#winner {
+  height: 100vh;
+  padding-top: 50px;
+}
+
 
