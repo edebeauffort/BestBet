@@ -1,9 +1,7 @@
 
 <div class="declare-winner">
-  <p>AND THE WINNER IS...</p>
+  <h2>AND THE WINNER IS...</h2>
   <% if current_user == @pool.user %>
-    <label class="wrapper" for="selections">Declare the Winner
-    </label>
 
     <%= simple_form_for @pool, url: declare_winner_path do |f| %>
       <div class="button dropdown">
@@ -19,11 +17,11 @@
     <% end %>
   <% end %>
 
-  <div class="winner-output" id="winner">
+  <div class="winner-output">
     <% if @pool.selections.where(winning_selection: true).count > 0 %>
-      <p><%= @winner.title + "!" %></p>
+      <h3><%= @winner.title + "!" %></h3>
     <% else %>
-    <p><i> No Winner Yet!</i></p>
+      <h3><i> No Winner Yet!</i></h3>
     <% end %>
   </div>
 </div>
