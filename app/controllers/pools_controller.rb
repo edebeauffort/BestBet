@@ -30,7 +30,6 @@ class PoolsController < ApplicationController
       betting_users << bet.user
     end
     @betted = betting_users.include? current_user
-
   end
 
   def index
