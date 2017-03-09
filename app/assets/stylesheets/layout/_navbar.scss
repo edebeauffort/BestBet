@@ -11,6 +11,10 @@
   background-color: #254C62;
   color:white;
 
+  .dropdown::after {
+    content: none;
+  }
+
 }
 .airbnblogo h3 {
   margin: 0px;

@@ -1,19 +1,21 @@
 
-<div class="container">
+<div class="container" id="pool-page">
  <!--  <div class="flip-container" ontouchstart="this.classList.toggle('hover');"> -->
     <div class="row">
       <div class="col-xs-12">
         <div class = settings>
         </div>
         <div class="bet-description">
-          <h1><%= @pool.title %></h1>
-          <ul class="list-unstyled list-inline tags">
-            <li><%=image_tag "group.png", class: "bet-icon"%><span class="nb_people"><%= @bets %></span></li>
-            <li><%=image_tag "gold-ingots.png", class: "bet-icon"%><span class="jackpot"><%= @jackpot %></span> €</li>
-            <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
-          </ul>
-          <hr>
+          <h1 class="text-center"><%= @pool.title %></h1>
           <h4 class="text-center"><%= @pool.description %></h4>
+
+          <div class="pool-section-container first">
+            <ul class="list-unstyled list-inline tags" style="margin: 0px">
+              <li><%=image_tag "group.png", class: "bet-icon"%><span class="nb_people"><%= @bets %></span></li>
+              <li><%=image_tag "gold-ingots.png", class: "bet-icon"%><span class="jackpot"><%= @jackpot %></span> €</li>
+              <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -24,30 +26,25 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <div class="flipper">
+        <% if @pool.bets.where(user_id: current_user.id).any? %>
+          <div class="pop-up">You just placed a bet on <%= @my_selection.first.title %>, good luck!</div>
+        <% end %>
+        <div>
+          <%= render 'placebet', my_selection: @my_selection %>
+        </div>
 
-          <% if @pool.bets.where(user_id: current_user.id).any? %>
-            <div class="pop-up">You just placed a bet on <%= @my_selection.first.title %>, good luck!</div>
-          <% end %>
-          <div>
-            <%= render 'placebet', my_selection: @my_selection %>
+        <% if false %>
+          <div class="invite">
+            <%= render 'invite' %>
           </div>
 
-          <% if false %>
-            <div class="invite">
-              <%= render 'invite' %>
-            </div>
-
-            <div class="dynamic">
-              <%= render partial: 'chatroom' %>
-            </div>
-          <% end %>
-
-          <div id="winner">
-            <%= render 'confirm_winner' %>
+          <div class="dynamic">
+            <%= render partial: 'chatroom' %>
           </div>
+        <% end %>
 
-
+        <div id="winner">
+          <%= render 'confirm_winner' %>
         </div>
       </div>
     </div>
@@ -127,7 +124,7 @@
 
   setInterval(function(){
     $.get("<%= participants_pool_path(@pool) %>", function() {});
-  }, 3000);
+  }, 100000000);
 
   if ($(".confirmbutton").hasClass("prevent-negative")){
 

@@ -50,16 +50,19 @@
   display: flex;
   margin: 20px 0;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .bet-selection {
+  flex: 0 0 47%;
   color: white;
-  flex:1;
-  margin: 5px;
-  background: $blue;
+  background: #234C63;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   &:hover {
     box-shadow: 3px 3px 5px #888888;
     cursor: pointer;
