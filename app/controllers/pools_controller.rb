@@ -69,6 +69,7 @@ class PoolsController < ApplicationController
     @bets = Bet.where(pool_id: @pool.id)
     @jackpot = (@bets.count * @pool.stake).to_f
     @winners = @bets.where(selection_id: @selection.id)
+    if @winners.count > 0
     @winnings = ((@jackpot / @winners.count) * 100).to_i
     @user_winners = []
     @winners.each do |bet|
@@ -77,6 +78,7 @@ class PoolsController < ApplicationController
     @user_winners.each do |user|
       user.balance_cents += @winnings
       user.save
+    end
     end
 
     redirect_to :back
