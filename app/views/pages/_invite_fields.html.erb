@@ -1,5 +1,5 @@
 <div class="nested-fields fifth">
-  <%= f.association :user, label: false, collection: User.all, label_method: ->(obj){ obj.email}, input_html: {"data-live-search": 'true'} %>
+  <%= f.association :user, label: false, collection: User.all, label_method: ->(obj){ obj.first_name}, input_html: {"data-live-search": 'true'} %>
   <%= link_to_remove_association f do %>
   <i class="fa fa-times"></i>
   <% end %>
