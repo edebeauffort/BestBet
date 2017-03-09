@@ -115,6 +115,11 @@
     }
   });
 
+  if (<%= @pool.selections.where(winning_selection: true).count > 0 %>) {
+    $(".selection-submit").prop('disabled', true);
+    document.getElementById("declarewinner").disabled = true;
+  };
+
   if ($(".bet-selection").hasClass("active")){
 
     $(".bet-selections").click(function(e){
