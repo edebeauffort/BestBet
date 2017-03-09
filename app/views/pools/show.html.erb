@@ -140,7 +140,7 @@
 
   setInterval(function(){
     $.get("<%= participants_pool_path(@pool) %>", function() {});
-  }, 100000000);
+  }, 3000);
 
   if ($(".confirmbutton").hasClass("prevent-negative")){
 
