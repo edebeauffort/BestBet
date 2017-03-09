@@ -1,3 +1,11 @@
-$('.participants').html("<%= escape_javascript(render partial: 'participants') %>")
-$('.nb_people').html('<%= @pool.bets.count %>');
-$('.jackpot').html('<%= @pool.bets.count * @pool.stake %>');
+<% if @pool.bets.count > 0 %>
+  $('.no-participants').hide();
+  $('.participants-roster').data('participants', '<%= @pool.bets.count %>');
+
+  <% @pool.bets[params[:participants].to_i..-1].each do |bet| %>
+   $('.participants-roster').append("<%= escape_javascript(render partial: 'participant', locals: { bet: bet }) %>");
+  <% end %>
+
+  $('.nb_people').html('<%= @pool.bets.count %>');
+  $('.jackpot').html('<%= @pool.bets.count * @pool.stake %>');
+<% end %>

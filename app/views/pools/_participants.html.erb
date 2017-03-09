@@ -1,22 +1,13 @@
 <div class="col-xs-12">
   <div class="pool-section-container last">
     <h2>THE BOLD PARTICIPANTS</h2>
-    <div class="participants-roster">
-
+    <div class="participants-roster" data-participants="<%= @pool.bets.count %>">
       <% if @pool.bets.empty? %>
-        <p class="text-center" style="color: lightgrey">No best bet yet...</p>
+        <p class="no-participants text-center" style="color: lightgrey">No best bet yet...</p>
       <% end %>
       <% @pool.bets.each do |bet| %>
-        <% participant_url = bet.user.facebook_picture_url || "http://placehold.it/30x30" %>
-        <div class="flex-participant">
-          <%= image_tag participant_url, class: "avatar-participant"%>
-          <div>
-            <p id="selection-name"><%= "#{bet.user.first_name} #{bet.user.last_name}" %></p>
-            <p id="selection-text">Bet on "<%= "#{bet.selection.title}" %>"</p>
-          </div>
-        </div>
+        <%= render 'participant', bet: bet %>
       <% end %>
-
     </div>
   </div>
 </div>

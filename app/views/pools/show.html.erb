@@ -144,7 +144,8 @@
   }
 
   setInterval(function(){
-    $.get("<%= participants_pool_path(@pool) %>", function() {});
+    var participants = $('.participants-roster').data('participants');
+    $.get("<%= participants_pool_path(@pool) %>?participants=" +  participants, function() {});
   }, 3000);
 
   if ($(".confirmbutton").hasClass("prevent-negative")){
