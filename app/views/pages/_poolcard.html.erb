@@ -37,7 +37,7 @@
             <%= link_to "", pool_path(pool), class: 'card-link' %>
 
             <h3><%= pool.title %> </h3>
-            <ul class="list-unstyled list-inline">
+            <ul class="list-unstyled list-inline bet-closed">
               <li><%=image_tag "group.png", class: "card-icon"%><%= pool.bets.count %></li>
               <li><%=image_tag "gold-ingots.png", class: "card-icon"%><%= pool.stake.to_i %></li>
               <li><%=image_tag "Clock.png", class: "card-icon"%><span id="pool-<%=pool.id%>"></span></li>
