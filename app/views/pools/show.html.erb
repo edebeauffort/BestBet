@@ -85,7 +85,7 @@
       // add bet closed text insead of the countdown numbers
       $("#pool-<%= @pool.id %>").html("Bet closed").addClass("finish");
       $(".winner-alert").removeClass("hidden");
-      document.getElementById("declarewinner").disabled = false;
+      $("#declarewinner").prop("disabled", true);
       $("#winner-selection-submit").removeAttr("disabled");
 
       // if I click on the selection buttons, shake the bet closed and prevent clicking
@@ -93,6 +93,7 @@
         e.preventDefault();
         $("#pool-<%= @pool.id %>").effect( "shake", {times:4}, 600 );
       });
+
       // if I click on submit selections, prevent the submission
       $(".confirmbutton").click(function(e){
         e.preventDefault();
