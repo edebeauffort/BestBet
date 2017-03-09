@@ -135,7 +135,6 @@
 }
 
 .fake-div {
-  padding: 3px;
   width: 100%;
   p {
     color: white;
@@ -204,21 +203,78 @@
   display: flex;
   justify-content: space-around;
 }
-
-.tab-link{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  p {
-    font-size: 12px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-family: $base-font;
-    color: $blue;
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 0px) and (max-width: 768px) {
+  .tab-link{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+      font-size: 11px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-family: $base-font;
+      color: $blue;
+    }
   }
 }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .tab-link{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+      font-size: 12px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-family: $base-font;
+      color: $blue;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .tab-link{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+      font-size: 16px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-family: $base-font;
+      color: $blue;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .tab-link{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    p {
+      font-size: 20px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-family: $base-font;
+      color: $blue;
+    }
+  }
+}
+
 
 
 .links a {
@@ -230,12 +286,12 @@ ul.tabs{
   padding: 0px;
   list-style: none;
   display: flex;
-  width: 90%;
 }
 
 ul.pool-tabs {
   background-color: #254C62;
   border-radius: 5px;
+  width: 90%;
 }
 
 ul.tabs li{
