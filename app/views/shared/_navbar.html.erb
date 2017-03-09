@@ -26,7 +26,7 @@
         <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
         <%= image_tag avatar_url, class: "avatar-user dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>
- <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
         <%= image_tag avatar_url, class: "avatar-user dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <%  end%>
 

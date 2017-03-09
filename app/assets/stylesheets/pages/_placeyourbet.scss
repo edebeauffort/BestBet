@@ -12,19 +12,25 @@
   border: none;
   border-radius: 5px;
   box-shadow: 0;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  background: #FFB00E;
+  border-radius: 50px;
+  opacity: 0.3;
   &.active {
-  background: $green;
-  opacity: 1;
+    background: #FFB00E;
+    opacity: 1;
     &:hover {
       background-color: $green;
     }
-    &:active {
-      background-color: $green;
-      box-shadow: 0;
-    }
-    &:focus {
-      background-color: $green !important;
-    }
+    // &:active {
+    //   background-color: $green;
+    //   box-shadow: 0;
+    // }
+    // &:focus {
+    //   background-color: $green !important;
+    // }
   }
 
   &:hover {
@@ -42,18 +48,22 @@
 
 .bet-selections {
   display: flex;
-  justify-content: space-between;
   margin: 20px 0;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .bet-selection {
+  flex: 1 0 47%;
   color: white;
-  flex: 0 0 30%;
-  background: $blue;
+  background: #234C63;
   padding: 20px;
   border-radius: 5px;
+  margin: 5px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   &:hover {
     box-shadow: 3px 3px 5px #888888;
     cursor: pointer;

@@ -63,6 +63,20 @@
 .balance {
   text-align: center;
   margin: 20px 0 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    font-size: 30px;
+    padding-left: 10px;
+  }
+}
+
+.deposit-confirmation {
+  display: flex;
+  height: calc(100vh - 80px);
+  align-items: center;
+  padding: 0 20px;
 }
 
 

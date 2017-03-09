@@ -1,19 +1,34 @@
 
-<div class="container">
+<% if @pool.selections.where(winning_selection: true).count > 0 %>
+  <div class="winner-alert hidden" style="background-color: green;">
+  🏆 <%= @winner.title + "!" %> has won 🏆
+  </div>
+<% else %>
+  <div class="winner-alert hidden">
+  🏆 Time to <a href="#winner">choose the winner</a> 🏆
+  </div>
+<% end %>
+
+
+
+
+<div class="container" id="pool-page">
  <!--  <div class="flip-container" ontouchstart="this.classList.toggle('hover');"> -->
     <div class="row">
       <div class="col-xs-12">
         <div class = settings>
         </div>
         <div class="bet-description">
-          <h1><%= @pool.title %></h1>
-          <ul class="list-unstyled list-inline tags">
-            <li><%=image_tag "group.png", class: "bet-icon"%><span class="nb_people"><%= @bets %></span></li>
-            <li><%=image_tag "gold-ingots.png", class: "bet-icon"%><span class="jackpot"><%= @jackpot %></span> €</li>
-            <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
-          </ul>
-          <hr>
+          <h1 class="text-center"><%= @pool.title %></h1>
           <h4 class="text-center"><%= @pool.description %></h4>
+
+          <div class="pool-section-container first">
+            <ul class="list-unstyled list-inline tags" style="margin: 0px">
+              <li><%=image_tag "group.png", class: "bet-icon"%><span class="nb_people"><%= @bets %></span></li>
+              <li><%=image_tag "gold-ingots.png", class: "bet-icon"%><span class="jackpot"><%= @jackpot %></span> €</li>
+              <li><%=image_tag "Clock.png", class: "bet-icon"%><span id="pool-<%=@pool.id%>"></span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -24,26 +39,25 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <div class="flipper">
-          <div class="front">
-          <% if @pool.bets.where(user_id: current_user.id).any? %>
-            <div class="pop-up">You just placed a bet on <%= @my_selection.first.title %>, good luck!</div>
-          <% end %>
-            <div>
-              <%= render 'placebet', my_selection: @my_selection %>
-            </div>
-           <div class="invite">
-              <%= render 'invite' %>
-            </div>
+        <% if @pool.bets.where(user_id: current_user.id).any? %>
+          <div class="pop-up">You just placed a bet on <%= @my_selection.first.title %>, good luck!</div>
+        <% end %>
+        <div>
+          <%= render 'placebet', my_selection: @my_selection %>
+        </div>
 
-            <div class="dynamic">
-              <%= render partial: 'chatroom' %>
-            </div>
+        <% if false %>
+          <div class="invite">
+            <%= render 'invite' %>
+          </div>
 
+          <div class="dynamic">
+            <%= render partial: 'chatroom' %>
           </div>
-          <div class="back">
-            <%= render 'confirm_winner' %>
-          </div>
+        <% end %>
+
+        <div id="winner">
+          <%= render 'confirm_winner' %>
         </div>
       </div>
     </div>
@@ -70,6 +84,9 @@
     $(this).on('finish.countdown', function(){
       // add bet closed text insead of the countdown numbers
       $("#pool-<%= @pool.id %>").html("Bet closed").addClass("finish");
+      $(".winner-alert").removeClass("hidden");
+      document.getElementById("declarewinner").disabled = false;
+      $("#winner-selection-submit").removeAttr("disabled");
 
       // if I click on the selection buttons, shake the bet closed and prevent clicking
       $(".bet-selection").click(function(e){
@@ -88,6 +105,7 @@
   // if I click on selection of bet
   $(".bet-selection").click(function(){
     // if the bet is not finished (hacky code)
+    $(".confirmbutton").addClass("active");
     var hasSelection = <%=  @my_selection.any? %>;
     if (!hasSelection && $("#pool-<%= @pool.id %>").text() != "Bet closed"){
       // make buttons green with active class
@@ -122,7 +140,7 @@
 
   setInterval(function(){
     $.get("<%= participants_pool_path(@pool) %>", function() {});
-  }, 3000);
+  }, 100000000);
 
   if ($(".confirmbutton").hasClass("prevent-negative")){
 

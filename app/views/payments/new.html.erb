@@ -1,11 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-    <div class="payement box">
+    <div class="payement box text-center">
       <h3>Deposit for <%= "#{current_user.first_name} #{current_user.last_name}" %></h3>
       <%= form_tag order_payments_path(@order) do %>
         <article>
           <label class="balance">
+            <%= image_tag "Cash.png" %>
             <span><%= humanized_money_with_symbol(@order.balance) %></span>
           </label>
         </article>

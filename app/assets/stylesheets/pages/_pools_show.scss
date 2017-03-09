@@ -73,3 +73,44 @@
 }
 
 
+#pool-page {
+  h2 {
+    font-size: 17px;
+    margin: 0px;
+  }
+}
+
+.pool-section-container {
+  margin: 5px;
+  background: #f1f1f1;
+  padding: 20px 10px;
+  border-radius: 12px;
+  &.first {
+    margin-top: 20px;
+  }
+  &.last {
+    margin-bottom: 20px;
+  }
+}
+
+#selection-text {
+  font-size: 13px;
+}
+.winner-alert {
+  text-align: center;
+  padding: 10px;
+  background: $red;
+  color: white;
+  a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+#winner {
+  height: 100vh;
+  padding-top: 50px;
+}
+
+

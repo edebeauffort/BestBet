@@ -1,47 +1,33 @@
-<div class ="container">
-  <div class ="wrapper">
-    <div class="declare-winner">
-<div class="line-separator"></div>
-    <P>AND THE WINNER IS...</p>
-<div class="line-separator"></div>
-      <% if current_user == @pool.user %>
-        <div class = "edit-winner">
-          <i class='fa fa-pencil' id="admin-change-winner"></i>
-         </div>
-      <% end %>
 
-    <% if current_user == @pool.user %>
-    <div class="hiddeable">
-      <label class="wrapper" for="selections">Declare the Winner
-      </label>
+<div class="declare-winner">
+  <p>AND THE WINNER IS...</p>
+  <% if current_user == @pool.user %>
+    <label class="wrapper" for="selections">Declare the Winner
+    </label>
 
-      <%= simple_form_for @pool, url: declare_winner_path do |f| %>
-        <div class="button dropdown">
-          <select id="declarewinner" class="form-control select optional" name="pool[selection_id]" id="pool_selection_id">
-            <option value="" disabled selected> Select the Winning Bet: </option>
-            <%= @pool.selections.each do |selection| %>
-            <option value="<%= selection.id %>"><%= selection.title %></option>
-            <% end %>
-          </select>
-        </div>
-
-        <%= f.submit "Confirm", class: "btn btn-primary selection-submit" %>
-      <% end %>
-    </div>
-    <% end %>
-
-
-      <div class="winner-output" id="winner">
-        <% if @pool.selections.where(winning_selection: true).count > 0 %>
-          <p><%= @winner.title + "!" %></p>
-        <% else %>
-        <p><i> No Winner Yet!</i></p>
-        <% end %>
+    <%= simple_form_for @pool, url: declare_winner_path do |f| %>
+      <div class="button dropdown">
+        <select id="declarewinner" class="form-control select optional" name="pool[selection_id]" id="pool_selection_id">
+          <option value="" disabled selected> Select the Winning Bet: </option>
+          <%= @pool.selections.each do |selection| %>
+          <option value="<%= selection.id %>"><%= selection.title %></option>
+          <% end %>
+        </select>
       </div>
-    </div>
 
+      <%= f.submit "Confirm", class: "btn btn-primary selection-submit", id: "winner-selection-submit", style: "width:100%" %>
+    <% end %>
+  <% end %>
+
+  <div class="winner-output" id="winner">
+    <% if @pool.selections.where(winning_selection: true).count > 0 %>
+      <p><%= @winner.title + "!" %></p>
+    <% else %>
+    <p><i> No Winner Yet!</i></p>
+    <% end %>
   </div>
 </div>
+
 
 
 
