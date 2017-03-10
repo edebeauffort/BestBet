@@ -1,7 +1,7 @@
 class Pool < ApplicationRecord
   belongs_to :user
   has_one :chat
-  has_many :selections
+  has_many :selections, dependent: :destroy
   has_many :bets, through: :selections
   has_many :invites
   has_many :messages
