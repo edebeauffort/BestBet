@@ -3,7 +3,7 @@ class Pool < ApplicationRecord
   has_one :chat
   has_many :selections, dependent: :destroy
   has_many :bets, through: :selections
-  has_many :invites
+  has_many :invites, dependent: :destroy
   has_many :messages
   has_many :users, through: :invites
   accepts_nested_attributes_for :selections, reject_if: :all_blank, allow_destroy: true
